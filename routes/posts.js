@@ -4,10 +4,15 @@ const Post = require("../models/Post");
 
 router.get("/posts", (req, res) => {
   let sort = {};
+  // if (req.query.sortBy) {
+  //   sort[req.query.sortBy] = -1;
+  // } else {
+  //   sort.upvote_count = -1;
+  // }
   if (req.query.sortBy) {
-    sort[req.query.sortBy] = -1;
+    sort = { [req.query.sortBy]: -1 };
   } else {
-    sort.upvote_count = -1;
+    sort = { upvote_count: -1 };
   }
   console.log("req.query", req.query);
   console.log("sort", sort);
