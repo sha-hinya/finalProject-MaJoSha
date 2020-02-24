@@ -14,8 +14,6 @@ router.get("/posts", (req, res) => {
   } else {
     sort = { upvote_count: -1 };
   }
-  console.log("req.query", req.query);
-  console.log("sort", sort);
 
   Post.find()
     .sort(sort)

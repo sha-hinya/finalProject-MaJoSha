@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { ReactTinyLink } from "react-tiny-link";
 
 export default class PostDetail extends Component {
   state = {
@@ -36,11 +35,10 @@ export default class PostDetail extends Component {
         <h2>
           [{post.type}] {post.title}
         </h2>
-        {post.type === "text" ? (
-          <p>{post.content}</p>
+        {post.type === "link" ? (
+          <a href={post.content}>{post.content}</a>
         ) : (
-          <ReactTinyLink url={post.content} cardSize="large" />
-          // <a href={post.content}>link</a>
+          <p>{post.content}</p>
         )}
         <p>posted on {new Date(post.created_at).toDateString()}</p>
         <p>Upvoted {post.upvote_count} times</p>
