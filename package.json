@@ -15,5 +15,10 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.2",
     "morgan": "^1.9.1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "client/*"
+    ]
   }
 }
