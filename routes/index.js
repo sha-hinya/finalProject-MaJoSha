@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   res.send("This is home");
 });
 
-router.use("/api", usersRoutes);
+router.use("/api/auth", usersRoutes);
 router.use("/api", postsRoutes);
 
 module.exports = router;
