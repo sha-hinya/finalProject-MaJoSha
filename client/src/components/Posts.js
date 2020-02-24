@@ -32,15 +32,26 @@ class PostForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    axios.post("/api/posts", {
-      title: this.state.title,
-      type: this.state.type,
-      content: this.state.content
-    });
+    console.log("Form submitted");
+
+    axios
+      .post("/api/posts", {
+        title: this.state.title,
+        type: this.state.type,
+        content: this.state.content
+      })
+      .then(() => {
+        console.log("Response received, calling getData in <Posts/>");
+        this.props.refresh();
+        this.setState({
+          title: "",
+          content: "",
+          type: "text"
+        });
+      });
   };
 
   render() {
-    console.log(this.state);
     return (
       <form onSubmit={this.handleSubmit}>
         <label htmlFor="title">Title</label>
@@ -80,18 +91,33 @@ export default class Posts extends Component {
   };
 
   componentDidMount() {
+    this.getData();
+  }
+
+  getData = () => {
+    console.log("getData()");
     axios.get("/api/posts").then(response => {
       this.setState({
         posts: response.data
       });
     });
-  }
+  };
+
+  getNewestPosts = () => {
+    axios.get("/api/posts?sortBy=created_at").then(response => {
+      this.setState({
+        posts: response.data
+      });
+    });
+  };
 
   render() {
+    console.log("<Posts/> RENDER");
     return (
       <div>
-        <PostForm />
+        <PostForm refresh={this.getData} />
         <PostsList posts={this.state.posts} />
+        <button onClick={this.getNewestPosts}>sort by new</button>
       </div>
     );
   }

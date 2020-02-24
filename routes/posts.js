@@ -3,7 +3,18 @@ const Post = require("../models/Post");
 /* Here we'll write the routes for the posts */
 
 router.get("/posts", (req, res) => {
+  let sort = {};
+  if (req.query.sortBy) {
+    sort[req.query.sortBy] = -1;
+  } else {
+    sort.upvote_count = -1;
+  }
+  console.log("req.query", req.query);
+  console.log("sort", sort);
+
   Post.find()
+    .sort(sort)
+    .limit(10)
     .then(posts => {
       res.json(posts);
     })
