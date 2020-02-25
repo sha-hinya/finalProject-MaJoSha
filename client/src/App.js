@@ -5,10 +5,10 @@ import Navbar from "./components/Navbar.js";
 import Posts from "./components/Posts.js";
 import PostDetail from "./components/PostDetail.js";
 import Signup from "./components/Signup.js";
-
+import Login from "./components/Login.js";
 class App extends React.Component {
   state = {
-    user: null
+    user: this.props.user
   };
 
   setUser = userObj => {
@@ -22,7 +22,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Navbar user={this.state.user} />
+        <Navbar setUser={this.setUser} user={this.state.user} />
         <Route
           path="/signup"
           render={props => (
@@ -34,8 +34,25 @@ class App extends React.Component {
           )}
           // component={Signup}
         />
-        <Route exact path="/" component={Posts} />
-        <Route exact path="/posts/:postId" component={PostDetail} />
+        <Route
+          path="/login"
+          render={props => (
+            <Login history={props.history} setUser={this.setUser} />
+          )}
+        />
+
+        <Route
+          exact
+          path="/"
+          render={props => <Posts {...props} user={this.state.user} />}
+        />
+        <Route
+          exact
+          path="/posts/:postId"
+          render={props => (
+            <PostDetail {...props} isLoggedIn={Boolean(this.state.user)} />
+          )}
+        />
       </div>
     );
   }

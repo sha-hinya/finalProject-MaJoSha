@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default class PostDetail extends Component {
   state = {
@@ -42,7 +43,11 @@ export default class PostDetail extends Component {
         )}
         <p>posted on {new Date(post.created_at).toDateString()}</p>
         <p>Upvoted {post.upvote_count} times</p>
-        <button onClick={this.handleUpvote}>upvote</button>
+        {this.props.isLoggedIn ? (
+          <button onClick={this.handleUpvote}>upvote</button>
+        ) : (
+          <Link to="/login">Login to upvote this post</Link>
+        )}
       </div>
     );
   }

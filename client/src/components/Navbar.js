@@ -1,11 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Navbar = props => {
+  const logout = () => {
+    axios.delete("/api/auth/logout").then(() => {
+      props.setUser(null);
+    });
+  };
+
   if (props.user) {
     return (
       <nav className="navbar">
         <Link to="/">Home</Link>
+        <Link onClick={logout} to="/">
+          Logout
+        </Link>
       </nav>
     );
   }

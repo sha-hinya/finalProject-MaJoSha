@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class Signup extends Component {
+export default class Login extends Component {
   state = {
     username: "",
     password: "",
@@ -18,7 +18,7 @@ export default class Signup extends Component {
     event.preventDefault();
 
     axios
-      .post("/api/auth/signup", {
+      .post("/api/auth/login", {
         username: this.state.username,
         password: this.state.password
       })
@@ -26,6 +26,7 @@ export default class Signup extends Component {
         // redirect
         this.props.history.push("/");
         // update state for user in <App/>
+        console.log(response);
         this.props.setUser(response.data);
       })
       .catch(err => {
@@ -57,7 +58,7 @@ export default class Signup extends Component {
             onChange={this.handleChange}
           />
 
-          <button type="submit">Sign up</button>
+          <button type="submit">Sign in</button>
         </form>
         {this.state.message && <p>{this.state.message}</p>}
       </>

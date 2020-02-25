@@ -15,10 +15,10 @@ const postSchema = new Schema(
       enum: ["link", "text"],
       type: String
     },
-    // _author: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: "User"
-    // },
+    _author: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    },
     upvote_count: Number
   },
   {
