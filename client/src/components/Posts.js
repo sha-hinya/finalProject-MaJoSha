@@ -13,7 +13,7 @@ export default class Posts extends Component {
   }
 
   getData = () => {
-    console.log("getData()");
+    // console.log("getData()");
     axios.get("/api/posts").then(response => {
       this.setState({
         posts: response.data
@@ -30,7 +30,7 @@ export default class Posts extends Component {
   };
 
   render() {
-    console.log("<Posts/> RENDER");
+    // console.log("<Posts/> RENDER");
     return (
       <div>
         <PostForm refresh={this.getData} />

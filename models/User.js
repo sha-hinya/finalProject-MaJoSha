@@ -8,13 +8,13 @@ const userSchema = new Schema(
       type: String,
       unique: true
     },
-    password: String,
-    _upvotes: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Post"
-      }
-    ]
+    password: String
+    // _upvotes: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Post"
+    //   }
+    // ]
   },
   {
     timestamps: true
