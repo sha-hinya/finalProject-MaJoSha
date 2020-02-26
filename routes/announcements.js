@@ -3,12 +3,12 @@ const router = require("express").Router();
 const Announcement = require("../models/Announcement");
 
 // READ all and sort
-router.get("/announcements", (req, res) => {
-  let sort = {};
+router.get("/", (req, res) => {
+  //   let sort = {};
 
   Announcement.find()
-    .sort(sort)
-    .limit(10)
+    // .sort(sort)
+    // .limit(10)
     .then(announcements => {
       res.json(announcements);
     })
@@ -20,7 +20,7 @@ router.get("/announcements", (req, res) => {
 });
 
 /// READ ONE announcement
-router.get("/announcements/:id", (req, res) => {
+router.get("/:id", (req, res) => {
   const announcementId = req.params.id;
 
   Announcement.findById(announcementId)
@@ -35,7 +35,7 @@ router.get("/announcements/:id", (req, res) => {
 });
 
 // DELETE
-router.get("/announcements/delete", (req, res, next) => {
+router.get("/delete", (req, res, next) => {
   if (req.user) {
     Announcement.deleteOne({ _id: req.user._id })
       .then(() => {
