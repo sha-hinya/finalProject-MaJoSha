@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 require('dotenv').config();
 
@@ -22,7 +22,7 @@ const newUsers = [
   {
     lastName: 'Mustermann',
     firstName: 'Max',
-    email: 'Max.Mustermann@example.com',
+    email: 'max.mustermann@example.com',
     password: hashPass,
     phone: '4917112345678',
     accessRole: 'client',
