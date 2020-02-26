@@ -36,7 +36,8 @@ const announcement = {
     content: String,
     createdAt: Date,
     updatedAt: Date,
-    closedAt: Date,
+    announcedAt: Date,
+    unAnnouncedAt: Date,
     image: url,
     property: "id"
 }
@@ -45,7 +46,7 @@ const announcement = {
 const document = {
     title: String,
     url: String,
-    category: String,§
+    category: String,
     userId: [{userId}],
     property: "id"
 }

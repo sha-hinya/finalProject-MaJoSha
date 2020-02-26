@@ -1,6 +1,6 @@
 const router = require("express").Router();
+
 const Announcement = require("../models/Announcement");
-const User = require("../models/User");
 
 // READ all and sort
 router.get("/announcements", (req, res) => {
