@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import AnnouncementsList from "./AnnouncementsList";
 
 export default class Announcements extends Component {
   state = {
@@ -12,7 +12,7 @@ export default class Announcements extends Component {
   }
 
   getData = () => {
-    // console.log("getData()");
+    console.log("getData()");
     axios.get("/api/announcements").then(response => {
       this.setState({
         announcements: response.data
@@ -29,11 +29,11 @@ export default class Announcements extends Component {
   };
 
   render() {
-    // console.log("<Announcements/> RENDER");
+    console.log("<Announcements/> RENDER");
     return (
       <div>
-        <button onClick={this.getNewestAnnouncements}>sort by new</button>
-      </div>
+        <AnnouncementsList posts={this.state.announcements} />
+         </div>
     );
   }
 }
