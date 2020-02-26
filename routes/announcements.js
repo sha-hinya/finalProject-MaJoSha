@@ -1,4 +1,5 @@
 const router = require("express").Router();
+
 const Announcement = require("../models/Announcement");
 
 // READ all and sort
