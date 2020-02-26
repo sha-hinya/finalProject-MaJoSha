@@ -61,7 +61,7 @@ class App extends React.Component {
 
           <Route
           exact
-          path="/announcements"
+          path="/"
           render={props => (
             <Announcement {...props}  />
           )}

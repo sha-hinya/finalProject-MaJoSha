@@ -35,7 +35,7 @@ export default class Posts extends Component {
       <div>
         {this.props.user && <PostForm refresh={this.getData} />}
         <PostsList posts={this.state.posts} />
-        <button onClick={this.getNewestPosts}>sort by new</button>
+        <button onClick={this.getNewestPosts}>Refresh posts and sort</button>
       </div>
     );
   }
