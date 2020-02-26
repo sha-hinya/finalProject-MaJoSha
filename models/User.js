@@ -9,14 +9,15 @@ const userSchema = new Schema(
     email: String,
     password: String,
     phone: String,
+    activated_at: Date,
     accessRole: {
       type: String,
-      enum: ['client', 'registered', 'moderator', 'admin'],
+      enum: ['client', 'moderator', 'admin'],
     },
     property: [
       {
         type: Schema.Types.ObjectId,
-        ref: property,
+        ref: 'Property',
       },
     ],
     _upvotes: [
@@ -25,6 +26,13 @@ const userSchema = new Schema(
         ref: 'Post',
       },
     ],
+  },
+  {
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+    },
+  },
 );
 
 const User = mongoose.model('User', userSchema);

@@ -6,8 +6,8 @@ const User = require("../models/User");
 
 /* Here we'll write the routes dedicated to handle the user logic (auth) */
 
-router.post("/signup", (req, res) => {
-  const { username, password } = req.body;
+router.post("/user", (req, res) => {
+  const { lastName, firstName, email, phone } = req.body;
 
   if (!username) {
     return res.status(400).json({ message: "Username can't be empty" });
