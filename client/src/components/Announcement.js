@@ -32,8 +32,8 @@ export default class Announcements extends Component {
     console.log("<Announcements/> RENDER");
     return (
       <div>
-        <AnnouncementsList posts={this.state.announcements} />
-         </div>
+        <AnnouncementsList announcements={this.state.announcements} />
+      </div>
     );
   }
 }

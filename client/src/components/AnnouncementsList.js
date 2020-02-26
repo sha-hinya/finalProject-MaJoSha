@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const AnnouncementsList = props => {
+
+  console.log(props.announcements)
   return props.announcements.map(announcement => {
     return (
       <p key={announcement._id}>
@@ -18,6 +20,8 @@ const AnnouncementsList = props => {
       </p>
     );
   });
+
+  return <div></div>;
 };
 
 export default AnnouncementsList;
