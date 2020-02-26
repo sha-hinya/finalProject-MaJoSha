@@ -1,16 +1,10 @@
 const router = require("express").Router();
-const Pnnouncement = require("../models/Pnnouncement");
+const Announcement = require("../models/Announcement");
 const User = require("../models/User");
-/* Here we'll write the routes for the Announcements */
 
+// READ all and sort
 router.get("/announcements", (req, res) => {
   let sort = {};
-
-  //   if (req.query.sortBy) {
-  //     sort = { [req.query.sortBy]: -1 };
-  //   } else {
-  //     sort = { upvote_count: -1 };
-  //   }
 
   Announcement.find()
     .sort(sort)
@@ -25,6 +19,7 @@ router.get("/announcements", (req, res) => {
     });
 });
 
+/// READ ONE announcement
 router.get("/announcements/:id", (req, res) => {
   const announcementId = req.params.id;
 
@@ -37,6 +32,21 @@ router.get("/announcements/:id", (req, res) => {
         message: err.message
       });
     });
+});
+
+// DELETE
+router.get("/announcements/delete", (req, res, next) => {
+  if (req.user) {
+    Announcement.deleteOne({ _id: req.user._id })
+      .then(() => {
+        res.redirect("/");
+      })
+      .catch(err => {
+        next(err);
+      });
+  } else {
+    res.redirect("/");
+  }
 });
 
 module.exports = router;

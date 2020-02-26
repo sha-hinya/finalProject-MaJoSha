@@ -11,7 +11,7 @@ const announcementSchema = new Schema(
     type: {
       type: String
     },
-    _author: {
+    author: {
       type: String,
       default: "Admin"
     },
@@ -25,10 +25,11 @@ const announcementSchema = new Schema(
   {
     timestamps: {
       createdAt: "created_at",
-      updatedAt: "updated_at",
-      announcedAt: Date,
-      unAnnouncedAt: Date
-    }
+      updatedAt: "updated_at"
+    },
+
+    announcedAt: Date,
+    unAnnouncedAt: Date
   }
 );
 
