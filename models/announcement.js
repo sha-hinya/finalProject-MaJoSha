@@ -20,7 +20,7 @@ const announcementSchema = new Schema(
       default: true
     },
     image: String,
-    default: "https://source.unsplash.com/random"
+    // default: "https://source.unsplash.com/random"
   },
   {
     timestamps: {

@@ -2,7 +2,7 @@
   {
     "title": "Maintainence works",
     "content": "Please be advised that there will be a new front door installed.",
-    "visibility": "",
+    "visibility": true,
     "author": "the management",
     "image": "https://c2.staticflickr.com/6/5078/29313044693_e45059c6c7_b.jpg",
     "createdAt": "2020-02-26T18:25:43.511Z",
@@ -14,7 +14,7 @@
   {
     "title": "Garden works",
     "content": "On week 12 there will extensive garden works going on.",
-    "visibility": "",
+    "visibility": true,
     "author": "the management",
     "image": "https://c2.staticflickr.com/6/5078/29313044693_e45059c6c7_b.jpg",
     "createdAt": "2020-02-26T18:25:43.511Z",
