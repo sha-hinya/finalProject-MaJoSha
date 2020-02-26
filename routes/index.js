@@ -12,7 +12,6 @@ router.use('/api/auth', authRoutes);
 router.use('/api/user', userRoutes);
 router.use('/api', postsRoutes);
 
-router.use("/announcements/delete", annnouncementsRoutes);
 router.use("/announcements", annnouncementsRoutes);
 
 module.exports = router;

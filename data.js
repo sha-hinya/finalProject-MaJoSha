@@ -38,7 +38,7 @@ const announcement = {
     updatedAt: Date,
     announcedAt: Date,
     unAnnouncedAt: Date,
-    image: url,
+    image: String,
     property: "id"
 }
 

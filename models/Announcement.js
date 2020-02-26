@@ -28,8 +28,9 @@ const announcementSchema = new Schema(
       updatedAt: "updated_at"
     },
 
-    announcedAt: Date,
-    unAnnouncedAt: Date
+    announcedAt: String,
+    unAnnouncedAt: String,
+    property: String
   }
 );
 
