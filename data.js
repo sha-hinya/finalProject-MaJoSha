@@ -1,3 +1,5 @@
+// Vorbild für Schemas
+
 const user = {
     _id: "",
     lastName: String,
@@ -43,7 +45,7 @@ const announcement = {
 const document = {
     title: String,
     url: String,
-    category: String,
+    category: String,§
     userId: [{userId}],
     property: "id"
 }
