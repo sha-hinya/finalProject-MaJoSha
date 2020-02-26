@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const Announcement = require('../models/Announcement');
 const announcements = require('../bin/announcements.json');
+const propertiesTest = require('../bin/properties.json');
 
 // Stack of promisses
 const promises = [];
@@ -78,6 +79,10 @@ promises.push(
       console.log(err);
     }),
 );
+
+
+
+
 
 Promise.all(promises).then((result) => {
   console.log('Seeds finished');
