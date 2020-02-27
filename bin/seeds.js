@@ -19,10 +19,6 @@ mongoose.connect(
     console.log("Connected to DB");
   }
 );
-<<<<<<< HEAD
-
-=======
->>>>>>> 46f0639d7c9ca3d5f869db09681ad2af7c3f28bd
 const bcryptSalt = 10;
 const salt = bcrypt.genSaltSync(bcryptSalt);
 const hashPass = bcrypt.hashSync("1234", salt);

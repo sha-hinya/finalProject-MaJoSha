@@ -8,7 +8,8 @@ const documentSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "User"
       }
-    ],
+    ]
+    ,
     category: String,
     property: [],
     url: String

@@ -29,12 +29,12 @@ const announcementSchema = new Schema(
     },
 
     announcedAt: String,
-    unAnnouncedAt: String,
+    unAnnouncedAt: String
 
-    property: {
-      type: Schema.Types.ObjectId,
-      ref: "Property"
-    }
+    // property: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: "Property"
+    // }
   }
 );
 
