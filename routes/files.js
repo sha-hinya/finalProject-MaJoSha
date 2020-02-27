@@ -4,7 +4,7 @@ const File = require("../models/File");
 //read all
 router.get("/", (req, res) => {
   File.find()
-    .sort(sort)
+    //.sort(sort)
     .then(file => {
       res.json(file);
     })

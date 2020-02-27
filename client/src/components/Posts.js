@@ -33,8 +33,8 @@ export default class Posts extends Component {
     // console.log("<Posts/> RENDER");
     return (
       <div>
-        {this.props.user && <PostForm refresh={this.getData} />}
-        <PostsList posts={this.state.posts} />
+        {/* {this.props.user && <PostForm refresh={this.getData} />}*/}
+        <PostsList posts={this.state.posts} /> 
        
       </div>
     );
