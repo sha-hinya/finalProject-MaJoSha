@@ -11,6 +11,7 @@ import Login from "./components/Login.js";
 import Announcement from "./components/Announcement.js";
 import AnnouncementDetail from "./components/AnnouncementDetail.js";
 
+
 class App extends React.Component {
   state = {
     user: this.props.user
