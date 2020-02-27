@@ -7,11 +7,14 @@ const Announcement = require("../models/Announcement");
 const announcements = require("../bin/announcements.json");
 const propertiesTest = require("../bin/properties.json");
 
+const Post = require("../models/Post");
+const posts = require("../bin/posts.json");
+
 // Stack of promisses
 const promises = [];
 
-mongoose.connect(process.env.MONGODB_URI, () => {
-  // mongoose.connect("mongodb://localhost:27017/MaJoSha", () => {
+//mongoose.connect(process.env.MONGODB_URI, () => {
+mongoose.connect("mongodb://localhost:27017/MaJoSha", () => {
   //mongoose.connect(process.env.MONGODB_URI, () => {
   console.log("Connected to DB");
 });
@@ -64,11 +67,23 @@ User.collection.drop();
 
 promises.push(
   User.create(newUsers).then(result => {
-    console.log(result);
+    console.log(`Created ${result.length} users`);
   })
 );
 
-console.log("JSON:", announcements);
+// console.log("JSON:", posts);
+Post.collection.drop();
+promises.push(
+  Post.create(posts)
+    .then(result => {
+      console.log(`Created ${result.length} posts`);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+);
+
+// console.log("JSON:", announcements);
 Announcement.collection.drop();
 promises.push(
   Announcement.create(announcements)
