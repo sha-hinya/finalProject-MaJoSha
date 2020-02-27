@@ -21,12 +21,21 @@ a {
   text-align: center;
 }
 
+/*  our color scheme:
+button_active_dark_blue #335CFF,
+button_inactive_light_blue  #CCD7FF,
+call_to_action_red: #C97064
+resolved_green: #7A9B76
+in_progress_yellow: #BE7C4D
+text_black: #222222,
+background_white: #FCF7FF
+ */
+
 .postingscontainer {
-  background-color: #eee;
+  background-color: #fcf7ff;
 }
 
 .postingImage {
   width: 150px;
   border-radius: 10px;
 }
-

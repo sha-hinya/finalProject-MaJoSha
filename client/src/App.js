@@ -58,7 +58,7 @@ class App extends React.Component {
             <PostDetail {...props} isLoggedIn={Boolean(this.state.user)} />
           )}
         />
-
+{/* postings */}
         <Route exact path="/" render={props => <Announcement {...props} />} />
 
         <Route
@@ -66,6 +66,11 @@ class App extends React.Component {
           path="/announcements/:announcementId"
           render={props => <AnnouncementDetail {...props} />}
         />
+        {/* posts */}
+        
+
+
+
       </div>
     );
   }
