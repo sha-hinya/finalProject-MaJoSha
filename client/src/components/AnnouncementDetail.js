@@ -38,7 +38,7 @@ export default class AnnouncementDetail extends Component {
         <p>
           announcemented on {new Date(announcement.created_at).toDateString()}
         </p>
-        <img class="postingImage" src={announcement.image} />
+        <img class="postingImage" src={announcement.image} alt={announcement.title}/>
       </div>
     );
   }

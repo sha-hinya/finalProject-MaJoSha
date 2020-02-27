@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 const announcementSchema = new Schema(
   {
     title: {
@@ -20,8 +19,8 @@ const announcementSchema = new Schema(
       type: Boolean,
       default: true
     },
-    image: String
-    // default: "https://source.unsplash.com/random"
+    image: String,
+    //default: "https://source.unsplash.com/random"
   },
   {
     timestamps: {
@@ -31,7 +30,11 @@ const announcementSchema = new Schema(
 
     announcedAt: String,
     unAnnouncedAt: String,
-    property: String
+
+    property: {
+      type: Schema.Types.ObjectId,
+      ref: "Property"
+    }
   }
 );
 
