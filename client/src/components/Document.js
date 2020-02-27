@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Document } from "mongoose";
-import { DocumentsList } from "./DocumentsList";
+import DocumentsList from "./DocumentsList";
 
 export default class Documents extends Component {
   state = {
@@ -38,5 +37,3 @@ export default class Documents extends Component {
     );
   }
 }
-
-export default Document;

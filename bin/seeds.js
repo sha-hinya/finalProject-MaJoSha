@@ -1,31 +1,27 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-
 const User = require("../models/User");
-
 const Announcement = require("../models/Announcement");
 const announcements = require("../bin/announcements.json");
-
 const Document = require("../models/Document");
 const documents = require("../bin/documents.json");
 const propertiesTest = require("../bin/properties.json");
-
 const Post = require("../models/Post");
 const posts = require("../bin/posts.json");
-
 // Stack of promisses
 const promises = [];
-
 //mongoose.connect(process.env.MONGODB_URI, () => {
-mongoose.connect("mongodb://localhost:27017/MaJoSha", () => {
-  console.log("Connected to DB");
-});
-
+mongoose.connect(
+  "mongodb://localhost:27017/MaJoSha",
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => {
+    console.log("Connected to DB");
+  }
+);
 const bcryptSalt = 10;
 const salt = bcrypt.genSaltSync(bcryptSalt);
 const hashPass = bcrypt.hashSync("1234", salt);
-
 const newUsers = [
   // normal client : Max Musterman
   {
@@ -38,9 +34,7 @@ const newUsers = [
     property: [],
     _upvotes: []
   },
-
   // admin : Armin Admin
-
   {
     lastName: "Admin",
     firstName: "Armin",
@@ -51,9 +45,7 @@ const newUsers = [
     property: [],
     _upvotes: []
   },
-
   // moderator : Melanie Moderator
-
   {
     lastName: "Moderator",
     firstName: "Melanie",
@@ -65,15 +57,12 @@ const newUsers = [
     _upvotes: []
   }
 ];
-
 User.collection.drop();
-
 promises.push(
   User.create(newUsers).then(result => {
     console.log(`Created ${result.length} users`);
   })
 );
-
 Post.collection.drop();
 promises.push(
   Post.create(posts)
@@ -84,7 +73,6 @@ promises.push(
       console.log(err);
     })
 );
-
 Announcement.collection.drop();
 promises.push(
   Announcement.create(announcements)
@@ -95,7 +83,6 @@ promises.push(
       console.log(err);
     })
 );
-
 Document.collection.drop();
 promises.push(
   Document.create(documents)
@@ -107,7 +94,6 @@ promises.push(
       console.log(err);
     })
 );
-
 Promise.all(promises).then(result => {
   console.log("Seeds finished");
   mongoose.connection.close();

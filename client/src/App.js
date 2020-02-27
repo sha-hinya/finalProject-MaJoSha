@@ -17,6 +17,9 @@ import PostDetail from "./components/PostDetail.js";
 import Announcement from "./components/Announcement.js";
 import AnnouncementDetail from "./components/AnnouncementDetail.js";
 
+//Documents
+import Document from "./components/Document.js";
+import DocumentDetail from "./components/DocumentDetail.js";
 
 class App extends React.Component {
   state = {
@@ -68,6 +71,13 @@ class App extends React.Component {
           exact
           path="/announcements/:announcementId"
           render={props => <AnnouncementDetail {...props} />}
+        />
+        {/* documents */}
+        <Route exact path="/" render={props => <Document {...props} />} />
+        <Route
+          exact
+          path="/documents/:documentId"
+          render={props => <DocumentDetail {...props} />}
         />
       </div>
     );
