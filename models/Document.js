@@ -9,13 +9,14 @@ const documentSchema = new Schema({
       ref: "User"
     }
   ],
+
+  // timestamps: {
+  //   createdAt: "created_at",
+  //   updatedAt: "updated_at"
+  // },
   category: String,
   property: [],
-  url: String,
-  timestamps: {
-    createdAt: "created_at",
-    updatedAt: "updated_at"
-  }
+  url: String
 });
 
 const Document = mongoose.model("Document", documentSchema);
