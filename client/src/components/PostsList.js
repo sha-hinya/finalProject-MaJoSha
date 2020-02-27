@@ -5,13 +5,10 @@ const PostsList = props => {
   return props.posts.map(post => {
     return (
       <p key={post._id}>
-        [{post.type}]
-        <b>
+        {new Date(post.created_at).toDateString()}
+        
           <Link to={`/posts/${post._id}`}> {post.title} </Link>
-        </b>
-        <span role="img" aria-label="upvote emoji">
-          ⏫{post.upvote_count}
-        </span>
+        
       </p>
     );
   });
