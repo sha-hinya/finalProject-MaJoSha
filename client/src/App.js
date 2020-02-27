@@ -1,7 +1,7 @@
-// Test- finalProject
-
+// Final Project
+//
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route,Link } from "react-router-dom";
 import "./App.css";
 
 // Navbar
@@ -12,6 +12,7 @@ import Login from "./components/Login.js";
 // Posts
 import Posts from "./components/Posts.js";
 import PostDetail from "./components/PostDetail.js";
+import PostForm from "./components/PostForm.js";
 
 // Announcements
 import Announcement from "./components/Announcement.js";
@@ -56,21 +57,28 @@ class App extends React.Component {
           )}
         />
 
-        {/* posts */}
-        <Route exact path="/" render={props => <Posts {...props} />} />
-        <Route
-          exact
-          path="/posts/:postId"
-          render={props => <PostDetail {...props} />}
-        />
-
-        {/* postings */}
+        {/* Announcement: List all Announcements */}
         <Route exact path="/" render={props => <Announcement {...props} />} />
 
+        {/* Announcement: View one Announcement */}
         <Route
           exact
           path="/announcements/:announcementId"
           render={props => <AnnouncementDetail {...props} />}
+        />
+
+        {/* Post: Create form */}
+        <Route exact path="/posts" render={props => <PostForm {...props} />}></Route>
+        <Link to="/posts" >  new post </Link>
+
+        {/* Post: List all posts */}
+        <Route exact path="/" render={props => <Posts {...props} />} />
+
+        {/* Post: View one post */}
+        <Route
+          exact
+          path="/posts/:postId"
+          render={props => <PostDetail {...props} />}
         />
         {/* documents */}
         <Route exact path="/" render={props => <Document {...props} />} />
