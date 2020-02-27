@@ -39,6 +39,8 @@ class App extends React.Component {
     console.log('Redirect?:', this.state.user);
 
     const redirect = this.state.user === null ? true : false;
+    
+    // if you are logged out, you are automatically redirected to the LoginPage!
 
     if (!!!this.state.user) {
       return (
