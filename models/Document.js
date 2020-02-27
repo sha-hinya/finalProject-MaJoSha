@@ -1,23 +1,26 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const documentSchema = new Schema({
-  title: String,
-  userId: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "User"
+const documentSchema = new Schema(
+  {
+    title: String,
+    userId: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+      }
+    ],
+    category: String,
+    property: [],
+    url: String
+  },
+  {
+    timestamps: {
+      createdAt: "created_at",
+      updatedAt: "updated_at"
     }
-  ],
-
-  // timestamps: {
-  //   createdAt: "created_at",
-  //   updatedAt: "updated_at"
-  // },
-  category: String,
-  property: [],
-  url: String
-});
+  }
+);
 
 const Document = mongoose.model("Document", documentSchema);
 

@@ -1,7 +1,7 @@
 // Final Project
 //
 import React from "react";
-import { Route,Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import "./App.css";
 
 // Navbar
@@ -64,8 +64,12 @@ class App extends React.Component {
         />
 
         {/* Post: Create form */}
-        <Route exact path="/posts" render={props => <PostForm {...props} />}></Route>
-        <Link to="/posts" >  new post </Link>
+        <Route
+          exact
+          path="/posts"
+          render={props => <PostForm {...props} />}
+        ></Route>
+        <Link to="/posts"> new post </Link>
 
         {/* Post: List all posts */}
         <Route exact path="/" render={props => <Posts {...props} />} />

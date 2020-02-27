@@ -56,16 +56,7 @@ export default class PostForm extends Component {
             onChange={this.handleChange}
           />
           <p> </p>
-          <label htmlFor="type">Type</label>
-          <select
-            value={this.state.type}
-            name="type"
-            onChange={this.handleChange}
-          >
-            <option value="link">Link</option>
-            <option value="text">Text</option>
-          </select>
-          <p> </p>
+
           <button>Create new Post</button>
         </form>
       </div>

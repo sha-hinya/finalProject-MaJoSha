@@ -31,8 +31,14 @@ text_black: #222222,
 background_white: #FCF7FF
  */
 
-.postingscontainer {
-  background-color: #fcf7ff;
+.announcementContainer {
+  background-color: #ccd7ff;
+  color: #222222;
+}
+
+.postContainer {
+  background-color: #ccd7ff;
+  color: #222222;
 }
 
 .postingImage {
