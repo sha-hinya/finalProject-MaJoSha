@@ -18,9 +18,13 @@ const posts = require("../bin/posts.json");
 const promises = [];
 
 //mongoose.connect(process.env.MONGODB_URI, () => {
-mongoose.connect("mongodb://localhost:27017/MaJoSha", () => {
-  console.log("Connected to DB");
-});
+mongoose.connect(
+  "mongodb://localhost:27017/MaJoSha",
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => {
+    console.log("Connected to DB");
+  }
+);
 
 const bcryptSalt = 10;
 const salt = bcrypt.genSaltSync(bcryptSalt);
