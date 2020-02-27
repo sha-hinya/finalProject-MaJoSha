@@ -5,7 +5,7 @@ const AnnouncementsList = props => {
   console.log(props.announcements);
   return props.announcements.map(announcement => {
     return (
-      <div className="announcementContainer" key={announcement._id}>
+      <div className="postingscontainer" key={announcement._id}>
         <p>{announcement.title} </p>
 
         <Link to={`/announcements/${announcement._id}`}>

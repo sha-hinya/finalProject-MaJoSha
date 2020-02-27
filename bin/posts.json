@@ -9,7 +9,7 @@
     "archived": false,
     "private": false,
     "voteCount": 0,
-    "property": 1
+    "property": "TestBuilding"
   },
   {
     "author": "Mr. Green",
@@ -21,7 +21,7 @@
     "archived": false,
     "private": false,
     "voteCount": 0,
-    "property": 1
+    "property": "TestBuilding"
   },
   {
     "author": "Mr. Brown",
@@ -33,7 +33,7 @@
     "archived": false,
     "private": false,
     "voteCount": 0,
-    "property": 1
+    "property": "TestBuilding"
   },
   {
     "author": "Mr. White",
@@ -45,6 +45,6 @@
     "archived": false,
     "private": false,
     "voteCount": 0,
-    "property": 1
+    "property": "TestBuilding"
   }
 ]

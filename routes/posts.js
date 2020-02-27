@@ -51,8 +51,8 @@ router.post("/posts", (req, res) => {
     title: title,
     content: content
   })
-    .then(postDocument => {
-      res.json(postDocument);
+    .then(postFile => {
+      res.json(postFile);
     })
     .catch(err => {
       res.status(500).json({

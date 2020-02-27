@@ -18,9 +18,9 @@ import PostForm from "./components/PostForm.js";
 import Announcement from "./components/Announcement.js";
 import AnnouncementDetail from "./components/AnnouncementDetail.js";
 
-//Documents
-import Document from "./components/Document.js";
-import DocumentDetail from "./components/DocumentDetail.js";
+//Files
+import File from "./components/File.js";
+import FileDetail from "./components/FileDetail.js";
 
 class App extends React.Component {
   state = {
@@ -84,12 +84,12 @@ class App extends React.Component {
           path="/posts/:postId"
           render={props => <PostDetail {...props} />}
         />
-        {/* documents */}
-        <Route exact path="/" render={props => <Document {...props} />} />
+        {/* files */}
+        <Route exact path="/" render={props => <File {...props} />} />
         <Route
           exact
-          path="/documents/:documentId"
-          render={props => <DocumentDetail {...props} />}
+          path="/files/:fileId"
+          render={props => <FileDetail {...props} />}
         />
       </div>
     );

@@ -14,12 +14,13 @@ const userSchema = new Schema(
       type: String,
       enum: ["client", "moderator", "admin"]
     },
-    property: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Property"
-      }
-    ],
+    property: String,
+    // property: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Property"
+    //   }
+    // ],
     _upvotes: [
       {
         type: Schema.Types.ObjectId,

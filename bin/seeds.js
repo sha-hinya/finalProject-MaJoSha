@@ -2,13 +2,18 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
+
 const Announcement = require("../models/Announcement");
 const announcements = require("../bin/announcements.json");
-const Document = require("../models/Document");
-const documents = require("../bin/documents.json");
+
+const File = require("../models/File");
+const files = require("../bin/files.json");
+
 const propertiesTest = require("../bin/properties.json");
+
 const Post = require("../models/Post");
 const posts = require("../bin/posts.json");
+
 // Stack of promisses
 const promises = [];
 //mongoose.connect(process.env.MONGODB_URI, () => {
@@ -31,7 +36,7 @@ const newUsers = [
     password: hashPass,
     phone: "4917112345678",
     accessRole: "client",
-    property: [],
+    property: "test",
     _upvotes: []
   },
   // admin : Armin Admin
@@ -42,7 +47,7 @@ const newUsers = [
     password: hashPass,
     phone: "4917212345678",
     accessRole: "admin",
-    property: [],
+    property: "Test",
     _upvotes: []
   },
   // moderator : Melanie Moderator
@@ -53,7 +58,7 @@ const newUsers = [
     password: hashPass,
     phone: "4917312345678",
     accessRole: "moderator",
-    property: [],
+    property: "Test",
     _upvotes: []
   }
 ];
@@ -63,6 +68,7 @@ promises.push(
     console.log(`Created ${result.length} users`);
   })
 );
+
 Post.collection.drop();
 promises.push(
   Post.create(posts)
@@ -83,11 +89,11 @@ promises.push(
       console.log(err);
     })
 );
-Document.collection.drop();
+File.collection.drop();
 promises.push(
-  Document.create(documents)
+  File.create(files)
     .then(result => {
-      console.log(`Created ${result.length} documents`);
+      console.log(`Created ${result.length} files`);
       //mongoose.connection.close();
     })
     .catch(err => {
