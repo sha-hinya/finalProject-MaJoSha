@@ -10,7 +10,6 @@ import Signup from "./components/Signup.js";
 import Login from "./components/Login.js";
 import Announcement from "./components/Announcement.js";
 
-
 class App extends React.Component {
   state = {
     user: this.props.user
@@ -59,16 +58,11 @@ class App extends React.Component {
           )}
         />
 
-          <Route
+        <Route
           exact
           path="/announcements"
-          render={props => (
-            <Announcement {...props}  />
-          )}
+          render={props => <Announcement {...props} />}
         />
-
-
-
       </div>
     );
   }
