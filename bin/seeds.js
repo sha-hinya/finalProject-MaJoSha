@@ -7,6 +7,7 @@ const Announcement = require("../models/Announcement");
 const announcements = require("../bin/announcements.json");
 const Document = require("../models/Document");
 const documents = require("../bin/documents.json");
+const propertiesTest = require("../bin/properties.json");
 
 // Stack of promisses
 const promises = [];

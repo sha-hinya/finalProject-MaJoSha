@@ -89,12 +89,63 @@ router.get('/', (req, res) => {
   // access restriction to admin and moderator
   // outsource
 
+  const propertyIds = req.query.property
+    ? req.query.property.split(',')
+    : false;
+
+  if (!req.user) {
+    console.log('unauthorized');
+    return res.status(401).json({ message: 'Unautorized action' });
+  }
+  console.log(propertyId);
+  User.find(propertyId ? { property: { $all: propertyIds } } : {})
+    .then((foundUsers) => {
+      return res.json(foundUsers);
+    })
+    .catch((err) => {
+      res.status(500).json({ message: err.message });
+    });
+});
+
+router.get('/:userId', (req, res) => {
+  // access restriction to admin and moderator
+  // outsource
+  const userId = req.params.userId;
+
   if (!req.user) {
     console.log('unauthorized');
     return res.status(401).json({ message: 'Unautorized action' });
   }
 
-  User.find()
+  User.findById(userId)
+    .then((foundUsers) => {
+      return res.json(foundUsers);
+    })
+    .catch((err) => {
+      res.status(500).json({ message: err.message });
+    });
+});
+
+router.patch('/:userId/edit', (req, res) => {
+  // access restriction to admin and moderator
+  // outsource
+  const userId = req.params.userId;
+
+  const { lastName, firstName, email, password, phone, property } = req.body;
+
+  if (!req.user) {
+    console.log('unauthorized');
+    return res.status(401).json({ message: 'Unautorized action' });
+  }
+
+  User.findByIdAndUpdate(userId, {
+    lastName,
+    firstName,
+    email,
+    password,
+    phone,
+    property,
+  })
     .then((foundUsers) => {
       return res.json(foundUsers);
     })

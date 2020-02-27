@@ -1,21 +1,32 @@
 [
   {
-    "title": "Maintainence works",
+    "title": "Posting: Front door maintainence works",
     "content": "Please be advised that there will be a new front door installed.",
     "visibility": true,
     "author": "the management",
-    "image": "https://c2.staticflickr.com/6/5078/29313044693_e45059c6c7_b.jpg",
+    "image": "https://images.unsplash.com/photo-1534272761865-9c8e0fdef7c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=676&q=80",
     "createdAt": "2020-02-26T18:25:43.511Z",
     "updatedAt": "2020-02-26T18:25:43.511Z",
     "announcedAt": "2020-02-26T15:57:50.596+00:00",
     "unAnnouncedAt": "2020-02-26T15:57:50.596+00:00"
   },
   {
-    "title": "Garden works",
+    "title": "Posting: Garden works",
     "content": "On week 12 there will extensive garden works going on.",
     "visibility": true,
     "author": "the management",
-    "image": "https://c2.staticflickr.com/6/5078/29313044693_e45059c6c7_b.jpg",
+    "image": "https://images.unsplash.com/photo-1474606179262-1ac393ca3316?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    "createdAt": "2020-02-26T18:25:43.511Z",
+    "updatedAt": "2020-02-26T18:25:43.511Z",
+    "announcedAt": "2020-02-26T15:57:50.596+00:00",
+    "unAnnouncedAt": "2020-02-26T15:57:50.596+00:00"
+  },
+  {
+    "title": "Posting: Water pipe replacement",
+    "content": "Starting from next monthe the pipesystem will be replaced. Please expect water outages.",
+    "visibility": true,
+    "author": "the management",
+    "image": "https://images.unsplash.com/photo-1527455042408-9375040e774d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1273&q=80",
     "createdAt": "2020-02-26T18:25:43.511Z",
     "updatedAt": "2020-02-26T18:25:43.511Z",
     "announcedAt": "2020-02-26T15:57:50.596+00:00",

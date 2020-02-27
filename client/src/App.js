@@ -9,6 +9,7 @@ import PostDetail from "./components/PostDetail.js";
 import Signup from "./components/Signup.js";
 import Login from "./components/Login.js";
 import Announcement from "./components/Announcement.js";
+import AnnouncementDetail from "./components/AnnouncementDetail.js";
 
 class App extends React.Component {
   state = {
@@ -58,10 +59,12 @@ class App extends React.Component {
           )}
         />
 
+        <Route exact path="/" render={props => <Announcement {...props} />} />
+
         <Route
           exact
-          path="/announcements"
-          render={props => <Announcement {...props} />}
+          path="/announcements/:announcementId"
+          render={props => <AnnouncementDetail {...props} />}
         />
       </div>
     );

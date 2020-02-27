@@ -1,30 +1,45 @@
-/* We'll write the schema and register our model for the posts here */
 const mongoose = require("mongoose");
-
-// const { Schema } = mongoose;
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema(
   {
-    title: {
-      type: String,
-      required: true
+    _author: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
     },
+
+    image: String,
+    title: String,
     content: String,
     type: {
       enum: ["link", "text"],
       type: String
     },
-    _author: {
-      type: Schema.Types.ObjectId,
-      ref: "User"
+    status: String,
+    type: {
+      enum: [
+        "Open",
+        "Accepted",
+        "In Progress",
+        "Work done",
+        "Closed",
+        "Declined"
+      ],
+      type: String
     },
-    upvote_count: Number
+    dueDate: Date,
+    archived: Boolean,
+    private: Boolean,
+    voteCount: Number
   },
   {
     timestamps: {
       createdAt: "created_at",
       updatedAt: "updated_at"
+    },
+    property: {
+      type: Schema.Types.ObjectId,
+      ref: "Property"
     }
   }
 );

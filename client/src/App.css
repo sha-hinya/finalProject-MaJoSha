@@ -20,3 +20,13 @@ a {
 .App {
   text-align: center;
 }
+
+.postingscontainer {
+  background-color: #eee;
+}
+
+.postingImage {
+  width: 150px;
+  border-radius: 10px;
+}
+
