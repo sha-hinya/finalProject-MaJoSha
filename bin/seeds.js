@@ -5,6 +5,8 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 const Announcement = require("../models/Announcement");
 const announcements = require("../bin/announcements.json");
+const Document = require("../models/Document");
+const documents = require("../bin/documents.json");
 const propertiesTest = require("../bin/properties.json");
 
 const Post = require("../models/Post");
@@ -14,8 +16,8 @@ const posts = require("../bin/posts.json");
 const promises = [];
 
 //mongoose.connect(process.env.MONGODB_URI, () => {
+//mongoose.connect(process.env.MONGODB_URI, () => {
 mongoose.connect("mongodb://localhost:27017/MaJoSha", () => {
-  //mongoose.connect(process.env.MONGODB_URI, () => {
   console.log("Connected to DB");
 });
 
@@ -84,11 +86,24 @@ promises.push(
 );
 
 // console.log("JSON:", announcements);
+//console.log("JSON:", announcements);
 Announcement.collection.drop();
 promises.push(
   Announcement.create(announcements)
     .then(result => {
       console.log(`Created ${result.length} announcements`);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+);
+
+console.log("JSON:", documents);
+Document.collection.drop();
+promises.push(
+  Document.create(documents)
+    .then(result => {
+      console.log(`Created ${result.length} documents`);
       mongoose.connection.close();
     })
     .catch(err => {
