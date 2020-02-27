@@ -20,7 +20,7 @@ const announcementSchema = new Schema(
       default: true
     },
     image: String
-    // default: "https://source.unsplash.com/random"
+    //default: "https://source.unsplash.com/random"
   },
   {
     timestamps: {
@@ -30,7 +30,11 @@ const announcementSchema = new Schema(
 
     announcedAt: String,
     unAnnouncedAt: String,
-    property: String
+
+    property: {
+      type: Schema.Types.ObjectId,
+      ref: "Property"
+    }
   }
 );
 

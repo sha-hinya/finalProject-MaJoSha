@@ -11,9 +11,13 @@ const documentSchema = new Schema({
   ],
   category: String,
   property: [],
-  url: String
+  url: String,
+  timestamps: {
+    createdAt: "created_at",
+    updatedAt: "updated_at"
+  }
 });
 
 const Document = mongoose.model("Document", documentSchema);
 
-module.exports = Post;
+module.exports = Document;

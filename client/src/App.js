@@ -3,12 +3,19 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
+
+// Navbar
 import Navbar from "./components/Navbar.js";
-import Posts from "./components/Posts.js";
-import PostDetail from "./components/PostDetail.js";
 import Signup from "./components/Signup.js";
 import Login from "./components/Login.js";
+
+// Posts
+import Posts from "./components/Posts.js";
+import PostDetail from "./components/PostDetail.js";
+
+// Announcements
 import Announcement from "./components/Announcement.js";
+import AnnouncementDetail from "./components/AnnouncementDetail.js";
 
 
 class App extends React.Component {
@@ -46,29 +53,22 @@ class App extends React.Component {
           )}
         />
 
-        <Route
-          exact
-          path="/"
-          render={props => <Posts {...props} user={this.state.user} />}
-        />
+        {/* posts */}
+        <Route exact path="/" render={props => <Posts {...props} />} />
         <Route
           exact
           path="/posts/:postId"
-          render={props => (
-            <PostDetail {...props} isLoggedIn={Boolean(this.state.user)} />
-          )}
+          render={props => <PostDetail {...props} />}
         />
 
-          <Route
+        {/* postings */}
+        <Route exact path="/" render={props => <Announcement {...props} />} />
+
+        <Route
           exact
-          path="/"
-          render={props => (
-            <Announcement {...props}  />
-          )}
+          path="/announcements/:announcementId"
+          render={props => <AnnouncementDetail {...props} />}
         />
-
-
-
       </div>
     );
   }
