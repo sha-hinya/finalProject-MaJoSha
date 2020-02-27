@@ -3,11 +3,12 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const User = require('../models/User');
-var nodemailer = require('nodemailer');
 
 /* Here we'll write the routes dedicated to handle the user logic (auth) */
 
-// node-mailer
+// TODO: EXCLUDE TO a Service directory
+// <=== node-mailer text for the invite mail
+var nodemailer = require('nodemailer');
 const getEmailText = (email, randomPassword) => {
   return `
 	<html lang="en">
@@ -33,32 +34,54 @@ var transporter = nodemailer.createTransport({
   },
 });
 
-// need to be logged in
+// ===> node mailer end
 
-// TODO Check for authentication function
+function validatePassword(password, confirmpassword, err) {
+  if (password.length <= 6) {
+    err.push(`password length must be greater than 6`);
+    return false;
+  }
+  if (password.trim() !== confirmpassword.trim()) {
+    err.push(`password and confirmpassword are not equal`);
+    return false;
+  }
+  return true;
+}
 
-router.post('/', (req, res) => {
-  // access restriction to admin and moderator
-  // outsource
+// TODO: maybe in Service? should be useable by others too.
+// Checks for accessRole in the user and allows access or not.
 
-  if (
-    !req.user ||
-    (req.user && (req.user.role !== 'admin' || req.user.role !== 'moderator'))
-  ) {
-    console.log('unauthorized');
-    return res.status(401).json({ message: 'Unautorized action' });
+function validateAccess(role = []) {
+  return (req, res, next) => {
+    console.log(req.user, role);
+    // when user is not logged in , no access
+    if (!req.user) {
+      return res.status(401).json({ message: 'Unautorized action' });
+    }
+    // if user is
+    if (role.length > 0 && !role.includes(req.user.accessRole)) {
+      return res.status(401).json({ message: 'Unautorized action' });
+    }
+
+    next();
+  };
+}
+
+// <=== Routes start
+
+// Create User
+// An admin or moderator can create a new user. A default password is set and should be send to
+// the mandatory e-mail adress.
+router.post('/', validateAccess(['admin', 'moderator']), (req, res) => {
+  const newUserCredentials = { ...req.body };
+  if (!newUserCredentials.email) {
+    return res.status(400).json({ message: 'email-adress is mandatory' });
   }
 
-  const { email, password } = req.body;
+  // TODO: for production it should be random
+  const defaultPassword = '1234';
 
-  if (!email) {
-    return res.status(400).json({ message: "Username can't be empty" });
-  }
-  if (password.length < 8) {
-    return res.status(400).json({ message: 'Password is too short' });
-  }
-
-  User.findOne({ email: email })
+  User.findOne({ email: newUserCredentials.email })
     .then((found) => {
       if (found) {
         return res.status(400).json({ message: 'email is already in user' });
@@ -66,18 +89,19 @@ router.post('/', (req, res) => {
       return bcrypt
         .genSalt()
         .then((salt) => {
-          return bcrypt.hash(password, salt);
+          return bcrypt.hash(defaultPassword, salt);
         })
         .then((hash) => {
-          return User.create({ email: email, password: hash });
+          return User.create({
+            ...newUserCredentials,
+            password: hash,
+          });
         })
         .then((newUser) => {
-          // passport login
-          req.login(newUser, (err) => {
-            if (err)
-              res.status(500).json({ message: 'Error while logging in' });
-            else res.json(newUser);
-          });
+          // send the new user
+          return res.json(newUser);
+
+          // TODO: send email to adress!
         });
     })
     .catch((err) => {
@@ -85,27 +109,26 @@ router.post('/', (req, res) => {
     });
 });
 
-router.get('/', (req, res) => {
-  // access restriction to admin and moderator
-  // outsource
+// Read all Users
 
-  const propertyIds = req.query.property
-    ? req.query.property.split(',')
-    : false;
+router.get('/', (req, res) => {
+  const propertyId = req.query.property ? req.query.property.split(',') : false;
 
   if (!req.user) {
     console.log('unauthorized');
     return res.status(401).json({ message: 'Unautorized action' });
   }
   console.log(propertyId);
-  User.find(propertyId ? { property: { $all: propertyIds } } : {})
+  User.find(propertyId ? { property: { $all: propertyId } } : {})
     .then((foundUsers) => {
       return res.json(foundUsers);
     })
     .catch((err) => {
-      res.status(500).json({ message: err.message });
+      return res.status(500).json({ message: err.message });
     });
 });
+
+// Read specific User
 
 router.get('/:userId', (req, res) => {
   // access restriction to admin and moderator
@@ -122,55 +145,107 @@ router.get('/:userId', (req, res) => {
       return res.json(foundUsers);
     })
     .catch((err) => {
-      res.status(500).json({ message: err.message });
+      return res.status(500).json({ message: err.message });
     });
 });
 
-router.patch('/:userId/edit', (req, res) => {
-  // access restriction to admin and moderator
-  // outsource
-  const userId = req.params.userId;
+// Update one user
 
+router.post('/:userId/edit', (req, res) => {
+  // access to the route
+  const userId = req.params.userId;
   const { lastName, firstName, email, password, phone, property } = req.body;
+  const updatedUser = {
+    ...req.body,
+  };
 
   if (!req.user) {
-    console.log('unauthorized');
     return res.status(401).json({ message: 'Unautorized action' });
   }
 
-  User.findByIdAndUpdate(userId, {
-    lastName,
-    firstName,
-    email,
-    password,
-    phone,
-    property,
-  })
-    .then((foundUsers) => {
-      return res.json(foundUsers);
-    })
-    .catch((err) => {
-      res.status(500).json({ message: err.message });
-    });
-});
-
-router.get('/:userId', (req, res) => {
-  // access restriction to admin and moderator
-  // outsource
-  const userId = req.params.userId;
-
-  if (!req.user) {
-    console.log('unauthorized');
+  if (req.user._id.toString() !== userId && req.user.role !== 'admin') {
     return res.status(401).json({ message: 'Unautorized action' });
   }
 
   User.findById(userId)
-    .then((foundUsers) => {
-      return res.json(foundUsers);
+    .then((foundUser) => {
+      console.log('foundUser:', foundUser);
+      console.log('updatedUser:', updatedUser);
+
+      return User.findByIdAndUpdate(
+        userId,
+        { ...foundUser._doc, ...updatedUser },
+        { new: true },
+      );
+
+      // User.findByIdAndUpdate(userId,)
+    })
+    .then((newUser) => {
+      return res.json(newUser);
     })
     .catch((err) => {
-      res.status(500).json({ message: err.message });
+      return res.status(500).json({ message: err.message });
     });
 });
+
+// Update User Password
+
+router.post('/:userId/resetpass', (req, res) => {
+  const userId = req.params.userId;
+  const { password, confirmPassword } = req.body;
+  const error = [];
+
+  // Access:
+  // could be used as overall middleware
+  if (!req.user) {
+    return res.status(401).json({ message: 'Unautorized action' });
+  }
+  // Just the client / user him self is allowed to change the password
+  if (req.user._id.toString() !== userId) {
+    return res.status(401).json({ message: 'Unautorized action' });
+  }
+
+  // Passwordvalidation
+  if (!validatePassword(password, confirmPassword, error)) {
+    const message = error.join(';');
+    return res.status(400).json({ message });
+  }
+
+  // Password generation and user update
+  return bcrypt
+    .genSalt()
+    .then((salt) => {
+      return bcrypt.hash(password, salt);
+    })
+    .then((hash) => {
+      return User.findByIdAndUpdate(userId, { password: hash });
+    })
+    .then((newUser) => {
+      // passport login
+      return res.json({ message: 'password changed' });
+    })
+    .catch((err) => res.status(500).json({ message: err.message }));
+});
+
+// Delete User
+
+router.delete(
+  '/:userId',
+  validateAccess(['admin', 'moderator']),
+  (req, res) => {
+    // access restriction to admin and moderator
+    // outsource
+    const userId = req.params.userId;
+    // just admins can delete one
+
+    User.deleteOne({ _id: userId })
+      .then((foundUsers) => {
+        return res.json(foundUsers);
+      })
+      .catch((err) => {
+        res.status(500).json({ message: err.message });
+      });
+  },
+);
 
 module.exports = router;
