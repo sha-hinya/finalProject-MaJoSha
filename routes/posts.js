@@ -17,7 +17,7 @@ router.get("/posts", (req, res) => {
   }
 
   Post.find()
-    .sort(sort)
+    //.sort(sort)
     .limit(10)
     .then(posts => {
       res.json(posts);

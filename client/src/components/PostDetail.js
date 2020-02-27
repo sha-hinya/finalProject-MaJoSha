@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 //import { Link } from "react-router-dom";
-import PostForm from "./PostForm";
+
 
 export default class PostDetail extends Component {
   state = {
@@ -51,7 +51,7 @@ export default class PostDetail extends Component {
         ) : (
           <Link to="/login">Login to upvote this post</Link>
         )} */}
-        <PostForm />
+      
       </div>
     );
   }
