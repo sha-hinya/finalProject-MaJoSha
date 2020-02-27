@@ -1,43 +1,59 @@
 // Test- finalProject
 
-import React from "react";
-import { Route } from "react-router-dom";
-import "./App.css";
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import './App.css';
+
+// Private Route Component
 
 // Navbar
-import Navbar from "./components/Navbar.js";
-import Signup from "./components/Signup.js";
-import Login from "./components/Login.js";
+import Navbar from './components/Navbar.js';
+import Signup from './components/Signup.js';
+import Login from './components/Login.js';
+
+// Pages
+
+import dashboard from './pages/dashboard';
+import LoginPage from './pages/login';
 
 // Posts
-import Posts from "./components/Posts.js";
-import PostDetail from "./components/PostDetail.js";
+import Posts from './components/Posts.js';
+import PostDetail from './components/PostDetail.js';
 
 // Announcements
-import Announcement from "./components/Announcement.js";
-import AnnouncementDetail from "./components/AnnouncementDetail.js";
-
+import Announcement from './components/Announcement.js';
+import AnnouncementDetail from './components/AnnouncementDetail.js';
 
 class App extends React.Component {
   state = {
-    user: this.props.user
+    user: this.props.user,
   };
 
-  setUser = userObj => {
+  setUser = (userObj) => {
     this.setState({
-      user: userObj
+      user: userObj,
     });
   };
 
   render() {
-    console.log("<App/> render: ", this.state.user);
+    console.log('Redirect?:', this.state.user);
+
+    const redirect = this.state.user === null ? true : false;
+
+    if (!!!this.state.user) {
+      return (
+        <div className='App'>
+          <LoginPage history={this.props.history} setUser={this.setUser} />
+        </div>
+      );
+    }
 
     return (
-      <div className="App">
+      <div className='App'>
         <Navbar setUser={this.setUser} user={this.state.user} />
         <Route
-          path="/signup"
-          render={props => (
+          path='/signup'
+          render={(props) => (
             <Signup
               history={props.history}
               // {...props}
@@ -46,28 +62,19 @@ class App extends React.Component {
           )}
           // component={Signup}
         />
-        <Route
-          path="/login"
-          render={props => (
-            <Login history={props.history} setUser={this.setUser} />
-          )}
-        />
-
         {/* posts */}
-        <Route exact path="/" render={props => <Posts {...props} />} />
+        <Route exact path='/' render={(props) => <Posts {...props} />} />
         <Route
           exact
-          path="/posts/:postId"
-          render={props => <PostDetail {...props} />}
+          path='/posts/:postId'
+          render={(props) => <PostDetail {...props} />}
         />
-
         {/* postings */}
-        <Route exact path="/" render={props => <Announcement {...props} />} />
-
+        <Route exact path='/' render={(props) => <Announcement {...props} />} />
         <Route
           exact
-          path="/announcements/:announcementId"
-          render={props => <AnnouncementDetail {...props} />}
+          path='/announcements/:announcementId'
+          render={(props) => <AnnouncementDetail {...props} />}
         />
       </div>
     );
