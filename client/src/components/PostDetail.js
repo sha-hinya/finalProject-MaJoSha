@@ -44,7 +44,7 @@ export default class PostDetail extends Component {
         )}
 
         <p>posted on {new Date(post.created_at).toDateString()}</p>
-        <img className="postingImage" src={post.image} alt={post.title} />
+        <img className="announcementImage" src={post.image} alt={post.title} />
         {/* <p>Upvoted {post.upvote_count} times</p>
         {this.props.isLoggedIn ? (
           <button onClick={this.handleUpvote}>upvote</button>

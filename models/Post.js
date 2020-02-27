@@ -30,17 +30,17 @@ const postSchema = new Schema(
     dueDate: Date,
     archived: Boolean,
     private: Boolean,
-    voteCount: Number
+    voteCount: Number,
+    property: {
+      type: Schema.Types.ObjectId,
+      ref: "Property"
+    }
   },
   {
     timestamps: {
       createdAt: "created_at",
       updatedAt: "updated_at"
     },
-    property: {
-      type: Schema.Types.ObjectId,
-      ref: "Property"
-    }
   }
 );
 

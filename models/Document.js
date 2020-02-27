@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
 const documentSchema = new Schema(
   {
     title: String,
@@ -21,7 +20,5 @@ const documentSchema = new Schema(
     }
   }
 );
-
 const Document = mongoose.model("Document", documentSchema);
-
 module.exports = Document;

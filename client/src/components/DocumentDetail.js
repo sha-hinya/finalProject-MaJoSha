@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class DocumentDetail extends Component {
+class DocumentDetail extends Component {
   state = {
     document: null
   };
@@ -19,7 +19,7 @@ export default class DocumentDetail extends Component {
   render() {
     const document = this.state.document;
 
-    console.log("Document DETAIL ", this.state.document);
+    // console.log("Document DETAIL ", this.state.document);
 
     return (
       <div>
@@ -27,9 +27,11 @@ export default class DocumentDetail extends Component {
           {document.category} {document.title}
         </h2>
         <p>{document.url}</p>
-        <p>created on {new Date(announcement.created_at).toDateString()}</p>
-        <img class="postingImage" src={document.url} alt={document.title} />
+        <p>created on {new Date(document.created_at).toDateString()}</p>
+        <img class="announcementImage" src={document.url} alt={document.title} />
       </div>
     );
   }
 }
+
+export default DocumentDetail;
