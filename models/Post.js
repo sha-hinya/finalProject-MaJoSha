@@ -31,15 +31,16 @@ const postSchema = new Schema(
     archived: Boolean,
     private: Boolean,
     voteCount: Number
+    // property: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: "Property"
+    // }
   },
+  
   {
     timestamps: {
       createdAt: "created_at",
       updatedAt: "updated_at"
-    },
-    property: {
-      type: Schema.Types.ObjectId,
-      ref: "Property"
     }
   }
 );

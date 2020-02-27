@@ -4,8 +4,7 @@ import axios from "axios";
 export default class PostForm extends Component {
   state = {
     title: "",
-    content: "",
-    type: "text"
+    content: ""
   };
 
   handleChange = event => {
@@ -22,7 +21,7 @@ export default class PostForm extends Component {
     axios
       .post("/api/posts", {
         title: this.state.title,
-        type: this.state.type,
+
         content: this.state.content
       })
       .then(() => {
@@ -38,34 +37,29 @@ export default class PostForm extends Component {
 
   render() {
     return (
-      <form className="create-post" onSubmit={this.handleSubmit}>
-        <label htmlFor="title">Title</label>
-        <input
-          id="title"
-          name="title"
-          value={this.state.title}
-          onChange={this.handleChange}
-        />
+      <div>
+        <p> </p>
+        <form className="create-post" onSubmit={this.handleSubmit}>
+          <label htmlFor="title">Title</label>
+          <input
+            id="title"
+            name="title"
+            value={this.state.title}
+            onChange={this.handleChange}
+          />
+          <p> </p>
+          <label htmlFor="content">Content</label>
+          <input
+            id="content"
+            name="content"
+            value={this.state.content}
+            onChange={this.handleChange}
+          />
+          <p> </p>
 
-        <label htmlFor="content">Content</label>
-        <input
-          id="content"
-          name="content"
-          value={this.state.content}
-          onChange={this.handleChange}
-        />
-
-        <label htmlFor="type">Type</label>
-        <select
-          value={this.state.type}
-          name="type"
-          onChange={this.handleChange}
-        >
-          <option value="link">Link</option>
-          <option value="text">Text</option>
-        </select>
-        <button>New Post</button>
-      </form>
+          <button>Create new Post</button>
+        </form>
+      </div>
     );
   }
 }

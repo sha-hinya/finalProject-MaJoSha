@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const Document = require("../models/Document");
+const File = require("../models/File");
 
 //read all
 router.get("/", (req, res) => {
-  Document.find()
+  File.find()
     .sort(sort)
-    .then(document => {
-      res.json(document);
+    .then(file => {
+      res.json(file);
     })
     .catch(err => {
       res.status(500).json({
@@ -17,10 +17,10 @@ router.get("/", (req, res) => {
 
 // read ONE
 router.get("/:id", (req, res) => {
-  const documentId = req.params.id;
+  const fileId = req.params.id;
 
-  Document.findById(documentId)
-    .then(document => {
+  File.findById(fileId)
+    .then(file => {
       res.json(announcement);
     })
     .catch(err => {
@@ -33,7 +33,7 @@ router.get("/:id", (req, res) => {
 //delete
 router.get("/delete", (req, res, next) => {
   if (req.user) {
-    Document.deleteOne({ _id: req.user._id })
+    File.deleteOne({ _id: req.user._id })
       .then(() => {
         res.redirect("/");
       })

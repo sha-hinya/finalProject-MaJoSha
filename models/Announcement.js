@@ -19,23 +19,24 @@ const announcementSchema = new Schema(
       type: Boolean,
       default: true
     },
-    image: String
+    image: String,
     //default: "https://source.unsplash.com/random"
+    announcedAt: String,
+
+    unAnnouncedAt: String
   },
+
   {
     timestamps: {
       createdAt: "created_at",
       updatedAt: "updated_at"
-    },
-
-    announcedAt: String,
-    unAnnouncedAt: String,
-
-    property: {
-      type: Schema.Types.ObjectId,
-      ref: "Property"
     }
   }
+
+  // property: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Property"
+  // }
 );
 
 const Announcement = mongoose.model("Announcement", announcementSchema);

@@ -8,7 +8,7 @@ const user = {
     password: String,
     phone: Number ("0049 30 123456789"),
     accessRole: ["client", "registered", "moderator", "admin"],
-    property: [id,id],
+    property: "TestBuilding",
     upvotes: "",
 }
 
@@ -26,7 +26,7 @@ const post = {
     updatedAt: Date,
     closedAt: Date,
     voteCount: Number ,
-    property: "_id",
+    property: "TestBuilding",
 },
 
 // posts
@@ -43,7 +43,7 @@ const announcement = {
 }
 
 //
-const document = {
+const file = {
     title: String,
     url: String,
     category: String,

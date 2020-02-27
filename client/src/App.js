@@ -1,10 +1,8 @@
-// Test- finalProject
-
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import './App.css';
-
-// Private Route Component
+// Final Project
+//
+import React from "react";
+import { Route, Link } from "react-router-dom";
+import "./App.css";
 
 // Navbar
 import Navbar from './components/Navbar.js';
@@ -17,12 +15,17 @@ import dashboard from './pages/dashboard';
 import LoginPage from './pages/login';
 
 // Posts
-import Posts from './components/Posts.js';
-import PostDetail from './components/PostDetail.js';
+import Posts from "./components/Posts.js";
+import PostDetail from "./components/PostDetail.js";
+import PostForm from "./components/PostForm.js";
 
 // Announcements
-import Announcement from './components/Announcement.js';
-import AnnouncementDetail from './components/AnnouncementDetail.js';
+import Announcement from "./components/Announcement.js";
+import AnnouncementDetail from "./components/AnnouncementDetail.js";
+
+//Files
+import File from "./components/File.js";
+import FileDetail from "./components/FileDetail.js";
 
 class App extends React.Component {
   state = {
@@ -64,19 +67,46 @@ class App extends React.Component {
           )}
           // component={Signup}
         />
-        {/* posts */}
-        <Route exact path='/' render={(props) => <Posts {...props} />} />
+        <Route
+          path="/login"
+          render={props => (
+            <Login history={props.history} setUser={this.setUser} />
+          )}
+        />
+
+        {/* Announcement: List all Announcements */}
+        <Route exact path="/" render={props => <Announcement {...props} />} />
+
+        {/* Announcement: View one Announcement */}
+        <Route
+          exact
+          path="/announcements/:announcementId"
+          render={props => <AnnouncementDetail {...props} />}
+        />
+
+        {/* Post: Create form */}
+        <Route
+          exact
+          path="/posts"
+          render={props => <PostForm {...props} />}
+        ></Route>
+        <Link to="/posts"> new post </Link>
+
+        {/* Post: List all posts */}
+        <Route exact path="/" render={props => <Posts {...props} />} />
+
+        {/* Post: View one post */}
         <Route
           exact
           path='/posts/:postId'
           render={(props) => <PostDetail {...props} />}
         />
-        {/* postings */}
-        <Route exact path='/' render={(props) => <Announcement {...props} />} />
+        {/* files */}
+        <Route exact path="/" render={props => <File {...props} />} />
         <Route
           exact
-          path='/announcements/:announcementId'
-          render={(props) => <AnnouncementDetail {...props} />}
+          path="/files/:fileId"
+          render={props => <FileDetail {...props} />}
         />
       </div>
     );

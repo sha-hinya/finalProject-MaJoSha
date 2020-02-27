@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Avatar } from "@material-ui/core";
 
 const Navbar = props => {
   const logout = () => {
@@ -24,6 +25,7 @@ const Navbar = props => {
       <Link to="/">Home</Link>
       <Link to="/login">Login</Link>
       <Link to="/signup">Signup</Link>
+      <Avatar scr={this.props.user.image}
     </nav>
   );
 };

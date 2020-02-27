@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
+import PostForm from "./PostForm";
 
 export default class PostDetail extends Component {
   state = {
@@ -34,20 +35,23 @@ export default class PostDetail extends Component {
     return (
       <div>
         <h2>
-          [{post.type}] {post.title}
+          {post.type} {post.title}
         </h2>
         {post.type === "link" ? (
           <a href={post.content}>{post.content}</a>
         ) : (
           <p>{post.content}</p>
         )}
+
         <p>posted on {new Date(post.created_at).toDateString()}</p>
-        <p>Upvoted {post.upvote_count} times</p>
+        <img className="announcementImage" src={post.image} alt={post.title} />
+        {/* <p>Upvoted {post.upvote_count} times</p>
         {this.props.isLoggedIn ? (
           <button onClick={this.handleUpvote}>upvote</button>
         ) : (
           <Link to="/login">Login to upvote this post</Link>
-        )}
+        )} */}
+        <PostForm />
       </div>
     );
   }

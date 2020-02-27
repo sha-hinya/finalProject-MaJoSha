@@ -31,11 +31,18 @@ text_black: #222222,
 background_white: #FCF7FF
  */
 
-.postingscontainer {
-  background-color: #fcf7ff;
+
+.announcementContainer {
+  background-color: #ccd7ff;
+  color: #222222;
 }
 
-.postingImage {
+.postContainer {
+  background-color: #ccd7ff;
+  color: #222222;
+}
+
+.announcementImage {
   width: 150px;
   border-radius: 10px;
 }

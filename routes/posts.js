@@ -45,21 +45,14 @@ router.get("/posts/:id", (req, res) => {
 
 router.post("/posts", (req, res) => {
   // Todo: add a middleware to protect this route from non-logged in users
-
-  // const title = req.body.title;
-  // const type = req.body.type;
-  // const content = req.body.content
   const { title, type, content } = req.body;
 
   Post.create({
     title: title,
-    type: type,
-    content: content,
-    upvote_count: 0,
-    _author: req.user._id
+    content: content
   })
-    .then(postDocument => {
-      res.json(postDocument);
+    .then(postFile => {
+      res.json(postFile);
     })
     .catch(err => {
       res.status(500).json({
