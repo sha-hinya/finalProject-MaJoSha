@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Avatar } from '@material-ui/core';
+//import { Avatar } from '@material-ui/core';
 
 const Navbar = (props) => {
   const logout = () => {
