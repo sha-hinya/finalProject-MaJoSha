@@ -3,7 +3,6 @@ import axios from 'axios';
 
 import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
-import { makeStyles } from '@material-ui/core/styles';
 
 // components
 import PostForm from './PostForm';
@@ -11,57 +10,63 @@ import { CardContent } from '@material-ui/core';
 
 // icons
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import CachedIcon from '@material-ui/icons/Cached';
 import SyncSharpIcon from '@material-ui/icons/SyncSharp';
-import AddCircleOutlineSharpIcon from '@material-ui/icons/AddCircleOutlineSharp';
-
-const useStyles = makeStyles({
-  postsContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    minWidth: 275,
-    backgroundColor: 'darkgray',
-    margin: '1rem 0',
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-});
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import DoneIcon from '@material-ui/icons/Done';
+import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+import RadioButtonUncheckedOutlinedIcon from '@material-ui/icons/RadioButtonUncheckedOutlined';
 
 export const PostListItem = (props) => {
-  const classes = useStyles();
   const post = props.data;
   console.log(post);
 
   const getStatusIcon = () => {
-    console.log('getStatus', post.status);
-
     switch (post.status) {
       case 'open':
-        return <CheckCircleOutlineIcon />;
+        return <RadioButtonUncheckedOutlinedIcon fontSize='small' />;
       case 'accepted':
         return 'accepted';
+      case 'in progress':
+        return <SyncSharpIcon fontSize='small' />;
+      case 'done':
+        return <DoneIcon fontSize='small' />;
       default:
         return 'nix';
     }
   };
 
+  const getPassedHoursFromTimestamp = (timestamp) => {
+    const createdDate = new Date(timestamp);
+    const now = new Date();
+    let diff = Math.abs(now - createdDate) / 1000;
+    const days = Math.floor(diff / 86400);
+    diff -= days * 86400;
+    const hours = Math.floor(diff / 3600);
+    diff -= hours * 3600;
+    const minutes = Math.floor(diff / 60);
+    diff -= minutes * 60;
+
+    if (days > 1) {
+      return `${days}d`;
+    } else {
+      return `${hours}h ${minutes}m`;
+    }
+  };
+
   return (
     <Link to={`/posts/${post._id}`}>
-      <Card className={classes.postsContainer} key={post._id}>
+      <Card key={post._id}>
+        <img src={post.image} />
+        <div className='bg-overlay' />
         <CardContent>
-          {new Date(post.created_at).toDateString()}
-          {post.title}
-          {getStatusIcon()}
-          <image src={post.image} />
+          <div className='post-title'>{post.title}</div>
+
+          <div className='post-status'>
+            <div className='post-status-icon'> {getStatusIcon()}</div>
+            <div className='post-status-time'>
+              {getPassedHoursFromTimestamp(post.created_at)}
+            </div>
+          </div>
         </CardContent>
       </Card>
     </Link>
@@ -84,10 +89,6 @@ export const PostListItem = (props) => {
 export default class Posts extends Component {
   state = {
     posts: [],
-  };
-
-  classes = () => {
-    return useStyles();
   };
 
   componentDidMount() {
@@ -115,10 +116,11 @@ export default class Posts extends Component {
     const posts = this.state.posts;
     return (
       <div className='posts-wrapper'>
+        <p>Mitteilungen</p>
         <Link to='/posts/new'>
           <Card id='new-post'>
             <CardContent>
-              <AddCircleOutlineSharpIcon fontSize='large' />
+              <AddCircleIcon style={{ fontSize: '5rem' }} />
             </CardContent>
           </Card>
         </Link>
