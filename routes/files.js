@@ -17,11 +17,12 @@ router.get("/", (req, res) => {
 
 // read ONE
 router.get("/:id", (req, res) => {
+  console.log("JOJEAIJAEO");
   const fileId = req.params.id;
 
   File.findById(fileId)
     .then(file => {
-      res.json(announcement);
+      res.json(file);
     })
     .catch(err => {
       res.status(500).json({
