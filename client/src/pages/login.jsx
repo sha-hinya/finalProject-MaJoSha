@@ -3,6 +3,7 @@ import {
   Button,
   FormControl,
   TextField,
+  Container,
   //Input,
   //InputLabel,
 } from '@material-ui/core';
@@ -19,7 +20,6 @@ export default class login extends Component {
   }
 
   handleChange = (event) => {
-
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -37,7 +37,7 @@ export default class login extends Component {
       })
       .then((response) => {
         console.log(response);
-        
+
         this.props.setUser(response.data);
         this.props.history.push('/');
       })
@@ -48,7 +48,7 @@ export default class login extends Component {
 
   render() {
     return (
-      <>
+      <Container className='login'>
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit} autoComplete='on'>
           <FormControl>
@@ -79,7 +79,7 @@ export default class login extends Component {
             Login
           </Button>
         </form>
-      </>
+      </Container>
     );
   }
 }

@@ -1,8 +1,8 @@
 // Final Project
 //
-import React from "react";
-import { Route } from "react-router-dom";
-import "./App.scss";
+import React from 'react';
+import { Route } from 'react-router-dom';
+import './App.scss';
 
 // Navbar
 import Navbar from './components/Navbar.js';
@@ -22,8 +22,8 @@ import AnnouncementDetail from './components/AnnouncementDetail.js';
 // import AnDetail from './components/AnnouncementDetail.js';
 
 //Files
-//import File from "./components/File.js";
-import FileDetail from "./components/FileDetail.js";
+import File from './pages/files.jsx';
+import FileDetail from './components/FileDetail.js';
 //import { BottomNavigation } from "@material-ui/core";
 
 class App extends React.Component {
@@ -76,6 +76,14 @@ class App extends React.Component {
             render={(props) => <PostDetail {...props} />}
           />
           {/* files */}
+          <Route
+            exact
+            path='/files'
+            render={(props) => {
+              return <File {...props} />;
+            }}
+          />
+
           <Route
             exact
             path='/files/:fileId'

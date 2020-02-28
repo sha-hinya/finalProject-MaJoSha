@@ -34,14 +34,20 @@ export default function SimpleBottomNavigation() {
       showLabels
       //   className={classes.root}
     >
-      <Link to="/">
-        <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-      </Link>
-      <BottomNavigationAction label="Posts" icon={<MailIcon />} />
-      <BottomNavigationAction label="Calender" icon={<CalenderIcon />} />
-      <Link to="/files">
-        <BottomNavigationAction icon={<FileIcon />} />
-      </Link>
+      <BottomNavigationAction
+        component={Link}
+        to='/'
+        label='Home'
+        icon={<HomeIcon />}
+      />
+      <BottomNavigationAction label='Posts' icon={<MailIcon />} />
+      <BottomNavigationAction label='Calender' icon={<CalenderIcon />} />
+      <BottomNavigationAction
+        component={Link}
+        label='Documents'
+        to='files'
+        icon={<FileIcon />}
+      />
     </BottomNavigation>
   );
 }
