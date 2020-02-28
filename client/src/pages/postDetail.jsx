@@ -48,7 +48,7 @@ export default class postDetail extends Component {
     return (
       <Container className='post-detail'>
         <Paper elevation={1} variant='outlined'>
-          <img src={post?.image} />
+          <img src={post?.image} alt="postname" />
         </Paper>
         <div className='post-detail-action-icons'>
           <IconButton aria-label='delete'>

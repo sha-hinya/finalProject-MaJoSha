@@ -1,18 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import HomeIcon from '@material-ui/icons/Home';
-import MailIcon from '@material-ui/icons/Mail';
-import CalenderIcon from '@material-ui/icons/EventNote';
-import FileIcon from '@material-ui/icons/FileCopy';
+import React from "react";
+import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import BottomNavigation from "@material-ui/core/BottomNavigation";
+import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import HomeIcon from "@material-ui/icons/Home";
+import MailIcon from "@material-ui/icons/Mail";
+import CalenderIcon from "@material-ui/icons/EventNote";
+import FileIcon from "@material-ui/icons/FileCopy";
 
 const useStyles = makeStyles({
   root: {
-    width: 500,
+    width: 500
   },
-  stickToBottom: {},
+  stickToBottom: {
+    width: "100%",
+    position: "fixed",
+    bottom: 0,
+    zIndex: 100
+  }
 });
 
 export default function SimpleBottomNavigation() {
@@ -22,7 +27,7 @@ export default function SimpleBottomNavigation() {
   return (
     <BottomNavigation
       value={value}
-      className='bottom-nav'
+      className={classes.stickToBottom}
       onChange={(event, newValue) => {
         setValue(newValue);
       }}

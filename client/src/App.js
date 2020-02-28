@@ -22,7 +22,7 @@ import AnnouncementDetail from './components/AnnouncementDetail.js';
 // import AnDetail from './components/AnnouncementDetail.js';
 
 //Files
-import File from "./components/File.js";
+//import File from "./components/File.js";
 import FileDetail from "./components/FileDetail.js";
 //import { BottomNavigation } from "@material-ui/core";
 
