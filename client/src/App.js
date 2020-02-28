@@ -1,8 +1,8 @@
 // Final Project
 //
-import React from "react";
-import { Route, Link } from "react-router-dom";
-import "./App.css";
+import React from 'react';
+import { Route, Link } from 'react-router-dom';
+import './App.css';
 
 // Navbar
 import Navbar from './components/Navbar.js';
@@ -11,21 +11,21 @@ import Login from './components/Login.js';
 
 // Pages
 
-import dashboard from './pages/dashboard';
+import Dashboard from './pages/dashboard';
 import LoginPage from './pages/login';
 
 // Posts
-import Posts from "./components/Posts.js";
-import PostDetail from "./components/PostDetail.js";
-import PostForm from "./components/PostForm.js";
+
+import PostDetail from './components/PostDetail.js';
+import PostForm from './components/PostForm.js';
 
 // Announcements
-import Announcement from "./components/Announcement.js";
-import AnnouncementDetail from "./components/AnnouncementDetail.js";
+import Announcement from './components/Announcement.js';
+import AnnouncementDetail from './components/AnnouncementDetail.js';
 
 //Files
-import File from "./components/File.js";
-import FileDetail from "./components/FileDetail.js";
+import File from './components/File.js';
+import FileDetail from './components/FileDetail.js';
 
 class App extends React.Component {
   state = {
@@ -42,7 +42,7 @@ class App extends React.Component {
     console.log('Redirect?:', this.state.user);
 
     const redirect = this.state.user === null ? true : false;
-    
+
     // if you are logged out, you are automatically redirected to the LoginPage!
 
     if (!!!this.state.user) {
@@ -56,44 +56,25 @@ class App extends React.Component {
     return (
       <div className='App'>
         <Navbar setUser={this.setUser} user={this.state.user} />
-        <Route
-          path='/signup'
-          render={(props) => (
-            <Signup
-              history={props.history}
-              // {...props}
-              setUser={this.setUser}
-            />
-          )}
-          // component={Signup}
-        />
-        <Route
-          path="/login"
-          render={props => (
-            <Login history={props.history} setUser={this.setUser} />
-          )}
-        />
 
         {/* Announcement: List all Announcements */}
-        <Route exact path="/" render={props => <Announcement {...props} />} />
+        <Route exact path='/' render={(props) => <Dashboard {...props} />} />
 
         {/* Announcement: View one Announcement */}
         <Route
           exact
-          path="/announcements/:announcementId"
-          render={props => <AnnouncementDetail {...props} />}
+          path='/announcements/:announcementId'
+          render={(props) => <AnnouncementDetail {...props} />}
         />
 
         {/* Post: Create form */}
         <Route
           exact
-          path="/posts"
-          render={props => <PostForm {...props} />}
+          path='/posts'
+          render={(props) => <PostForm {...props} />}
         ></Route>
-        <Link to="/posts"> new post </Link>
 
         {/* Post: List all posts */}
-        <Route exact path="/" render={props => <Posts {...props} />} />
 
         {/* Post: View one post */}
         <Route
@@ -102,11 +83,11 @@ class App extends React.Component {
           render={(props) => <PostDetail {...props} />}
         />
         {/* files */}
-        <Route exact path="/" render={props => <File {...props} />} />
+        <Route exact path='/' render={(props) => <File {...props} />} />
         <Route
           exact
-          path="/files/:fileId"
-          render={props => <FileDetail {...props} />}
+          path='/files/:fileId'
+          render={(props) => <FileDetail {...props} />}
         />
       </div>
     );
