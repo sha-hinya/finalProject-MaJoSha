@@ -28,7 +28,7 @@ class FileDetail extends Component {
 
     return (
       <div>
-        <h2>{file.title}</h2>
+        <h2 style={{ border: "1px solid black" }}>{file.title}</h2>
         <p>{file.property}</p>
         <img src={file.url} alt={file.title} />
         <p>created on {new Date(file.created_at).toDateString()}</p>
