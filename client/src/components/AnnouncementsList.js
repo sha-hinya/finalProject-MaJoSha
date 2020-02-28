@@ -1,5 +1,5 @@
 // import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // const AnnouncementsList = props => {
 //   console.log(props.announcements);
@@ -69,28 +69,32 @@ const useStyles = makeStyles(theme => ({
  *   },
  * ];
  */
+
 export default function AnnouncementsList(props) {
   const classes = useStyles();
 
+  // <Link to={`/announcements/${announcement._id}`}>  </Link>
   return (
     <div className={classes.root}>
-    Announcements
+      {/* <p>Announcement List</p> */}
       <GridList className={classes.gridList} cols={2.5}>
         {props.announcements.map(announcement => (
           <GridListTile key={announcement.image}>
-            <img src={announcement.image} alt={announcement.title} />
-            <GridListTileBar
-              title={announcement.title}
-              classes={{
-                root: classes.titleBar,
-                title: classes.title
-              }}
-              actionIcon={
-                <IconButton aria-label={`star ${announcement.title}`}>
-                  <StarBorderIcon className={classes.title} />
-                </IconButton>
-              }
-            />
+            <Link to={`/announcements/${announcement._id}`}>
+              <img src={announcement.image} alt={announcement.title} />
+              <GridListTileBar
+                title={announcement.title}
+                classes={{
+                  root: classes.titleBar,
+                  title: classes.title
+                }}
+                actionIcon={
+                  <IconButton aria-label={`star ${announcement.title}`}>
+                    <StarBorderIcon className={classes.title} />
+                  </IconButton>
+                }
+              />{" "}
+            </Link>
           </GridListTile>
         ))}
       </GridList>
