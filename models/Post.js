@@ -19,7 +19,7 @@ const postSchema = new Schema(
       enum: [
         'open',
         'accepted',
-        'in Progress',
+        'in progress',
         'work done',
         'closed',
         'declined',

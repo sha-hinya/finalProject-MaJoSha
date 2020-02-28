@@ -1,7 +1,7 @@
 // Final Project
 //
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './App.scss';
 
 // Navbar
@@ -24,7 +24,7 @@ import AnnouncementDetail from './components/AnnouncementDetail.js';
 //Files
 import File from './components/File.js';
 import FileDetail from './components/FileDetail.js';
-import { BottomNavigation } from "@material-ui/core";
+//import { BottomNavigation } from "@material-ui/core";
 
 class App extends React.Component {
   state = {
@@ -40,7 +40,7 @@ class App extends React.Component {
   render() {
     console.log('Redirect?:', this.state.user);
 
-    const redirect = this.state.user === null ? true : false;
+    //const redirect = this.state.user === null ? true : false;
 
     // if you are logged out, you are automatically redirected to the LoginPage!
 

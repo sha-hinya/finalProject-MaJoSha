@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 
 // components
-import PostForm from './PostForm';
+//import PostForm from './PostForm';
 import { CardContent } from '@material-ui/core';
 
 // icons
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+//import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import SyncSharpIcon from '@material-ui/icons/SyncSharp';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import DoneIcon from '@material-ui/icons/Done';
-import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+//import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
 import RadioButtonUncheckedOutlinedIcon from '@material-ui/icons/RadioButtonUncheckedOutlined';
 
 export const PostListItem = (props) => {
@@ -56,7 +56,7 @@ export const PostListItem = (props) => {
   return (
     <Link to={`/posts/${post._id}`}>
       <Card key={post._id}>
-        <img src={post.image} />
+        <img src={post.image}  alt="ticket" />
         <div className='bg-overlay' />
         <CardContent>
           <div className='post-title'>{post.title}</div>
