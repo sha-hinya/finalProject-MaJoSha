@@ -2,30 +2,29 @@
 //
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 
 // Navbar
 import Navbar from './components/Navbar.js';
-import Signup from './components/Signup.js';
-import Login from './components/Login.js';
+
+import LabelBottomNavigation from './components/BottomNavigation.js'
 
 // Pages
-
 import Dashboard from './pages/dashboard';
 import LoginPage from './pages/login';
 
 // Posts
-
 import PostDetail from './components/PostDetail.js';
 import PostForm from './components/PostForm.js';
 
 // Announcements
-import Announcement from './components/Announcement.js';
 import AnnouncementDetail from './components/AnnouncementDetail.js';
+// import AnDetail from './components/AnnouncementDetail.js';
 
 //Files
 import File from './components/File.js';
 import FileDetail from './components/FileDetail.js';
+import { BottomNavigation } from "@material-ui/core";
 
 class App extends React.Component {
   state = {
@@ -89,6 +88,7 @@ class App extends React.Component {
           path='/files/:fileId'
           render={(props) => <FileDetail {...props} />}
         />
+        <LabelBottomNavigation/>
       </div>
     );
   }
