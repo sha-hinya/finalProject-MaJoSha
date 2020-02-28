@@ -32,37 +32,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-/**
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- * const tileData = [
- *   {
- *     img: image,
- *     title: 'Image',
- *     author: 'author',
- *   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
-
 export default function AnnouncementsList(props) {
   const classes = useStyles();
 
-  // <Link to={`/announcements/${announcement._id}`}>  </Link>
   return (
     <div className={classes.root}>
-      {/* <p>Announcement List</p> */}
       <GridList className={classes.gridList} cols={0.5}>
         {props.announcements.map(announcement => (
-          <Link to={`/announcement/${announcement._id}`}>
-            <Card key={announcement._id}>
-              {/* <img src={announcement.image} /> */}
-
+          <Link key={announcement._id} to={`/announcement/${announcement._id}`}>
+            <Card >
               <CardContent className={classes.card}>
                 <div className="announcement-title">{announcement.title}</div>
                 <div className="announcement-content">
@@ -82,21 +60,3 @@ export default function AnnouncementsList(props) {
     </div>
   );
 }
-
-// <GridListTile key={announcement.image}>
-//         <Link to={`/announcements/${announcement._id}`}>
-//           <img src={announcement.image} alt={announcement.title} />
-//           <GridListTileBar
-//             title={announcement.title}
-//             classes={{
-//               root: classes.titleBar,
-//               title: classes.title
-//             }}
-//             actionIcon={
-//               <IconButton aria-label={`star ${announcement.title}`}>
-//                 <StarBorderIcon className={classes.title} />
-//               </IconButton>
-//             }
-//           />{" "}
-//         </Link>
-//       </GridListTile>
