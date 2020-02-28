@@ -57,3 +57,25 @@ background_white: #FCF7FF
     background-color: green;
   }
 }
+
+.AnnouncementRoot {
+  flexgrow: 1;
+}
+
+.AnnouncementPaper {
+  padding-top: 20px;
+  margin: auto;
+  max-width: 500px;
+}
+
+.AnnouncementImage {
+  width: 128px;
+  height: 128px;
+}
+
+.AnnouncementImg {
+  margin: auto;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
