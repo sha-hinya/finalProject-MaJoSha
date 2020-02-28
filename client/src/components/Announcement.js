@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import axios from "axios";
-import AnnouncementsList from "./AnnouncementsList";
+import React, { Component } from 'react';
+import axios from 'axios';
+import AnnouncementsList from './AnnouncementsList';
 
 export default class Announcements extends Component {
   state = {
-    announcements: []
+    announcements: [],
   };
 
   componentDidMount() {
@@ -12,24 +12,24 @@ export default class Announcements extends Component {
   }
 
   getData = () => {
-    console.log("getData()");
-    axios.get("/api/announcements").then(response => {
+    console.log('getData()');
+    axios.get('/api/announcements').then((response) => {
       this.setState({
-        announcements: response.data
+        announcements: response.data,
       });
     });
   };
 
   getNewestAnnouncements = () => {
-    axios.get("/api/announcements?sortBy=created_at").then(response => {
+    axios.get('/api/announcements?sortBy=created_at').then((response) => {
       this.setState({
-        announcements: response.data
+        announcements: response.data,
       });
     });
   };
 
   render() {
-    console.log("<Announcements/> RENDER");
+    // console.log("<Announcements/> RENDER");
     return (
       <div>
         <AnnouncementsList announcements={this.state.announcements} />

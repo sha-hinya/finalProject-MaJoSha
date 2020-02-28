@@ -19,6 +19,7 @@ a {
   display: flex;
   flex-direction: column;
   .navbar {
+    color: white;
     position: fixed;
     flex: 1 1 10%;
     background-color: deepskyblue;
@@ -26,11 +27,18 @@ a {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-bottom: 20px;
+    padding: 1rem;
     z-index: 100;
+    .back-btn {
+      position: relative;
+      color: white;
+    }
+
     a {
       color: whitesmoke;
+      font-weight: bolder;
     }
   }
   .bottom-nav {

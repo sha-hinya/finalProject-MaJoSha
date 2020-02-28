@@ -29,12 +29,36 @@ import FileDetail from './components/FileDetail.js';
 class App extends React.Component {
   state = {
     user: this.props.user,
+    pageTitle: '',
+    backNavButton: false,
   };
 
   setUser = (userObj) => {
     this.setState({
       user: userObj,
     });
+  };
+  backButtonOn = () => {
+    console.log('backbutton on');
+    this.setState({
+      backNavButton: true,
+    });
+  };
+
+  backButtonOff = () => {
+    console.log('backbutton off');
+    this.setState({
+      backNavButton: false,
+    });
+  };
+
+  setPageTitle = (title) => {};
+
+  componentDidMount = () => {
+    const navbarHeight = document.getElementById('navbar').clientHeight;
+    const siteContentHeight = document.getElementById('site-content')
+      .clientHeight;
+    const bottomNavHeight = document.getElementById('bottom-nav').clientHeight;
   };
 
   render() {
@@ -48,12 +72,28 @@ class App extends React.Component {
       );
     }
 
+    const showBackButton = {
+      on: this.backButtonOn,
+      off: this.backButtonOff,
+    };
+
     return (
       <div className='App'>
-        <Navbar setUser={this.setUser} user={this.state.user} />
-        <div className='site-content'>
+        <Navbar
+          setUser={this.setUser}
+          showBackNavButton={this.state.backNavButton}
+          pageTitle={this.state.pageTitle}
+          user={this.state.user}
+        />
+        <div className='site-content' id='site-content'>
           {/* Announcement: List all Announcements */}
-          <Route exact path='/' render={(props) => <Dashboard {...props} />} />
+          <Route
+            exact
+            path='/'
+            render={(props) => (
+              <Dashboard {...props} backButton={showBackButton} />
+            )}
+          />
 
           {/* Announcement: View one Announcement */}
           <Route
@@ -73,7 +113,9 @@ class App extends React.Component {
           <Route
             exact
             path='/posts/:postId'
-            render={(props) => <PostDetail {...props} />}
+            render={(props) => (
+              <PostDetail {...props} backButton={showBackButton} />
+            )}
           />
           {/* files */}
           <Route

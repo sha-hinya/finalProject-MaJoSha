@@ -23,6 +23,7 @@ export default function SimpleBottomNavigation() {
     <BottomNavigation
       value={value}
       className='bottom-nav'
+      id='bottom-nav'
       onChange={(event, newValue) => {
         setValue(newValue);
       }}

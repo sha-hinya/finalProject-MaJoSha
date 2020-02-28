@@ -14,15 +14,13 @@ export default class postDetail extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.postId;
-    console.log('Mount');
+    console.log('Mount', this.props);
+    this.props.backButton.on();
 
     if (!!this.props.location.data) {
-      console.log('Data already loaded');
-      console.log(this.props.location.data);
       this.setState({
         post: this.props.location.data,
       });
-      console.log(this.state);
     } else {
       axios.get(`/api/posts/${id}`).then((response) => {
         this.setState({
@@ -45,6 +43,7 @@ export default class postDetail extends Component {
       return 'loading';
     }
     const post = this.state.post;
+    console.log(post);
     return (
       <Container className='post-detail'>
         <Paper elevation={1} variant='outlined'>
@@ -58,7 +57,8 @@ export default class postDetail extends Component {
             <EditIcon fontSize='large' />
           </IconButton>
         </div>
-        <div className='post-detail-title'>{post?.tilte}</div>
+        <div className='post-detail-title '>{post.title}</div>
+        <div className='content'>{post.content}</div>
       </Container>
     );
   }
