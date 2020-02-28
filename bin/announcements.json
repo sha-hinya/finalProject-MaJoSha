@@ -1,6 +1,6 @@
 [
   {
-    "title": "Announcement: Front door maintainence works",
+    "title": "Front door maintainence works",
     "content": "Please be advised that there will be a new front door installed.",
     "visibility": true,
     "author": "the management",
@@ -11,7 +11,7 @@
     "unAnnouncedAt": "2020-02-26T18:25:43.511Z"
   },
   {
-    "title": "Announcement: Garden works",
+    "title": "Garden works",
     "content": "On week 12 there will extensive garden works going on.",
     "visibility": true,
     "author": "the management",
@@ -22,7 +22,7 @@
     "unAnnouncedAt": "2020-02-26T18:25:43.511Z"
   },
   {
-    "title": "Announcement: Water pipe replacement",
+    "title": "Water pipe replacement",
     "content": "Starting from next monthe the pipesystem will be replaced. Please expect water outages.",
     "visibility": true,
     "author": "the management",
