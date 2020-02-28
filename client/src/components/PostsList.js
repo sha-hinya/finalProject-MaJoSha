@@ -1,19 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const PostsList = props => {
-  return props.posts.map(post => {
-    return (
-      <div className="postContainer" key={post._id}>
-      <p key={post._id}>
-        {new Date(post.created_at).toDateString()}
-        
-          <Link to={`/posts/${post._id}`}> {post.title} </Link>
-        
-      </p>
-      </div>
-    );
-  });
-};
-
-export default PostsList;
