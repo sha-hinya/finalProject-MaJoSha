@@ -32,6 +32,7 @@ export default class Files extends Component {
     console.log("< Files/> RENDER");
     return (
       <div>
+        <h3>Files</h3>
         <FilesList files={this.state.files} />
       </div>
     );

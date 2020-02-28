@@ -6,10 +6,12 @@ const FilesList = props => {
   return props.files.map(file => {
     return (
       <div className="announcementContainerage" key={file._id}>
-        <p>{file.title} </p>
-
         <Link to={`/files/${file._id}`}>
-          <p>{file.content}</p>
+          <p>{file.title} </p>
+          <p>{file.category}</p>
+          <p>{file.property}</p>
+          <p></p>
+          <img src={file.url} alt={file.title} />
         </Link>
       </div>
     );

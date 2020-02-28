@@ -1,22 +1,44 @@
 [
   {
-    "title": "Facility manager checklist",
+    "title": "Facility manager tasks",
     "userId": [],
     "category": "Contracts",
     "property": "TestBulding",
-    "url": "http://wohnzimmer-kassel-magazin.de/wp-content/uploads/Checkliste-Treppenhausreinigung.pdf",
-    "createdAt": "2020-02-26T18:25:43.511Z",
+    "url": "https://wohnungswirtschaft.online/wp-content/uploads/2016/10/GK-Hauswartkosten.png",
+    "createdAt": "2020-01-26T18:25:43.511Z",
     "updatedAt": "2020-02-26T18:25:43.511Z",
     "announcedAt": "2020-02-26T15:57:50.596+00:00",
     "unAnnouncedAt": "2020-02-26T15:57:50.596+00:00"
   },
   {
-    "title": "Register as a resident",
+    "title": "Deposit Details",
+    "userId": [],
+    "category": "General Information",
+    "property": "TestBulding",
+    "url": "https://www.hausfrage.de/wp-content/uploads/webgrafiken/umziehen/mietkaution-fakten.png",
+    "createdAt": "2020-01-20T18:25:43.511Z",
+    "updatedAt": "2020-02-26T18:25:43.511Z",
+    "announcedAt": "2020-02-26T15:57:50.596+00:00",
+    "unAnnouncedAt": "2020-02-26T15:57:50.596+00:00"
+  },
+  {
+    "title": "Checklist Moving New Apertment",
     "userId": [],
     "category": "Protocol",
     "property": "TestBulding",
-    "url": "https://service.berlin.de/dienstleistung/120686/pdf/",
-    "createdAt": "2020-02-26T18:25:43.511Z",
+    "url": "https://www.hausfrage.de/wp-content/uploads/webgrafiken/umziehen/mietwohnung-pruefen-vor-dem-einzug.png",
+    "createdAt": "2020-01-16T18:25:43.511Z",
+    "updatedAt": "2020-02-26T18:25:43.511Z",
+    "announcedAt": "2020-02-26T15:57:50.596+00:00",
+    "unAnnouncedAt": "2020-02-26T15:57:50.596+00:00"
+  },
+  {
+    "title": "Waste separation",
+    "userId": [],
+    "category": "General Information",
+    "property": "TestBulding",
+    "url": "https://www.nabu.de/imperia/md/nabu/images/publikationen/nabu-publikationen/broschueren-flyer/171129-nabu-kleiner_muellratgeber.png",
+    "createdAt": "2020-02-18T18:25:43.511Z",
     "updatedAt": "2020-02-26T18:25:43.511Z",
     "announcedAt": "2020-02-26T15:57:50.596+00:00",
     "unAnnouncedAt": "2020-02-26T15:57:50.596+00:00"

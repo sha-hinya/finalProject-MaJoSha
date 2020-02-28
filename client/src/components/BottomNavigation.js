@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
@@ -14,9 +15,18 @@ const useStyles = makeStyles({
   stickToBottom: {
     width: "100%",
     position: "fixed",
-    bottom: 0
+    bottom: 0,
+    zIndex: 100
   }
 });
+
+const styles = {
+  stickToBottom: {
+    width: "100%",
+    position: "fixed",
+    bottom: 0
+  }
+};
 
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
@@ -35,7 +45,9 @@ export default function SimpleBottomNavigation() {
       <BottomNavigationAction label="Home" icon={<HomeIcon />} />
       <BottomNavigationAction label="Posts" icon={<MailIcon />} />
       <BottomNavigationAction label="Calender" icon={<CalenderIcon />} />
-      <BottomNavigationAction label="Documents" icon={<FileIcon />} />
+      <Link to="/files">
+        <BottomNavigationAction label="Documents" icon={<FileIcon />} />
+      </Link>
     </BottomNavigation>
   );
 }
