@@ -20,14 +20,6 @@ const useStyles = makeStyles({
   }
 });
 
-const styles = {
-  stickToBottom: {
-    width: "100%",
-    position: "fixed",
-    bottom: 0
-  }
-};
-
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -42,11 +34,13 @@ export default function SimpleBottomNavigation() {
       showLabels
       //   className={classes.root}
     >
-      <BottomNavigationAction label="Home" icon={<HomeIcon />} />
+      <Link to="/">
+        <BottomNavigationAction label="Home" icon={<HomeIcon />} />
+      </Link>
       <BottomNavigationAction label="Posts" icon={<MailIcon />} />
       <BottomNavigationAction label="Calender" icon={<CalenderIcon />} />
       <Link to="/files">
-        <BottomNavigationAction label="Documents" icon={<FileIcon />} />
+        <BottomNavigationAction icon={<FileIcon />} />
       </Link>
     </BottomNavigation>
   );
