@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import FilesList from './FilesList';
+import FilesList from '../components/FilesList';
+import { Container } from '@material-ui/core';
 
 export default class Files extends Component {
   state = {
@@ -31,10 +32,10 @@ export default class Files extends Component {
   render() {
     console.log('< Files/> RENDER');
     return (
-      <div>
+      <Container>
         <h3>Files</h3>
         <FilesList files={this.state.files} />
-      </div>
+      </Container>
     );
   }
 }
