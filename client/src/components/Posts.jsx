@@ -18,7 +18,7 @@ import RadioButtonUncheckedOutlinedIcon from '@material-ui/icons/RadioButtonUnch
 
 export const PostListItem = (props) => {
   const post = props.data;
-  console.log(post);
+
 
   const getStatusIcon = () => {
     switch (post.status) {
@@ -48,13 +48,15 @@ export const PostListItem = (props) => {
 
     if (days > 1) {
       return `${days}d`;
+    } else if (hours > 1) {
+      return `${hours}h`;
     } else {
-      return `${hours}h ${minutes}m`;
+      return `${minutes}m`;
     }
   };
 
   return (
-    <Link to={`/posts/${post._id}`}>
+    <Link to={{ pathname: `/posts/${post._id}`, data: post }}>
       <Card key={post._id}>
         <img src={post.image}  alt="ticket" />
         <div className='bg-overlay' />

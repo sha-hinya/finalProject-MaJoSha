@@ -13,7 +13,6 @@ const Navbar = (props) => {
   if (props.user) {
     return (
       <nav className='navbar'>
-        <Link to='/'>Home</Link>
         <Link onClick={logout} to='/'>
           Logout
         </Link>
