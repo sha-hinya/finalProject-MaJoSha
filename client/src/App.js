@@ -76,7 +76,6 @@ class App extends React.Component {
             render={(props) => <PostDetail {...props} />}
           />
           {/* files */}
-          <Route exact path='/' render={(props) => <File {...props} />} />
           <Route
             exact
             path='/files/:fileId'
