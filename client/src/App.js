@@ -15,7 +15,7 @@ import Dashboard from './pages/dashboard';
 import LoginPage from './pages/login';
 
 // Posts
-import Posts from './components/Posts.js';
+
 import PostDetail from './components/PostDetail.js';
 import PostForm from './components/PostForm.js';
 
@@ -73,10 +73,8 @@ class App extends React.Component {
           path='/posts'
           render={(props) => <PostForm {...props} />}
         ></Route>
-        <Link to='/posts'> new post </Link>
 
         {/* Post: List all posts */}
-        <Route exact path='/' render={(props) => <Posts {...props} />} />
 
         {/* Post: View one post */}
         <Route
