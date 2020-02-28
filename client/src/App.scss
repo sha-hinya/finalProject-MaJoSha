@@ -4,21 +4,8 @@
 
 html,
 body {
-  width: 100%;
-  height: 100%;
-}
-.navbar {
-  background-color: deepskyblue;
-  min-height: 50px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-bottom: 20px;
-}
-
-.navbar a {
-  color: whitesmoke;
+  width: 100vw;
+  height: 100vh;
 }
 
 a {
@@ -27,7 +14,44 @@ a {
 }
 
 .App {
+  position: relative;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  .navbar {
+    position: fixed;
+    flex: 1 1 10%;
+    background-color: deepskyblue;
+    min-height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    z-index: 100;
+    a {
+      color: whitesmoke;
+    }
+  }
+  .bottom-nav {
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    bottom: 0;
+    opacity: 1;
+    z-index: 100;
+  }
+  .site-content {
+    padding: 15% 0;
+    position: fixed;
+    flex-basis: 80%;
+    width: 100%;
+    height: 100vh;
+    .MuiContainer-root {
+      height: 100%;
+      overflow: scroll;
+    }
+  }
 }
 
 /*  our color scheme:
@@ -95,6 +119,7 @@ background_white: #FCF7FF
         #000000 100%
       );
     }
+
     .MuiCardContent-root {
       display: flex;
       flex-direction: column;
@@ -122,6 +147,23 @@ background_white: #FCF7FF
         }
       }
     }
+  }
+}
+
+.post-detail {
+  height: 50%;
+  .MuiPaper-root {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .post-detail-action-icons {
+    display: flex;
+    justify-content: flex-end;
   }
 }
 

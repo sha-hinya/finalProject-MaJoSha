@@ -12,19 +12,17 @@ const useStyles = makeStyles({
     width: 500,
   },
   stickToBottom: {
-    width: '100%',
-    position: 'fixed',
-    bottom: 0,
+    
   },
 });
 
 const styles = {
-    stickToBottom: {
-      width: '100%',
-      position: 'fixed',
-      bottom: 0,
-    },
-  };
+  stickToBottom: {
+    width: '100%',
+    position: 'fixed',
+    bottom: 0,
+  },
+};
 
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
@@ -33,17 +31,17 @@ export default function SimpleBottomNavigation() {
   return (
     <BottomNavigation
       value={value}
-      className={classes.stickToBottom}
+      className="bottom-nav"
       onChange={(event, newValue) => {
         setValue(newValue);
       }}
       showLabels
-    //   className={classes.root}
+      //   className={classes.root}
     >
-      <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-      <BottomNavigationAction label="News" icon={<MailIcon />} />
-      <BottomNavigationAction label="Calender" icon={<CalenderIcon />} />
-      <BottomNavigationAction label="Documents" icon={<FileIcon />} />
+      <BottomNavigationAction label='Home' icon={<HomeIcon />} />
+      <BottomNavigationAction label='News' icon={<MailIcon />} />
+      <BottomNavigationAction label='Calender' icon={<CalenderIcon />} />
+      <BottomNavigationAction label='Documents' icon={<FileIcon />} />
     </BottomNavigation>
   );
 }

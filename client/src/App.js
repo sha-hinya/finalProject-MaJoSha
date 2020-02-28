@@ -7,14 +7,14 @@ import './App.scss';
 // Navbar
 import Navbar from './components/Navbar.js';
 
-import LabelBottomNavigation from './components/BottomNavigation.js'
+import LabelBottomNavigation from './components/BottomNavigation.js';
 
 // Pages
 import Dashboard from './pages/dashboard';
 import LoginPage from './pages/login';
 
 // Posts
-import PostDetail from './components/PostDetail.js';
+import PostDetail from './pages/postDetail.jsx';
 import PostForm from './components/PostForm.js';
 
 // Announcements
@@ -24,7 +24,7 @@ import AnnouncementDetail from './components/AnnouncementDetail.js';
 //Files
 import File from './components/File.js';
 import FileDetail from './components/FileDetail.js';
-import { BottomNavigation } from "@material-ui/core";
+import { BottomNavigation } from '@material-ui/core';
 
 class App extends React.Component {
   state = {
@@ -38,10 +38,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log('Redirect?:', this.state.user);
-
-    const redirect = this.state.user === null ? true : false;
-
     // if you are logged out, you are automatically redirected to the LoginPage!
 
     if (!!!this.state.user) {
@@ -55,40 +51,39 @@ class App extends React.Component {
     return (
       <div className='App'>
         <Navbar setUser={this.setUser} user={this.state.user} />
+        <div className='site-content'>
+          {/* Announcement: List all Announcements */}
+          <Route exact path='/' render={(props) => <Dashboard {...props} />} />
 
-        {/* Announcement: List all Announcements */}
-        <Route exact path='/' render={(props) => <Dashboard {...props} />} />
+          {/* Announcement: View one Announcement */}
+          <Route
+            exact
+            path='/announcements/:announcementId'
+            render={(props) => <AnnouncementDetail {...props} />}
+          />
 
-        {/* Announcement: View one Announcement */}
-        <Route
-          exact
-          path='/announcements/:announcementId'
-          render={(props) => <AnnouncementDetail {...props} />}
-        />
+          {/* Post: Create form */}
+          <Route
+            exact
+            path='/posts'
+            render={(props) => <PostForm {...props} />}
+          ></Route>
 
-        {/* Post: Create form */}
-        <Route
-          exact
-          path='/posts'
-          render={(props) => <PostForm {...props} />}
-        ></Route>
-
-        {/* Post: List all posts */}
-
-        {/* Post: View one post */}
-        <Route
-          exact
-          path='/posts/:postId'
-          render={(props) => <PostDetail {...props} />}
-        />
-        {/* files */}
-        <Route exact path='/' render={(props) => <File {...props} />} />
-        <Route
-          exact
-          path='/files/:fileId'
-          render={(props) => <FileDetail {...props} />}
-        />
-        <LabelBottomNavigation/>
+          {/* Post: View one post */}
+          <Route
+            exact
+            path='/posts/:postId'
+            render={(props) => <PostDetail {...props} />}
+          />
+          {/* files */}
+          <Route exact path='/' render={(props) => <File {...props} />} />
+          <Route
+            exact
+            path='/files/:fileId'
+            render={(props) => <FileDetail {...props} />}
+          />
+        </div>
+        <LabelBottomNavigation className='bottom-nav' />
       </div>
     );
   }
