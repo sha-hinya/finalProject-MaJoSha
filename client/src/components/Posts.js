@@ -13,6 +13,7 @@ import { CardContent } from '@material-ui/core';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import CachedIcon from '@material-ui/icons/Cached';
 import SyncSharpIcon from '@material-ui/icons/SyncSharp';
+import AddCircleOutlineSharpIcon from '@material-ui/icons/AddCircleOutlineSharp';
 
 const useStyles = makeStyles({
   postsContainer: {
@@ -114,11 +115,13 @@ export default class Posts extends Component {
     const posts = this.state.posts;
     return (
       <div className='posts-wrapper'>
-        <Card className='new-post'>
-          <CardContent>
-            <Link to='/posts/new'> new post </Link>
-          </CardContent>
-        </Card>
+        <Link to='/posts/new'>
+          <Card id='new-post'>
+            <CardContent>
+              <AddCircleOutlineSharpIcon fontSize='large' />
+            </CardContent>
+          </Card>
+        </Link>
 
         {posts.map((post) => {
           return <PostListItem key={post._id} data={post} />;

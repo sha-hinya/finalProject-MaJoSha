@@ -31,7 +31,6 @@ text_black: #222222,
 background_white: #FCF7FF
  */
 
-
 .announcementContainer {
   background-color: #ccd7ff;
   color: #222222;
@@ -45,4 +44,16 @@ background_white: #FCF7FF
 .announcementImage {
   width: 150px;
   border-radius: 10px;
+}
+
+.posts-wrapper {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  #new-post {
+    background-color: #222222;
+  }
+  .MuiCard-root {
+    background-color: green;
+  }
 }

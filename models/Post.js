@@ -17,12 +17,12 @@ const postSchema = new Schema(
     },
     status: {
       enum: [
-        'Open',
-        'Accepted',
-        'In Progress',
-        'Work done',
-        'Closed',
-        'Declined',
+        'open',
+        'accepted',
+        'in Progress',
+        'work done',
+        'closed',
+        'declined',
       ],
       type: String,
     },

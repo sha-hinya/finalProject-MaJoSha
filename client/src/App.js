@@ -2,7 +2,7 @@
 //
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 
 // Navbar
 import Navbar from './components/Navbar.js';
