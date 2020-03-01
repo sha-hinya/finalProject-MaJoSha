@@ -205,4 +205,38 @@ background_white: #FCF7FF
   margin: 5px;
   text-align: left;
   color: black;
+  display: flex;
+  flex-direction: row;
+}
+
+.fileCardsdate {
+  flex-basis: 30%;
+  padding-right: 20px;
+}
+
+.fileCardsTitle {
+  flex-basis: 35%;
+  padding-right: 20px;
+}
+
+.fileCardsCategory {
+  flex-basis: 35%;
+}
+
+.login {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+}
+
+.loginEmail {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+}
+
+.loginPassword {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
 }

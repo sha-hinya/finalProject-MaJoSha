@@ -54,12 +54,12 @@ class App extends React.Component {
 
   setPageTitle = (title) => {};
 
-  componentDidMount = () => {
-    const navbarHeight = document.getElementById('navbar').clientHeight;
-    const siteContentHeight = document.getElementById('site-content')
-      .clientHeight;
-    const bottomNavHeight = document.getElementById('bottom-nav').clientHeight;
-  };
+  // componentDidMount = () => {
+  //   const navbarHeight = document.getElementById('navbar').clientHeight;
+  //   const siteContentHeight = document.getElementById('site-content')
+  //     .clientHeight;
+  //   const bottomNavHeight = document.getElementById('bottom-nav').clientHeight;
+  // };
 
   render() {
     // if you are logged out, you are automatically redirected to the LoginPage!

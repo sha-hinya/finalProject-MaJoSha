@@ -48,11 +48,13 @@ export default class login extends Component {
 
   render() {
     return (
+      
       <Container className='login'>
-        <h1>Login</h1>
+        <h4>Enter you user details</h4>
         <form onSubmit={this.handleSubmit} autoComplete='on'>
           <FormControl>
             <TextField
+             className='loginEmail'
               name='email'
               id='email'
               type='email'
@@ -65,6 +67,7 @@ export default class login extends Component {
           </FormControl>
           <FormControl>
             <TextField
+            className='loginPassword'
               name='password'
               id='password'
               type='password'
