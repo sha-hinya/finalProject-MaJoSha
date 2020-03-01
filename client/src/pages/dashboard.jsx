@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 // Components
-import PostList from '../components/PostList.jsx';
-import Announcement from '../components/Announcement';
-import { Container } from '@material-ui/core';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import PostList from "../components/PostList.jsx";
+import Announcement from "../components/Announcement";
+import { Container } from "@material-ui/core";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 export default class dashboard extends Component {
   componentDidMount = () => {
@@ -14,11 +14,10 @@ export default class dashboard extends Component {
   render() {
     return (
       <Container>
-        {/* <p>This is the Dashboard</p> */}
-        <h3>
-          <LocationOnIcon />
-          Lobeckstraße 36-40, 10969 Berlin
-        </h3>
+        <div className="dashboardHeader">
+        <p> <LocationOnIcon />
+          Lobeckstraße 36-40, 10969 Berlin</p>
+        </div>
 
         <Announcement />
         <PostList {...this.props} />
