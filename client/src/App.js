@@ -1,64 +1,65 @@
 // Final Project
 //
-import React from 'react';
-import { Route } from 'react-router-dom';
-import './App.scss';
+import React from "react";
+import { Route } from "react-router-dom";
+import "./App.scss";
 
 // Navbar
-import Navbar from './components/Navbar.js';
+import Navbar from "./components/Navbar.js";
 
-import LabelBottomNavigation from './components/BottomNavigation.js';
+import LabelBottomNavigation from "./components/BottomNavigation.js";
 
 // Pages
-import Dashboard from './pages/dashboard';
-import LoginPage from './pages/login';
+import Dashboard from "./pages/dashboard";
+import LoginPage from "./pages/login";
 
 // Posts
-import PostDetail from './pages/postDetail.jsx';
-import PostForm from './components/PostForm.js';
+import PostDetail from "./pages/postDetail.jsx";
+import PostForm from "./components/PostForm.js";
 
 // Announcements
-import AnnouncementDetail from './components/AnnouncementDetail.js';
+import AnnouncementDetail from "./components/AnnouncementDetail.js";
 // import AnDetail from './components/AnnouncementDetail.js';
 
 //Files
-import File from './pages/files.jsx';
-import FileDetail from './components/FileDetail.js';
+import File from "./pages/files.jsx";
+import FileDetail from "./components/FileDetail.js";
 //import { BottomNavigation } from "@material-ui/core";
 
 class App extends React.Component {
   state = {
     user: this.props.user,
-    pageTitle: '',
-    backNavButton: false,
+    pageTitle: "",
+    backNavButton: false
   };
 
-  setUser = (userObj) => {
+  setUser = userObj => {
     this.setState({
-      user: userObj,
+      user: userObj
     });
   };
+
   backButtonOn = () => {
-    console.log('backbutton on');
+    console.log("backbutton on");
     this.setState({
-      backNavButton: true,
+      backNavButton: true
     });
   };
 
   backButtonOff = () => {
-    console.log('backbutton off');
+    console.log("backbutton off");
     this.setState({
-      backNavButton: false,
+      backNavButton: false
     });
   };
 
-  setPageTitle = (title) => {};
+  setPageTitle = title => {};
 
   componentDidMount = () => {
-    const navbarHeight = document.getElementById('navbar').clientHeight;
-    const siteContentHeight = document.getElementById('site-content')
-      .clientHeight;
-    const bottomNavHeight = document.getElementById('bottom-nav').clientHeight;
+    // const navbarHeight = document.getElementById('navbar').clientHeight;
+    // const siteContentHeight = document.getElementById('site-content')
+    //   .clientHeight;
+    // const bottomNavHeight = document.getElementById('bottom-nav').clientHeight;
   };
 
   render() {
@@ -66,7 +67,7 @@ class App extends React.Component {
 
     if (!!!this.state.user) {
       return (
-        <div className='App'>
+        <div className="App">
           <LoginPage history={this.props.history} setUser={this.setUser} />
         </div>
       );
@@ -74,23 +75,23 @@ class App extends React.Component {
 
     const showBackButton = {
       on: this.backButtonOn,
-      off: this.backButtonOff,
+      off: this.backButtonOff
     };
 
     return (
-      <div className='App'>
+      <div className="App">
         <Navbar
           setUser={this.setUser}
           showBackNavButton={this.state.backNavButton}
           pageTitle={this.state.pageTitle}
           user={this.state.user}
         />
-        <div className='site-content' id='site-content'>
+        <div className="site-content" id="site-content">
           {/* Announcement: List all Announcements */}
           <Route
             exact
-            path='/'
-            render={(props) => (
+            path="/"
+            render={props => (
               <Dashboard {...props} backButton={showBackButton} />
             )}
           />
@@ -98,41 +99,41 @@ class App extends React.Component {
           {/* Announcement: View one Announcement */}
           <Route
             exact
-            path='/announcements/:announcementId'
-            render={(props) => <AnnouncementDetail {...props} />}
+            path="/announcements/:announcementId"
+            render={props => <AnnouncementDetail {...props} />}
           />
 
           {/* Post: Create form */}
           <Route
             exact
-            path='/posts'
-            render={(props) => <PostForm {...props} />}
+            path="/posts"
+            render={props => <PostForm {...props} />}
           ></Route>
 
           {/* Post: View one post */}
           <Route
             exact
-            path='/posts/:postId'
-            render={(props) => (
+            path="/posts/:postId"
+            render={props => (
               <PostDetail {...props} backButton={showBackButton} />
             )}
           />
           {/* files */}
           <Route
             exact
-            path='/files'
-            render={(props) => {
+            path="/files"
+            render={props => {
               return <File {...props} />;
             }}
           />
 
           <Route
             exact
-            path='/files/:fileId'
-            render={(props) => <FileDetail {...props} />}
+            path="/files/:fileId"
+            render={props => <FileDetail {...props} />}
           />
         </div>
-        <LabelBottomNavigation className='bottom-nav' />
+        <LabelBottomNavigation className="bottom-nav" />
       </div>
     );
   }
