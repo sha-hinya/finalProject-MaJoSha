@@ -15,7 +15,6 @@ const FilesList = props => {
           <div className="fileCardsTitle">
             <h4>{file.title} </h4>
           </div>
-
           <div className="fileCardsCategory">
             <p>{file.category}</p>
           </div>
