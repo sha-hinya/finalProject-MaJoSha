@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Card from "@material-ui/core/Card";
-import { CardContent } from "@material-ui/core";
+// import Card from "@material-ui/core/Card";
+// import { CardContent } from "@material-ui/core";
 
 const FilesList = props => {
   console.log(props.files);
