@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 const FilesList = props => {
   console.log(props.files);
-  return props.files.map(file => {
+  return props.files.map(file => { 
     return (
-      <Link to={`/files/${file._id}`}>
+      <Link key={file._id} to={`/files/${file._id}`}>
         <div className="fileCards" key={file._id}>
           <div className="fileCardsTitle">
             <p>{new Date(file.created_at).toDateString()}</p>

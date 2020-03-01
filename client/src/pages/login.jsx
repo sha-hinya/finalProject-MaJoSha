@@ -59,7 +59,7 @@ export default class login extends Component {
                 name="email"
                 id="email"
                 type="email"
-                label="E-Mail-Adresse"
+                label="E-Mail"
                 variant="filled"
                 onChange={this.handleChange}
                 required
@@ -73,7 +73,7 @@ export default class login extends Component {
                 name="password"
                 id="password"
                 type="password"
-                label="Passwort"
+                label="Password"
                 variant="filled"
                 onChange={this.handleChange}
                 required
