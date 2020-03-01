@@ -1,8 +1,16 @@
 [
   {
-    "name": "test"
+    "property_name": "Techspace Headquarter",
+    "property_street": "Loberckstr.111",
+    "property_postal": "10036",
+    "property_city": "Berlin",
+    "property_units": "28"
   },
   {
-    "name": "test2"
+    "property_name": "Modulor Shopping Mall",
+    "property_street": "Moritzplat 2",
+    "property_postal": "10036",
+    "property_city": "Berlin",
+    "property_units": "5"
   }
 ]

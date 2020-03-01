@@ -1,6 +1,6 @@
 [
   {
-    "author": "Mr. Pink",
+    "author": "Armin",
     "image": "https://images.unsplash.com/photo-1576096876569-0cffb1b1268d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
     "content": "There's again a new graffitti on the wall",
@@ -12,20 +12,20 @@
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. Green",
+    "author": "Armin",
     "image": "https://images.unsplash.com/photo-1553816078-c95b2e4c8ef8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
     "content": "The front door lock is a new graffitti on the wall",
     "title": "graffitti on front wall",
     "status": "open",
-    
+
     "archived": false,
     "private": false,
     "voteCount": 0,
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. Brown",
+    "author": "Armin",
     "image": "https://images.unsplash.com/photo-1569592361267-eb7c752e80a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
     "content": "The roof is leaking",
@@ -37,7 +37,7 @@
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. White",
+    "author": "Max",
     "image": "https://images.unsplash.com/photo-1554283329-071a1ca2caef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
     "content": "During the night the elevator is making strange noises, please send a service team over",
@@ -49,7 +49,7 @@
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. Pink",
+    "author": "Max",
     "image": "https://images.unsplash.com/photo-1576096876569-0cffb1b1268d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
     "content": "There's again a new graffitti on the wall",
@@ -61,20 +61,20 @@
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. Green",
+    "author": "Melanie",
     "image": "https://images.unsplash.com/photo-1553816078-c95b2e4c8ef8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
     "content": "In the baseman are multiple new graffittis",
     "title": "New graffittis in the basement",
     "status": "open",
-    
+
     "archived": false,
     "private": false,
     "voteCount": 0,
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. Brown",
+    "author": "Melanie",
     "image": "https://images.unsplash.com/photo-1569592361267-eb7c752e80a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
     "content": "Water tank on the roof is full",
@@ -86,7 +86,7 @@
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. White",
+    "author": "Melanie",
     "image": "https://images.unsplash.com/photo-1554283329-071a1ca2caef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
     "content": "The Elevator will recieve a softwareupate that it will run faste",

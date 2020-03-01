@@ -7,13 +7,11 @@ import IconButton from "@material-ui/core/IconButton";
 //import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "2px 4px",
     display: "flex",
-    alignItems: "center",
-      
+    alignItems: "center"
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -45,8 +43,6 @@ export default function CustomizedSearchbar() {
       >
         <SearchIcon />
       </IconButton>
-      
-    
     </Paper>
   );
 }

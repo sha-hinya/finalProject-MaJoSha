@@ -14,6 +14,9 @@ const propertiesTest = require("../bin/properties.json");
 const Post = require("../models/Post");
 const posts = require("../bin/posts.json");
 
+const Property = require("../models/Property");
+const properties = require("../bin/properties.json");
+
 // Stack of promisses
 const promises = [];
 //mongoose.connect(process.env.MONGODB_URI, () => {
@@ -84,6 +87,16 @@ promises.push(
   Announcement.create(announcements)
     .then(result => {
       console.log(`Created ${result.length} announcements`);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+);
+Property.collection.drop();
+promises.push(
+  Property.create(properties)
+    .then(result => {
+      console.log(`Created ${result.length} properties`);
     })
     .catch(err => {
       console.log(err);
