@@ -218,7 +218,19 @@ a {
   flex-basis: 35%;
 }
 
-//-------------------Login Menu
+.fileCardsDetail {
+  margin: 5%;
+  border: 1px solid grey;
+  color: red;
+  border-radius: 10px;
+  background-color: rgba(195, 195, 195, 0.3);
+}
+
+.fileCardsDetail img {
+  width: 80vw;
+  // height: 9vw;
+}
+
 .login {
   margin: 5px;
   text-align: center;
