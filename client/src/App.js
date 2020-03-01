@@ -55,7 +55,6 @@ class App extends React.Component {
 
   setPageTitle = title => {};
 
-<<<<<<< HEAD
   componentDidMount = () => {
     // const navbarHeight = document.getElementById('navbar').clientHeight;
     // const siteContentHeight = document.getElementById('site-content')
