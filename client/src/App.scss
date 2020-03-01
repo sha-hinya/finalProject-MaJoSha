@@ -6,11 +6,12 @@ html,
 body {
   width: 100vw;
   height: 100vh;
+  font-family: 'Open Sans', ;
 }
 
 a {
   text-decoration: none;
-  color: #335cff;
+  color: #222222;
 }
 
 .App {
@@ -18,12 +19,14 @@ a {
   text-align: center;
   display: flex;
   flex-direction: column;
+  color: #222222;
   .navbar {
-    color: white;
-    position: fixed;
+        position: fixed;
     flex: 1 1 10%;
-    background-color: deepskyblue;
+    background-color:  #F7F7F7;
+    border-bottom: 1px solid;
     min-height: 50px;
+    max-height: 50px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -31,14 +34,15 @@ a {
     margin-bottom: 20px;
     padding: 1rem;
     z-index: 100;
+  
     .back-btn {
       position: relative;
-      color: white;
+      color: #222222;
     }
 
     a {
-      color: whitesmoke;
-      font-weight: bolder;
+      color: #222222;
+      font-weight: bold;
     }
   }
   .bottom-nav {
@@ -62,15 +66,6 @@ a {
   }
 }
 
-/*  our color scheme:
-button_active_dark_blue #335CFF,
-button_inactive_light_blue  #CCD7FF,
-call_to_action_red: #C97064
-resolved_green: #7A9B76
-in_progress_yellow: #BE7C4D
-text_black: #222222,
-background_white: #FCF7FF
- */
 
 .announcementContainer {
   background-color: #ccd7ff;
@@ -224,19 +219,51 @@ background_white: #FCF7FF
 }
 
 .login {
+  margin: 5px;
+  text-align: center;
+  color: black;
   display: flex;
-  flex-direction: row;
-  padding: 50px;
+  flex-direction: column;
+  margin: 50px;
+}
+
+.loginHeader {
+  color: #335CFF;
+  padding: 20px;
+  flex-basis: 25%;
+  border-top: 1px solid#335CFF;
+  
 }
 
 .loginEmail {
-  display: flex;
-  flex-direction: row;
-  padding: 50px;
+  padding: 20px;
+  flex-basis: 25%;
+  
+  
 }
 
 .loginPassword {
-  display: flex;
-  flex-direction: row;
-  padding: 50px;
+  padding: 20px;
+  flex-basis: 25%;
+ 
 }
+.loginButton {
+  color: #335CFF;
+  padding: 20px;
+  flex-basis: 25%;
+  border-bottom: 1px solid #335CFF;
+}
+
+
+
+
+
+/*  our color scheme:
+button_active_dark_blue #335CFF,
+button_inactive_light_blue  #CCD7FF,
+call_to_action_red: #C97064
+resolved_green: #7A9B76
+in_progress_yellow: #BE7C4D
+text_black: #222222,
+background_white: #FCF7FF
+ */
