@@ -1,86 +1,91 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Button,
   FormControl,
   TextField,
-  Container,
+  Container
   //Input,
   //InputLabel,
-} from '@material-ui/core';
-import axios from 'axios';
+} from "@material-ui/core";
+import axios from "axios";
 
 export default class login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: ""
     };
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
-    console.log('submit: ');
+    console.log("submit: ");
     console.log(this.state);
 
     axios
-      .post('/api/auth/login', {
+      .post("/api/auth/login", {
         email: this.state.email,
-        password: this.state.password,
+        password: this.state.password
       })
-      .then((response) => {
+      .then(response => {
         console.log(response);
 
         this.props.setUser(response.data);
-        this.props.history.push('/');
+        this.props.history.push("/");
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   };
 
   render() {
     return (
-      
-      <Container className='login'>
-        <h4>Enter you user details</h4>
-        <form onSubmit={this.handleSubmit} autoComplete='on'>
+      <Container className="login">
+      <div className="loginHeader">
+        <h3>Welcome to h.express</h3>
+        </div>
+        <form onSubmit={this.handleSubmit} autoComplete="on">
           <FormControl>
-            <TextField
-             className='loginEmail'
-              name='email'
-              id='email'
-              type='email'
-              label='E-Mail-Adresse'
-              variant='filled'
-              onChange={this.handleChange}
-              required
-              autoComplete='current-email'
-            />
+            <div className="loginEmail">
+              <TextField
+                name="email"
+                id="email"
+                type="email"
+                label="E-Mail-Adresse"
+                variant="filled"
+                onChange={this.handleChange}
+                required
+                autoComplete="current-email"
+              />
+            </div>
           </FormControl>
           <FormControl>
-            <TextField
-            className='loginPassword'
-              name='password'
-              id='password'
-              type='password'
-              label='Passwort'
-              variant='filled'
-              onChange={this.handleChange}
-              required
-              autoComplete='current-password'
-            />
+            <div className="loginPassword">
+              <TextField
+                name="password"
+                id="password"
+                type="password"
+                label="Passwort"
+                variant="filled"
+                onChange={this.handleChange}
+                required
+                autoComplete="current-password"
+              />
+            </div>
           </FormControl>
-          <Button size='large' color='inherit' type='submit'>
+          <div className="loginButton">
+          <Button size="large" color="inherit" type="submit">
             Login
           </Button>
+          </div>
         </form>
       </Container>
     );
