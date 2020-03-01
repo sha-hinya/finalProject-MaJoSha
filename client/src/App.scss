@@ -223,6 +223,19 @@ background_white: #FCF7FF
   flex-basis: 35%;
 }
 
+.fileCardsDetail {
+  margin: 5%;
+  border: 1px solid grey;
+  color: red;
+  border-radius: 10px;
+  background-color: rgba(195, 195, 195, 0.3);
+}
+
+.fileCardsDetail img {
+  width: 80vw;
+  // height: 9vw;
+}
+
 .login {
   display: flex;
   flex-direction: row;
