@@ -30,7 +30,7 @@ class FileDetail extends Component {
           <CardContent>
             <div>
               <div>
-                <h2>{file.title}</h2>
+                <h2> Title:{file.title}</h2>
                 <p>{file.property}</p>
                 <p>{file.category}</p>
                 <p> created on {new Date(file.created_at).toDateString()}</p>
