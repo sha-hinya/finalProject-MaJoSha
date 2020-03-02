@@ -21,7 +21,7 @@ const properties = require("../bin/properties.json");
 const promises = [];
 //mongoose.connect(process.env.MONGODB_URI, () => {
 mongoose.connect(
-  "mongodb://localhost:27017/MaJoSha",
+  process.env.MONGODB_URI,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("Connected to DB");
