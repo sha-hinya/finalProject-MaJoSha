@@ -15,7 +15,7 @@ import LoginPage from "./pages/login";
 
 // Posts
 import PostDetail from "./pages/postDetail.jsx";
-import PostForm from "./components/PostForm.js";
+import PostForm from "./pages/postForm.jsx";
 
 // Announcements
 import AnnouncementDetail from "./components/AnnouncementDetail.js";
@@ -86,53 +86,51 @@ class App extends React.Component {
           pageTitle={this.state.pageTitle}
           user={this.state.user}
         />
-        <div className="site-content" id="site-content">
-          {/* Announcement: List all Announcements */}
-          <Route
-            exact
-            path="/"
-            render={props => (
-              <Dashboard {...props} backButton={showBackButton} />
-            )}
-          />
+        {/* <div className="site-content" id="site-content"> */}
+        {/* Announcement: List all Announcements */}
+        <Route
+          exact
+          path="/"
+          render={props => <Dashboard {...props} backButton={showBackButton} />}
+        />
 
-          {/* Announcement: View one Announcement */}
-          <Route
-            exact
-            path="/announcements/:announcementId"
-            render={props => <AnnouncementDetail {...props} />}
-          />
+        {/* Announcement: View one Announcement */}
+        <Route
+          exact
+          path="/announcements/:announcementId"
+          render={props => <AnnouncementDetail {...props} />}
+        />
 
-          {/* Post: Create form */}
-          <Route
-            exact
-            path="/posts"
-            render={props => <PostForm {...props} />}
-          ></Route>
+        {/* Post: Create form */}
+        <Route
+          exact
+          path="/posts/new"
+          render={props => <PostForm {...props} backButton={showBackButton} />}
+        ></Route>
 
-          {/* Post: View one post */}
-          <Route
-            exact
-            path="/posts/:postId"
-            render={props => (
-              <PostDetail {...props} backButton={showBackButton} />
-            )}
-          />
-          {/* files */}
-          <Route
-            exact
-            path="/files"
-            render={props => {
-              return <File {...props} />;
-            }}
-          />
+        {/* Post: View one post */}
+        <Route
+          exact
+          path="/posts/:postId"
+          render={props => (
+            <PostDetail {...props} backButton={showBackButton} />
+          )}
+        />
+        {/* files */}
+        <Route
+          exact
+          path="/files"
+          render={props => {
+            return <File {...props} />;
+          }}
+        />
 
-          <Route
-            exact
-            path="/files/:fileId"
-            render={props => <FileDetail {...props} />}
-          />
-        </div>
+        <Route
+          exact
+          path="/files/:fileId"
+          render={props => <FileDetail {...props} />}
+        />
+        {/* </div> */}
         <LabelBottomNavigation className="bottom-nav" />
       </div>
     );

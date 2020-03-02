@@ -27,8 +27,8 @@ export default function SimpleBottomNavigation() {
   return (
     <BottomNavigation
       value={value}
-      className='bottom-nav'
-      id='bottom-nav'
+      className="bottom-nav"
+      id="bottom-nav"
       onChange={(event, newValue) => {
         setValue(newValue);
       }}
@@ -37,16 +37,16 @@ export default function SimpleBottomNavigation() {
     >
       <BottomNavigationAction
         component={Link}
-        to='/'
-        label='Home'
+        to="/"
+        label="Home"
         icon={<HomeIcon />}
       />
-      <BottomNavigationAction label='Posts' icon={<MailIcon />} />
-      <BottomNavigationAction label='Calender' icon={<CalenderIcon />} />
+      <BottomNavigationAction label="Posts" icon={<MailIcon />} />
+      <BottomNavigationAction label="Calender" icon={<CalenderIcon />} />
       <BottomNavigationAction
         component={Link}
-        label='Documents'
-        to='files'
+        label="Documents"
+        to="/files"
         icon={<FileIcon />}
       />
     </BottomNavigation>
