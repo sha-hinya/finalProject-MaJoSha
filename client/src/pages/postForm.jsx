@@ -10,6 +10,7 @@ export default class PostForm extends Component {
   };
   componentDidMount() {
     this.props.backButton.on();
+    this.props.setPageTitle("New Message");
   }
 
   handleChange = event => {

@@ -53,14 +53,15 @@ class App extends React.Component {
     });
   };
 
-  setPageTitle = title => {};
-
-  componentDidMount = () => {
-    // const navbarHeight = document.getElementById('navbar').clientHeight;
-    // const siteContentHeight = document.getElementById('site-content')
-    //   .clientHeight;
-    // const bottomNavHeight = document.getElementById('bottom-nav').clientHeight;
+  setPageTitle = title => {
+    this.setState({
+      pageTitle: title
+    });
   };
+
+  // componentDidMount = () => {
+  //   this.setPageTitle("House Log");
+  // };
 
   render() {
     // if you are logged out, you are automatically redirected to the LoginPage!
@@ -91,7 +92,13 @@ class App extends React.Component {
         <Route
           exact
           path="/"
-          render={props => <Dashboard {...props} backButton={showBackButton} />}
+          render={props => (
+            <Dashboard
+              {...props}
+              backButton={showBackButton}
+              setPageTitle={this.setPageTitle}
+            />
+          )}
         />
 
         {/* Announcement: View one Announcement */}
@@ -105,7 +112,13 @@ class App extends React.Component {
         <Route
           exact
           path="/posts/new"
-          render={props => <PostForm {...props} backButton={showBackButton} />}
+          render={props => (
+            <PostForm
+              {...props}
+              backButton={showBackButton}
+              setPageTitle={this.setPageTitle}
+            />
+          )}
         ></Route>
 
         {/* Post: View one post */}
