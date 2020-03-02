@@ -13,10 +13,10 @@ const FilesList = props => {
             <h4>{file.title} </h4>
           </div>
           <div className="fileCardsCategory">
-            <p>{file.category}</p>
+            <h4>{file.category}</h4>
           </div>
           <div className="fileCardsTitle">
-            <p>{new Date(file.created_at).toLocaleDateString("de-De")}</p>
+            <h3>{new Date(file.created_at).toLocaleDateString("de-De")}</h3>
           </div>
         </div>
       </Link>
