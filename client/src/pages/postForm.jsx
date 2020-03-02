@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Container, Paper, Button } from "@material-ui/core";
+import { Container, Paper } from "@material-ui/core";
 import CropFreeIcon from "@material-ui/icons/CropFree";
 
 export default class PostForm extends Component {
