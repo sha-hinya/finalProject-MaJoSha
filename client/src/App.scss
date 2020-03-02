@@ -45,6 +45,14 @@ a {
       color: #222222;
     }
 
+    .nav-title {
+      // position: relative;
+      // text-transform: capitalize;
+      letter-spacing: 2px;
+      color: #222222;
+      
+    }
+
     a {
       color: #222222;
       font-weight: bold;
@@ -317,6 +325,7 @@ a {
   flex-basis: 25%;
   border-top: 1px solid#335CFF;
   letter-spacing: 3px;
+  font-weight: lighter;
 }
 
 .loginEmail {
