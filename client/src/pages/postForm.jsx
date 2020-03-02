@@ -72,7 +72,7 @@ export default class PostForm extends Component {
       if (!!this.state.photo) {
         return (
           <Paper elevation={1} variant="outlined" onClick={this.showImageMenu}>
-            <img src={this.state.photo} />
+            <img src={this.state.photo} alt={this.state.photo}/>
             <IconButton onClick={this.handleDelete}>
               <DeleteOutline />
             </IconButton>
