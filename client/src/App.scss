@@ -192,18 +192,11 @@ a {
   border-radius: 10px;
 }
 
-.AnnouncementPaper {
-  padding-top: 20px;
-  margin: auto;
-  font-weight: bold;
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-
 .announcement-content {
   margin: auto;
   font-weight: normal;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  max-lines: 1;
 }
 
 .announcement-time {
