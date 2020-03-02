@@ -1,6 +1,6 @@
 [
   {
-    "author": "Mr. Pink",
+    "author": "Armin",
     "image": "https://images.unsplash.com/photo-1576096876569-0cffb1b1268d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
     "content": "There's again a new graffitti on the wall",
@@ -12,20 +12,20 @@
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. Green",
-    "image": "https://images.unsplash.com/photo-1553816078-c95b2e4c8ef8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    "author": "Armin",
+    "image": "https://images.unsplash.com/photo-1541971616166-43e81a53ae79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
     "content": "The front door lock is a new graffitti on the wall",
-    "title": "graffitti on front wall",
+    "title": "Front door lock",
     "status": "open",
-    
+
     "archived": false,
     "private": false,
     "voteCount": 0,
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. Brown",
+    "author": "Armin",
     "image": "https://images.unsplash.com/photo-1569592361267-eb7c752e80a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
     "content": "The roof is leaking",
@@ -37,7 +37,7 @@
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. White",
+    "author": "Max",
     "image": "https://images.unsplash.com/photo-1554283329-071a1ca2caef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
     "content": "During the night the elevator is making strange noises, please send a service team over",
@@ -49,11 +49,11 @@
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. Pink",
-    "image": "https://images.unsplash.com/photo-1576096876569-0cffb1b1268d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    "author": "Max",
+    "image": "https://images.unsplash.com/photo-1545808623-2cb15a21f51d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
-    "content": "There's again a new graffitti on the wall",
-    "title": "graffitti on front wall",
+    "content": "Garden doesnt look good, beacuse none took care of this year",
+    "title": "garden services",
     "status": "open",
     "archived": false,
     "private": false,
@@ -61,21 +61,21 @@
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. Green",
-    "image": "https://images.unsplash.com/photo-1553816078-c95b2e4c8ef8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    "author": "Melanie",
+    "image": "https://images.unsplash.com/photo-1553816078-c95b2e4c8ef8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=6https://images.unsplash.com/photo-1475875370181-3bfbcc1b33fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1399&q=80",
     "dueDate": "",
-    "content": "In the baseman are multiple new graffittis",
-    "title": "New graffittis in the basement",
+    "content": "In the basemant are multiple new graffittis",
+    "title": "basement condition ",
     "status": "open",
-    
+
     "archived": false,
     "private": false,
     "voteCount": 0,
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. Brown",
-    "image": "https://images.unsplash.com/photo-1569592361267-eb7c752e80a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    "author": "Melanie",
+    "image": "https://images.unsplash.com/photo-1515112453700-b6029e810916?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "",
     "content": "Water tank on the roof is full",
     "title": "Water tank filled",
@@ -86,8 +86,8 @@
     "property": "TestBuilding"
   },
   {
-    "author": "Mr. White",
-    "image": "https://images.unsplash.com/photo-1554283329-071a1ca2caef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    "author": "Melanie",
+    "image": "https://images.unsplash.com/photo-1566714865935-725933a78973?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
     "dueDate": "",
     "content": "The Elevator will recieve a softwareupate that it will run faste",
     "title": "Elevator speed",

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import FilesList from "../components/FilesList";
 import { Container } from "@material-ui/core";
-import CustomizedSearchbar from "../components/SearchBar.js"
+import CustomizedSearchbar from "../components/SearchBar.js";
 
 export default class Files extends Component {
   state = {
@@ -34,8 +34,7 @@ export default class Files extends Component {
     console.log("< Files/> RENDER");
     return (
       <Container>
-      
-        <CustomizedSearchbar className="CustomizedSearchbar"/>
+        <CustomizedSearchbar className="CustomizedSearchbar" />
         <FilesList files={this.state.files} />
       </Container>
     );

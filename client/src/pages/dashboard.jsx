@@ -15,8 +15,11 @@ export default class dashboard extends Component {
     return (
       <Container>
         <div className="dashboardHeader">
-        <p> <LocationOnIcon />
-          Lobeckstraße 36-40, 10969 Berlin</p>
+          <p>
+            {" "}
+            <LocationOnIcon />
+            Lobeckstraße 36-40, 10969 Berlin
+          </p>
         </div>
 
         <Announcement />

@@ -49,8 +49,8 @@ export default class login extends Component {
   render() {
     return (
       <Container className="login">
-      <div className="loginHeader">
-        <h3>Welcome to h.express</h3>
+        <div className="loginHeader">
+          <h3>Welcome to h.express</h3>
         </div>
         <form onSubmit={this.handleSubmit} autoComplete="on">
           <FormControl>
@@ -59,7 +59,7 @@ export default class login extends Component {
                 name="email"
                 id="email"
                 type="email"
-                label="E-Mail-Adresse"
+                label="E-Mail"
                 variant="filled"
                 onChange={this.handleChange}
                 required
@@ -73,7 +73,7 @@ export default class login extends Component {
                 name="password"
                 id="password"
                 type="password"
-                label="Passwort"
+                label="Password"
                 variant="filled"
                 onChange={this.handleChange}
                 required
@@ -82,9 +82,9 @@ export default class login extends Component {
             </div>
           </FormControl>
           <div className="loginButton">
-          <Button size="large" color="inherit" type="submit">
-            Login
-          </Button>
+            <Button size="large" color="inherit" type="submit">
+              Login
+            </Button>
           </div>
         </form>
       </Container>

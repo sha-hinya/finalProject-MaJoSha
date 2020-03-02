@@ -1,40 +1,40 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 
-import { Link } from 'react-router-dom';
-import Card from '@material-ui/core/Card';
+import { Link } from "react-router-dom";
+import Card from "@material-ui/core/Card";
 
 // components
 //import PostForm from './PostForm';
-import { CardContent } from '@material-ui/core';
+import { CardContent } from "@material-ui/core";
 
 // icons
 //import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import SyncSharpIcon from '@material-ui/icons/SyncSharp';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import DoneIcon from '@material-ui/icons/Done';
+import SyncSharpIcon from "@material-ui/icons/SyncSharp";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
+import DoneIcon from "@material-ui/icons/Done";
 //import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
-import RadioButtonUncheckedOutlinedIcon from '@material-ui/icons/RadioButtonUncheckedOutlined';
+import RadioButtonUncheckedOutlinedIcon from "@material-ui/icons/RadioButtonUncheckedOutlined";
 
-export const PostListItem = (props) => {
+export const PostListItem = props => {
   const post = props.data;
 
   const getStatusIcon = () => {
     switch (post.status) {
-      case 'open':
-        return <RadioButtonUncheckedOutlinedIcon fontSize='small' />;
-      case 'accepted':
-        return 'accepted';
-      case 'in progress':
-        return <SyncSharpIcon fontSize='small' />;
-      case 'done':
-        return <DoneIcon fontSize='small' />;
+      case "open":
+        return <RadioButtonUncheckedOutlinedIcon fontSize="small" />;
+      case "accepted":
+        return "accepted";
+      case "in progress":
+        return <SyncSharpIcon fontSize="small" />;
+      case "done":
+        return <DoneIcon fontSize="small" />;
       default:
-        return 'nix';
+        return "nix";
     }
   };
 
-  const getPassedHoursFromTimestamp = (timestamp) => {
+  const getPassedHoursFromTimestamp = timestamp => {
     const createdDate = new Date(timestamp);
     const now = new Date();
     let diff = Math.abs(now - createdDate) / 1000;
@@ -57,13 +57,13 @@ export const PostListItem = (props) => {
   return (
     <Link to={{ pathname: `/posts/${post._id}`, data: post }}>
       <Card key={post._id}>
-        <img src={post.image} alt='ticket' />
-        <div className='bg-overlay' />
+        <img src={post.image} alt="ticket" />
+        <div className="bg-overlay" />
         <CardContent>
-          <div className='post-title'>{post.title}</div>
-          <div className='post-status'>
-            <div className='post-status-icon'> {getStatusIcon()}</div>
-            <div className='post-status-time'>
+          <div className="post-title">{post.title}</div>
+          <div className="post-status">
+            <div className="post-status-icon"> {getStatusIcon()}</div>
+            <div className="post-status-time">
               {getPassedHoursFromTimestamp(post.created_at)}
             </div>
           </div>
@@ -88,7 +88,7 @@ export const PostListItem = (props) => {
 
 export default class Posts extends Component {
   state = {
-    posts: [],
+    posts: []
   };
 
   componentDidMount() {
@@ -97,17 +97,17 @@ export default class Posts extends Component {
 
   getData = () => {
     // console.log("getData()");
-    axios.get('/api/posts').then((response) => {
+    axios.get("/api/posts").then(response => {
       this.setState({
-        posts: response.data,
+        posts: response.data
       });
     });
   };
 
   getNewestPosts = () => {
-    axios.get('/api/posts?sortBy=created_at').then((response) => {
+    axios.get("/api/posts?sortBy=created_at").then(response => {
       this.setState({
-        posts: response.data,
+        posts: response.data
       });
     });
   };
@@ -115,17 +115,17 @@ export default class Posts extends Component {
   render() {
     const posts = this.state.posts;
     return (
-      <div className='posts-wrapper'>
-        <p>Mitteilungen</p>
-        <Link to='/posts/new'>
-          <Card id='new-post'>
+      <div className="posts-wrapper">
+        <p>Messages</p>
+        <Link to="/posts/new">
+          <Card id="new-post">
             <CardContent>
-              <AddCircleIcon style={{ fontSize: '5rem' }} />
+              <AddCircleIcon style={{ fontSize: "5rem" }} />
             </CardContent>
           </Card>
         </Link>
 
-        {posts.map((post) => {
+        {posts.map(post => {
           return <PostListItem key={post._id} data={post} />;
         })}
       </div>

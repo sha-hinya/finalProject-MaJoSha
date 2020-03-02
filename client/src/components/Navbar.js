@@ -1,15 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 //import { Avatar } from '@material-ui/core';
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from "@material-ui/core/IconButton";
 
 // icons
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
-const Navbar = (props) => {
+const Navbar = props => {
   const logout = () => {
-    axios.delete('/api/auth/logout').then(() => {
+    axios.delete("/api/auth/logout").then(() => {
       props.setUser(null);
     });
   };
@@ -21,7 +21,7 @@ const Navbar = (props) => {
   const showBackButton = () => {
     if (props.showBackNavButton) {
       return (
-        <IconButton className='back-btn' onClick={goBackHistory}>
+        <IconButton className="back-btn" onClick={goBackHistory}>
           <ArrowBackIosIcon />
         </IconButton>
       );
@@ -29,10 +29,10 @@ const Navbar = (props) => {
   };
 
   return (
-    <nav className='navbar' id='navbar'>
+    <nav className="navbar" id="navbar">
       {showBackButton(props.showBackNavButton)}
-      <div className='nav-title'>{props.pageTitle}</div>
-      <Link onClick={logout} to='/'>
+      <div className="nav-title">{props.pageTitle}</div>
+      <Link onClick={logout} to="/">
         Logout
       </Link>
     </nav>

@@ -8,9 +8,9 @@ import { CardContent } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex",
-    flexWrap: "wrap",
-    overflow: "hidden"
+    // display: "flex",
+    // flexWrap: "wrap",
+    // overflow: "hidden"
   },
   gridList: {
     flexWrap: "nowrap",
@@ -19,12 +19,12 @@ const useStyles = makeStyles(theme => ({
     transform: "translateZ(0)"
   },
   title: {
-    backgroundColor: "yellow"
+    backgroundColor: "white"
   },
   card: {
     backgroundColor: "#335CFF",
-    color: "#FCF7FF",
-    alignItems: "left"
+    color: "#f7f7f7",
+    textAlgin: "left"
   },
   titleBar: {
     background:
@@ -40,7 +40,7 @@ export default function AnnouncementsList(props) {
       <GridList className={classes.gridList} cols={0.5}>
         {props.announcements.map(announcement => (
           <Link key={announcement._id} to={`/announcement/${announcement._id}`}>
-            <Card >
+            <Card>
               <CardContent className={classes.card}>
                 <div className="announcement-title">{announcement.title}</div>
                 <div className="announcement-content">

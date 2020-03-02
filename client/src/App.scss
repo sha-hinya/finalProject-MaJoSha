@@ -1,3 +1,4 @@
+// ----- CSS Structure: App / Posts / Announcements / Files / Login
 * {
   box-sizing: border-box;
 }
@@ -13,6 +14,10 @@ a {
   text-decoration: none;
   color: #222222;
 }
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+// -------------------- App -------------------- //
 
 .App {
   position: relative;
@@ -67,19 +72,10 @@ a {
   height: 100%;
 }
 
-.announcementContainer {
-  background-color: #ccd7ff;
-  color: #222222;
-}
-
+// -------------------- Posts -------------------- //
 .postContainer {
   background-color: #ccd7ff;
   color: #222222;
-}
-
-.announcementImage {
-  width: 150px;
-  border-radius: 10px;
 }
 
 .posts-wrapper {
@@ -185,7 +181,15 @@ a {
 }
 
 .AnnouncementRoot {
-  flexgrow: 1;
+  text-align: left;
+}
+.announcementContainer {
+  background-color: #ccd7ff;
+  color: #222222;
+}
+.announcementImage {
+  width: 150px;
+  border-radius: 10px;
 }
 
 .AnnouncementPaper {
@@ -209,11 +213,13 @@ a {
   font-size: 0.8rem;
 }
 
+// -------------------- Files -------------------- //
+
 .fileCards {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid#222222;
   margin: 5px;
   text-align: left;
-  color: black;
+  color: #222222;
   display: flex;
   flex-direction: row;
 }
@@ -244,6 +250,8 @@ a {
   width: 80vw;
   // height: 9vw;
 }
+
+// -------------------- Login -------------------- //
 
 .login {
   margin: 5px;
@@ -278,14 +286,15 @@ a {
 }
 
 .dashboardHeader {
-  border-bottom: 1px solid black;
+  // border-bottom: 1px solid black;
   margin: 5px;
   text-align: left;
-  color: black;
+  color: #222222;
   display: flex;
   flex-direction: row;
 }
 
+// -------------------- Color Scheme -------------------- //
 /*  our color scheme:
 button_active_dark_blue #335CFF,
 button_inactive_light_blue  #CCD7FF,
@@ -293,5 +302,5 @@ call_to_action_red: #C97064
 resolved_green: #7A9B76
 in_progress_yellow: #BE7C4D
 text_black: #222222,
-background_white: #FCF7FF
+background_white: #f7f7f7  /f7f7f7
  */

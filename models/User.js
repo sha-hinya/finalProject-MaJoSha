@@ -14,7 +14,7 @@ const userSchema = new Schema(
       type: String,
       enum: ["client", "moderator", "admin"]
     },
-    image: { type: String, default:'images/no-image.jpg'},
+    image: { type: String, default: "images/no-image.jpg" },
     property: String,
     // property: [
     //   {
