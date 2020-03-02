@@ -25,15 +25,13 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#335CFF",
     color: "#f7f7f7",
     textAlgin: "left",
-    height : "175px"
+    height: "175px"
   },
   titleBar: {
     background:
       "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)"
   }
 }));
-
-
 
 export default function AnnouncementsList(props) {
   const classes = useStyles();
@@ -46,7 +44,7 @@ export default function AnnouncementsList(props) {
             <Card>
               <CardContent className={classes.card}>
                 <div className="announcement-title">{announcement.title}</div>
-                <div className="announcement-content" >
+                <div className="announcement-content">
                   {/* {announcement.content} */}
                 </div>
                 <div className="post-status">
