@@ -24,7 +24,8 @@ const postSchema = new Schema(
         "closed",
         "declined"
       ],
-      type: String
+      type: String,
+      default: "open"
     },
     dueDate: Date,
     archived: Boolean,
