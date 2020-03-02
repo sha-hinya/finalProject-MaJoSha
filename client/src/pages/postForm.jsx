@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Container, Paper, Button } from "@material-ui/core";
+import CropFreeIcon from "@material-ui/icons/CropFree";
 
 export default class PostForm extends Component {
   state = {
     title: "",
     content: ""
   };
+  componentDidMount() {
+    this.props.backButton.on();
+  }
 
   handleChange = event => {
     this.setState({
@@ -26,7 +31,7 @@ export default class PostForm extends Component {
       })
       .then(() => {
         console.log("Response received, calling getData in <Posts/>");
-        this.props.refresh();
+
         this.setState({
           title: "",
           content: "",
@@ -37,9 +42,11 @@ export default class PostForm extends Component {
 
   render() {
     return (
-      <div>
-        <p> </p>
+      <Container className="post-new">
         <form className="create-post" onSubmit={this.handleSubmit}>
+          <Paper elevation={1} variant="outlined">
+            <CropFreeIcon />
+          </Paper>
           <label htmlFor="title">Title</label>
           <input
             id="title"
@@ -59,7 +66,7 @@ export default class PostForm extends Component {
 
           <button>Create new Post</button>
         </form>
-      </div>
+      </Container>
     );
   }
 }

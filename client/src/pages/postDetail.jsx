@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
+import { Container, Paper, IconButton, Divider } from "@material-ui/core";
+=======
 import { Container, Paper, IconButton } from "@material-ui/core";
+>>>>>>> 3bd244275a978ed8990ca0c60f3c4562d679b965
 
 // icons
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
@@ -57,8 +61,10 @@ export default class postDetail extends Component {
             <EditIcon fontSize="large" />
           </IconButton>
         </div>
+        <Divider />
         <div className="post-detail-title ">{post.title}</div>
-        <div className="content">{post.content}</div>
+        <div className="post-detail-content">{post.content}</div>
+        <div className="post-detail-author">{post.author}</div>
       </Container>
     );
   }
