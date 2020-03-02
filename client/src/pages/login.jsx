@@ -50,7 +50,8 @@ export default class login extends Component {
     return (
       <Container className="login">
         <div className="loginHeader">
-          <h3>Welcome to h.express</h3>
+          <h3>House Log</h3>
+          <h4>Manage properties efficiently.</h4>
         </div>
         <form onSubmit={this.handleSubmit} autoComplete="on">
           <FormControl>

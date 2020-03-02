@@ -21,7 +21,7 @@ export default class Calenders extends Component {
         },
         () => {
           axios.get("/api/posts").then(response => {
-            console.log(response.data);
+           // console.log(response.data);
             this.setState({
               calenders: [...this.state.calenders, ...response.data]
             });

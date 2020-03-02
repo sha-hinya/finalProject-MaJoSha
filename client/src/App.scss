@@ -196,16 +196,12 @@ a {
 }
 
 .announcement-content {
-  margin: auto;
   font-weight: normal;
   font-size: 0.8rem;
-  max-lines: 1;
-  align-content: left;
 }
 
 .announcement-time {
-  margin: auto;
-  font-weight: normal;
+  font-weight: bold;
   align-content: right;
   font-size: 0.8rem;
 }
@@ -301,6 +297,7 @@ a {
   display: flex;
   flex-direction: row;
   flex-basis: 50%;
+  align-items: center;
 }
 
 // -------------------- Login -------------------- //
@@ -319,6 +316,7 @@ a {
   padding: 20px;
   flex-basis: 25%;
   border-top: 1px solid#335CFF;
+  letter-spacing: 3px;
 }
 
 .loginEmail {

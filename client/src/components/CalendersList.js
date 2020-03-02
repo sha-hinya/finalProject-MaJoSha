@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
+import TimeAgo from "react-timeago";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -52,9 +53,11 @@ const CalendersList = props => {
         return (
           <Link key={calender._id} to={`/files/${calender._id}`}>
             <div className="calenderCards" key={calender._id}>
-              <div className="calenderCardsTitle">
-                <p>{new Date(calender.created_at).toDateString("de-De")}</p>
-              </div>
+              {/* <div className="calenderCardsTitle"> */}
+                {/* <p>{new Date(calender.created_at).toDateString("de-De")}</p> */}
+                <TimeAgo className="calenderCardsTitle" date={calender.created_at} />
+              {/* </div> */}
+
               <div className="calenderCardsTitle">
                 <h4>{calender.title} </h4>
               </div>

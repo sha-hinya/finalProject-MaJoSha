@@ -25,7 +25,7 @@ export default class PostForm extends Component {
 
   handleFileChange = event => {
     event.preventDefault();
-    console.log(event.target.files[0]);
+    //console.log(event.target.files[0]);
     this.setState({
       photo: URL.createObjectURL(event.target.files[0])
     });
@@ -37,7 +37,7 @@ export default class PostForm extends Component {
     });
   };
   handleDelete = event => {
-    console.log(event);
+    //console.log(event);
     this.setState({ photo: null });
   };
 
@@ -64,7 +64,7 @@ export default class PostForm extends Component {
   };
 
   showImageMenu = event => {
-    console.log(event);
+    //console.log(event);
   };
 
   render() {
