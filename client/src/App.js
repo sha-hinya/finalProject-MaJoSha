@@ -130,6 +130,13 @@ class App extends React.Component {
           path="/files/:fileId"
           render={props => <FileDetail {...props} />}
         />
+
+        <Route
+          exact
+          path="/announcement/:announcementId"
+          render={props => <AnnouncementDetail {...props} />}
+        />
+
         {/* </div> */}
         <LabelBottomNavigation className="bottom-nav" />
       </div>

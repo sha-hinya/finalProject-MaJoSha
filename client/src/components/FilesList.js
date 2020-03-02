@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // import { CardContent } from "@material-ui/core";
 
 const FilesList = props => {
-  console.log(props.files);
+  //console.log(props.files);
   return props.files.map(file => { 
     return (
       <Link key={file._id} to={`/files/${file._id}`}>

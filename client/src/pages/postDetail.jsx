@@ -14,7 +14,7 @@ export default class postDetail extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.postId;
-    console.log("Mount", this.props);
+    //console.log("Mount", this.props);
     this.props.backButton.on();
 
     if (!!this.props.location.data) {
@@ -43,7 +43,7 @@ export default class postDetail extends Component {
       return "loading";
     }
     const post = this.state.post;
-    console.log(post);
+    //console.log(post);
     return (
       <Container className="post-detail">
         <Paper elevation={1} variant="outlined">

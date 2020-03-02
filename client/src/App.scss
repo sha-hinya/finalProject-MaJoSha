@@ -213,7 +213,30 @@ a {
   font-size: 0.8rem;
 }
 
+.announcementCardsContainer {
+  //background-color: #f7f7f7;
+  padding: 20px;
+  text-align: left;
+}
+.announcementCardsDetail {
+  margin-top: 12%;
+  // border: 1px solid grey;
+  border-radius: 10px;
+  background-color: rgba(195, 195, 195, 0.3);
+  padding: 10px;
+}
+.announcementCardsDetail img {
+  width: 80vw;
+  // height: 9vw;
+}
+
 // -------------------- Files -------------------- //
+.fileCardsContainer {
+  //background-color: #f7f7f7; TO-DO Bottom Navigation rises if image small
+  padding: 5%;
+  padding-bottom: 60px;
+  text-align: left;
+}
 
 .fileCards {
   border-bottom: 1px solid#222222;
@@ -239,11 +262,11 @@ a {
 }
 
 .fileCardsDetail {
-  margin: 5%;
+  margin-top: 12%;
   // border: 1px solid grey;
-  color: #C97064;
   border-radius: 10px;
   background-color: rgba(195, 195, 195, 0.3);
+  padding: 10px;
 }
 
 .fileCardsDetail img {

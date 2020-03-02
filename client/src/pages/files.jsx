@@ -14,7 +14,7 @@ export default class Files extends Component {
   }
 
   getData = () => {
-    console.log("getData()");
+    //console.log("getData()");
     axios.get("/api/files").then(response => {
       this.setState({
         files: response.data
@@ -31,7 +31,7 @@ export default class Files extends Component {
   };
 
   render() {
-    console.log("< Files/> RENDER");
+    //console.log("< Files/> RENDER");
     return (
       <Container>
         <CustomizedSearchbar className="CustomizedSearchbar" />
