@@ -233,7 +233,6 @@ a {
   //background-color: #f7f7f7; TO-DO Bottom Navigation rises if image small
   padding: 5%;
   padding-bottom: 60px;
-  text-align: left;
 }
 
 .fileCards {
@@ -257,7 +256,6 @@ a {
 
 .fileCardsCategory {
   flex-basis: 35%;
-  // font-weight: bold;
 }
 
 //fileDetails Page
@@ -267,11 +265,18 @@ a {
   border-radius: 10px;
   background-color: rgba(195, 195, 195, 0.3);
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 .fileCardsDetail img {
   width: 80vw;
   // height: 9vw;
+}
+.file-detail-action-icons {
+  display: flex;
+  align-self: flex-end;
 }
 
 // -------------------- Login -------------------- //

@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import { Container, Paper, IconButton, Divider } from "@material-ui/core";
+
+// icons
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import EditIcon from "@material-ui/icons/Edit";
 
 class FileDetail extends Component {
   state = {
@@ -44,15 +49,16 @@ class FileDetail extends Component {
                 </p>
               </div>
             </div>
-          </CardContent>
-        </Card>
-
-        <Card className="fileCardsDetail">
-          <CardContent>
-            <div>
-              <div>
-                <img src={file.url} alt={file.title} />
-              </div>
+            <div className="file-detail-action-icons">
+              <IconButton aria-label="delete">
+                <DeleteOutlineIcon fontSize="large" />
+              </IconButton>
+              <IconButton aria-label="delete">
+                <EditIcon fontSize="large" />
+              </IconButton>
+            </div>
+            <div className="post-detail-action-icons">
+              <img src={file.url} alt={file.title} />
             </div>
           </CardContent>
         </Card>
