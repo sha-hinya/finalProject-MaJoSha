@@ -30,10 +30,18 @@ class FileDetail extends Component {
           <CardContent>
             <div>
               <div>
-                <h2> Title:{file.title}</h2>
-                <p>{file.property}</p>
-                <p>{file.category}</p>
-                <p> created on {new Date(file.created_at).toDateString()}</p>
+                <h2>{file.title}</h2>
+                {/* <p>{file.property}</p> */}
+                <h4>{file.category}</h4>
+                <h5>
+                  {"last update: "}
+                  {new Date(file.updated_at).toLocaleDateString("de-De")}
+                </h5>
+                <p>
+                  {
+                    "Since many of the waste consist of man-made materials, they decompose in landfills for hundreds of years, poisoning everything around. However there is only one method that helps to avoid destroying nature and not harmful to human health - recycling. To manage the smooth process of recycling we need to make our own contribution - please separate waste manually at the household."
+                  }
+                </p>
               </div>
             </div>
           </CardContent>
