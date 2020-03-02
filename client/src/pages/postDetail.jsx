@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import { Container, Paper, IconButton, Divider } from "@material-ui/core";
-=======
-import { Container, Paper, IconButton } from "@material-ui/core";
->>>>>>> 3bd244275a978ed8990ca0c60f3c4562d679b965
 
 // icons
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
