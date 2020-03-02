@@ -58,18 +58,12 @@ a {
     opacity: 1;
     z-index: 100;
   }
-  .site-content {
-    padding: 60px 0;
-    position: fixed;
-    flex-basis: 80%;
-    width: 100%;
-    height: 100vh;
+  .MuiContainer-root {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    height: 100%;
+    max-width: 780px;
   }
-}
-.MuiContainer-root {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  height: 100%;
 }
 
 // -------------------- Posts -------------------- //
@@ -146,6 +140,17 @@ a {
           margin-right: 0.2rem;
         }
       }
+    }
+  }
+}
+.post-new {
+  .MuiPaper-root {
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: auto;
     }
   }
 }
@@ -241,7 +246,7 @@ a {
 .fileCardsDetail {
   margin: 5%;
   // border: 1px solid grey;
-  color: #C97064;
+  color: #c97064;
   border-radius: 10px;
   background-color: rgba(195, 195, 195, 0.3);
 }
