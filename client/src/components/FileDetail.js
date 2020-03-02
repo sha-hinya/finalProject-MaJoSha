@@ -25,14 +25,14 @@ class FileDetail extends Component {
     }
 
     return (
-      <div>
+      <div className="fileCardsContainer">
         <Card className="fileCardsDetail">
           <CardContent>
             <div>
               <div>
-                <h2>{file.title}</h2>
+                <h2> Title:{file.title}</h2>
                 <p>{file.property}</p>
-                <p>created on {new Date(file.created_at).toDateString()}</p>
+                <p>{file.category}</p>
                 <p> created on {new Date(file.created_at).toDateString()}</p>
               </div>
             </div>

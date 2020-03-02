@@ -24,7 +24,8 @@ const useStyles = makeStyles(theme => ({
   card: {
     backgroundColor: "#335CFF",
     color: "#f7f7f7",
-    textAlgin: "left"
+    textAlgin: "left",
+    height: "175px"
   },
   titleBar: {
     background:
@@ -44,11 +45,12 @@ export default function AnnouncementsList(props) {
               <CardContent className={classes.card}>
                 <div className="announcement-title">{announcement.title}</div>
                 <div className="announcement-content">
-                  {announcement.content}
+                  {/* {announcement.content} */}
                 </div>
                 <div className="post-status">
                   {/* <div className='post-status-icon'> {getStatusIcon()}</div> */}
-                  <div className="announcement-status-time">
+                  <p></p>
+                  <div className="announcement-time">
                     {new Date(announcement.created_at).toDateString()}
                   </div>
                 </div>
