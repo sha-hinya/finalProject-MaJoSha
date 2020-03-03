@@ -21,13 +21,15 @@ const postSchema = new Schema(
         "accepted",
         "in progress",
         "work done",
-        "closed",
+        "done",
         "declined"
       ],
       type: String,
       default: "open"
     },
-    dueDate: Date,
+    dueDate: {
+      type: Date
+    },
     archived: Boolean,
     private: Boolean,
     voteCount: Number

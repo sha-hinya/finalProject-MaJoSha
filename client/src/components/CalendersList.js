@@ -55,7 +55,7 @@ const CalendersList = props => {
             <div className="calenderCards" key={calender._id}>
               {/* <div className="calenderCardsTitle"> */}
                 {/* <p>{new Date(calender.created_at).toDateString("de-De")}</p> */}
-                <TimeAgo className="calenderCardsTitle" date={calender.created_at} />
+                <TimeAgo className="calenderCardsTitle" date={calender.announcedAt} />
               {/* </div> */}
 
               <div className="calenderCardsTitle">
