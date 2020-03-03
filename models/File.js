@@ -11,6 +11,8 @@ const fileSchema = new Schema(
     // ] ,
     category: String,
     property: String,
+    announcedAt: Date,
+    unAnnnouncedAt: Date,
     url: String
   },
   {

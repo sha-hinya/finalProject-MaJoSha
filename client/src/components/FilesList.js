@@ -51,7 +51,7 @@ const FilesList = props => {
 
       {props.files.map(file => {
         return (
-          <Card className="cards-fileList">
+          <Card key={file._id} className="cards-fileList">
             <Link key={file._id} to={`/files/${file._id}`}>
               <div className="fileCards" key={file._id}>
                 <div className="fileCardsTitle">
@@ -60,9 +60,9 @@ const FilesList = props => {
                 <div className="fileCardsCategory">
                   <h4>{file.category}</h4>
                 </div>
-                <div className="fileCardsTitle">
+                <div className="fileCardsDate">
                   <h3>
-                    {new Date(file.created_at).toLocaleDateString("de-De")}
+                    {new Date(file.announcedAt).toLocaleDateString("de-De")}
                   </h3>
                 </div>
               </div>

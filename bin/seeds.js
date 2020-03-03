@@ -20,14 +20,13 @@ const properties = require("../bin/properties.json");
 // Stack of promisses
 const promises = [];
 mongoose.connect("mongodb://localhost:27017/MaJoSha", () => {
+  // mongoose.connect(
+  //   process.env.MONGODB_URI,
+  //   { useNewUrlParser: true, useUnifiedTopology: true },
+  //   () => {
 
-// mongoose.connect(
-//   process.env.MONGODB_URI,
-//   { useNewUrlParser: true, useUnifiedTopology: true },
-//   () => {
-    console.log("Connected to DB");
-  }
-);
+  console.log("Connected to DB");
+});
 const bcryptSalt = 10;
 const salt = bcrypt.genSaltSync(bcryptSalt);
 const hashPass = bcrypt.hashSync("1234", salt);

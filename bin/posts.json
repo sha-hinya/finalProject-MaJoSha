@@ -9,31 +9,31 @@
     "archived": false,
     "private": false,
     "voteCount": 0,
-    "property": "TestBuilding"
+    "property": "Co-Woring Space"
   },
   {
     "author": "Armin",
     "image": "https://images.unsplash.com/photo-1541971616166-43e81a53ae79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "2020-02-28T15:57:50.596+00:00",
-    "content": "The front door lock is a new graffitti on the wall",
-    "title": "Front door lock",
+    "content": "The front door lock is not accepting the code",
+    "title": "Front lock problem",
     "status": "in progress",
     "archived": false,
     "private": false,
     "voteCount": 0,
-    "property": "TestBuilding"
+    "property": "Co-Working Space"
   },
   {
     "author": "Armin",
     "image": "https://images.unsplash.com/photo-1569592361267-eb7c752e80a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "2020-02-30T15:57:50.596+00:00",
-    "content": "The roof is leaking",
-    "title": "New installed roof",
+    "content": "System outage in Kitchen and conference room",
+    "title": "Heating is down",
     "status": "done",
     "archived": false,
     "private": false,
     "voteCount": 0,
-    "property": "TestBuilding"
+    "property": "Co-Working Space"
   },
   {
     "author": "Max",
@@ -45,19 +45,19 @@
     "archived": false,
     "private": false,
     "voteCount": 0,
-    "property": "TestBuilding"
+    "property": "Co-Working Space"
   },
   {
     "author": "Max",
     "image": "https://images.unsplash.com/photo-1545808623-2cb15a21f51d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "2020-03-06T15:57:50.596+00:00",
     "content": "Garden doesnt look good, beacuse none took care of this year",
-    "title": "garden services",
+    "title": "garden service due",
     "status": "in progress",
     "archived": false,
     "private": false,
     "voteCount": 0,
-    "property": "TestBuilding"
+    "property": "Co-Working Space"
   },
   {
     "author": "Melanie",
@@ -69,30 +69,30 @@
     "archived": false,
     "private": false,
     "voteCount": 0,
-    "property": "TestBuilding"
+    "property": "Co-Working Space"
   },
   {
     "author": "Melanie",
     "image": "https://images.unsplash.com/photo-1515112453700-b6029e810916?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "dueDate": "2020-04-04T15:57:50.596+00:00",
     "content": "Water tank on the roof is full",
-    "title": "Water tank filled",
+    "title": "Water tank empty",
     "status": "open",
     "archived": false,
     "private": false,
     "voteCount": 0,
-    "property": "TestBuilding"
+    "property": "Co-Working Space"
   },
   {
     "author": "Melanie",
     "image": "https://images.unsplash.com/photo-1566714865935-725933a78973?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
     "dueDate": "2020-06-04T15:57:50.596+00:00",
     "content": "The Elevator will recieve a softwareupate that it will run faste",
-    "title": "Elevator speed",
+    "title": "Keycard doesnt work",
     "status": "open",
     "archived": false,
     "private": false,
     "voteCount": 0,
-    "property": "TestBuilding"
+    "property": "Co-Working Space"
   }
 ]
