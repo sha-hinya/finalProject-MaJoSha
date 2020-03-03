@@ -107,7 +107,7 @@ class App extends React.Component {
         {/* Announcement: View one Announcement */}
         <Route
           exact
-          path="/announcements/:announcementId"
+          path="/announcement/:announcementId"
           render={props => <AnnouncementDetail {...props} />}
         />
 

@@ -51,6 +51,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import TimeAgo from "react-timeago";
 
 class AnnouncementDetail extends Component {
   state = {
@@ -84,7 +85,9 @@ class AnnouncementDetail extends Component {
                 <h2>{announcement.title}</h2>
                 <p>{announcement.content}</p>
                 <p>
-                  updated on {new Date(announcement.updated_at).toDateString()}
+                  updated:
+                   {/* {new Date(announcement.updated_at).toDateString()} */}
+                  <TimeAgo  date={announcement.updated_at} />
                 </p>
               </div>
             </div>
