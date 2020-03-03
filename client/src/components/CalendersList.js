@@ -33,6 +33,7 @@ const CalendersList = props => {
   return (
     <div>
       <Paper component="form" className={classes.root}>
+     
         <InputBase
           className={classes.input}
           placeholder="Search calender"
@@ -47,6 +48,7 @@ const CalendersList = props => {
         >
           <SearchIcon />
         </IconButton>
+       
       </Paper>
 
       {props.calenders.map(calender => {
@@ -56,6 +58,7 @@ const CalendersList = props => {
               {/* <div className="calenderCardsTitle"> */}
                 {/* <p>{new Date(calender.created_at).toDateString("de-De")}</p> */}
                 <TimeAgo className="calenderCardsTitle" date={calender.announcedAt} />
+                <TimeAgo className="calenderCardsTitle" date={calender.dueDate} />
               {/* </div> */}
 
               <div className="calenderCardsTitle">
