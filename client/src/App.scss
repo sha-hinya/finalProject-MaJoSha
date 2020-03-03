@@ -9,6 +9,10 @@ body {
   height: 100vh;
   font-family: "Open Sans";
 }
+#root {
+  height: 100%;
+  width: 100%;
+}
 
 a {
   text-decoration: none;
@@ -25,6 +29,7 @@ a {
   display: flex;
   flex-direction: column;
   color: #222222;
+  height: 100%;
   .navbar {
     position: fixed;
     flex: 1 1 10%;
@@ -63,7 +68,15 @@ a {
     padding-bottom: 60px;
     height: 100%;
     max-width: 780px;
+    // overflow: scroll;
   }
+}
+
+// -------------------- General -------------------- //
+.help-text {
+  color: gray;
+  font-size: small;
+  text-align: left;
 }
 
 // -------------------- Posts -------------------- //
@@ -143,14 +156,29 @@ a {
     }
   }
 }
+
+.post-image-wrapper {
+  display: flex;
+  width: 100%;
+  height: 250px;
+  background-color: #222222 !important;
+  color: white !important;
+  justify-content: center;
+
+  img {
+    width: auto;
+    height: 100%;
+  }
+}
+
 .post-new {
-  .MuiPaper-root {
-    width: 100%;
-    height: 75%;
-    overflow: hidden;
-    img {
-      width: 100%;
-      height: auto;
+  display: flex;
+  flex-direction: column;
+  form {
+    display: flex;
+    flex-direction: column;
+    div {
+      margin-bottom: 0.5rem;
     }
   }
 }
@@ -180,9 +208,6 @@ a {
     display: flex;
     justify-content: flex-end;
   }
-}
-
-.post-new {
 }
 
 .AnnouncementRoot {

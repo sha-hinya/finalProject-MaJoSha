@@ -3,18 +3,15 @@ const Schema = mongoose.Schema;
 
 const postSchema = new Schema(
   {
-    _author: {
+    author: {
       type: Schema.Types.ObjectId,
       ref: "User"
     },
-
+    status: String,
+    private: Boolean,
     image: String,
     title: String,
     content: String,
-    type: {
-      enum: ["link", "text"],
-      type: String
-    },
     status: {
       enum: [
         "open",
@@ -30,11 +27,11 @@ const postSchema = new Schema(
     dueDate: Date,
     archived: Boolean,
     private: Boolean,
-    voteCount: Number
-    // property: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: "Property"
-    // }
+    voteCount: Number,
+    property: {
+      type: Schema.Types.ObjectId,
+      ref: "Property"
+    }
   },
 
   {

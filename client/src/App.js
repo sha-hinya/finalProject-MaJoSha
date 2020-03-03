@@ -111,7 +111,14 @@ class App extends React.Component {
         {/* Post: Create form */}
         <Route
           exact
-          path="/posts/new"
+          path="/posts/:postId"
+          render={props => (
+            <PostDetail {...props} backButton={showBackButton} />
+          )}
+        />
+        <Route
+          exact
+          path="/new-post"
           render={props => (
             <PostForm
               {...props}
@@ -122,13 +129,7 @@ class App extends React.Component {
         ></Route>
 
         {/* Post: View one post */}
-        <Route
-          exact
-          path="/posts/:postId"
-          render={props => (
-            <PostDetail {...props} backButton={showBackButton} />
-          )}
-        />
+
         {/* files */}
         <Route
           exact

@@ -12,12 +12,16 @@ const announcementSchema = new Schema(
       type: String
     },
     author: {
-      type: String,
-      default: "Admin"
+      type: Schema.Types.ObjectId,
+      ref: "User"
     },
     visibility: {
       type: Boolean,
       default: true
+    },
+    property: {
+      type: Schema.Types.ObjectId,
+      ref: "Property"
     },
     image: String,
     //default: "https://source.unsplash.com/random"

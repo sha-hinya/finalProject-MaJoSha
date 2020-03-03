@@ -117,7 +117,7 @@ export default class Posts extends Component {
     return (
       <div className="posts-wrapper">
         <p>Messages</p>
-        <Link to="/posts/new">
+        <Link to="/new-post">
           <Card id="new-post">
             <CardContent>
               <AddCircleIcon style={{ fontSize: "5rem" }} />

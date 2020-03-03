@@ -3,6 +3,12 @@ const Post = require("../models/Post");
 const User = require("../models/User");
 /* Here we'll write the routes for the posts */
 
+//==> Image upload
+
+const uploadCloud = require("../services/fileupload");
+
+//==> Routes
+
 router.get("/posts", (req, res) => {
   let sort = {};
   // if (req.query.sortBy) {
@@ -43,18 +49,26 @@ router.get("/posts/:id", (req, res) => {
     });
 });
 
-router.post("/posts", (req, res) => {
+router.post("/posts", uploadCloud.single("image"), (req, res) => {
   // Todo: add a middleware to protect this route from non-logged in users
-  const { title, type, content } = req.body;
+  const { title, content, private } = req.body;
+  console.log(req.file);
+  const imagePath = req.file
+    ? req.file.url
+    : "https://res.cloudinary.com/duzn8aucd/image/upload/v1583230140/houselog-images/no-image_k5z6t1.png";
 
+  console.log(imagePath);
   Post.create({
     title: title,
-    content: content
+    content: content,
+    image: imagePath,
+    private: private
   })
     .then(postFile => {
       res.json(postFile);
     })
     .catch(err => {
+      console.log(err);
       res.status(500).json({
         message: err.message
       });
@@ -91,6 +105,7 @@ router.post("/posts/:id/upvote", (req, res) => {
       res.json(post);
     })
     .catch(err => {
+      console.log(err);
       res.status(500).json({
         message: err.message
       });

@@ -40,14 +40,14 @@ export default class postDetail extends Component {
     console.log("render");
 
     if (!this.state.post) {
-      return "loading";
+      return "loAding";
     }
     const post = this.state.post;
     //console.log(post);
     return (
       <Container className="post-detail">
-        <Paper elevation={1} variant="outlined">
-          <img src={post?.image} alt="postname" />
+        <Paper elevation={1} variant="outlined" className="post-image-wrapper">
+          <img src={post?.image} alt="post image" />
         </Paper>
         <div className="post-detail-action-icons">
           <IconButton aria-label="delete">
