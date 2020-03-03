@@ -22,7 +22,6 @@ const promises = [];
 
 let propertyIds = [];
 let userIds = [];
-//mongoose.connect(process.env.MONGODB_URI, () => {
 mongoose.connect("mongodb://localhost:27017/MaJoSha", () => {
   // mongoose.connect(
   //   process.env.MONGODB_URI,

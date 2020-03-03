@@ -21,57 +21,31 @@ export default class Calenders extends Component {
         },
         () => {
           axios.get("/api/posts").then(response => {
-           // console.log(response.data);
+            // console.log(response.data);
             this.setState({
               calenders: [...this.state.calenders, ...response.data]
             });
             console.log("Kalender: ", this.state);
-            
           });
         }
-        
       );
-      
     });
-   
-
   };
-
-  
-  // getData = () => {
-  //   //console.log("getData()");
-  //   axios.get("/api/posts").then(response => {
-  //     this.setState({
-  //       calenders: response.data
-  //     });
-  //   });
-  // };
-
-  // getNewestCalenders = () => {
-  //   axios.get("/api/files?sortBy=created_at").then(response => {
-  //     this.setState({
-  //       calenders: response.data
-  //     });
-  //   });
-  // };
 
   render() {
     console.log("< Calenders/> RENDER", this.state.calenders);
 
-    
-   [{announcedAt: 1}, {dueDate: 1}, {dueDate: 2}, {announcedAt: 3}].sort((a, b) => {
-    const sortFieldA = a.announcedAt ? "announcedAt" : "dueDate"
-    const sortFieldB = b.announcedAt ? "announcedAt" : "dueDate"
-    return  b[sortFieldB] - a[sortFieldA]
+    const sorted = [...this.state.calenders].sort((b, a) => {
+      const sortFieldA = a.announcedAt ? "announcedAt" : "dueDate";
+      const sortFieldB = b.announcedAt ? "announcedAt" : "dueDate";
+      return new Date(b[sortFieldB]) - new Date(a[sortFieldA]);
+    });
 
+    console.log(sorted);
 
-  })
-
-
-    
     return (
       <Container>
-        <CalendersList calenders={this.state.calenders} />
+        <CalendersList calenders={sorted} />
       </Container>
     );
   }
