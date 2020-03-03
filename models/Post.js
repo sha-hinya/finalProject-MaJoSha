@@ -27,9 +27,7 @@ const postSchema = new Schema(
       type: String,
       default: "open"
     },
-    dueDate: {
-      type: Date
-    },
+    dueDate: { type: Date, default: Date.now },
     archived: Boolean,
     private: Boolean,
     voteCount: Number
