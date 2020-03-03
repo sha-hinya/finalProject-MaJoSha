@@ -26,6 +26,9 @@ import File from "./pages/files.jsx";
 import FileDetail from "./components/FileDetail.js";
 //import { BottomNavigation } from "@material-ui/core";
 
+//CalenderEntries
+import Calender from "./pages/calender.jsx";
+
 class App extends React.Component {
   state = {
     user: this.props.user,
@@ -129,6 +132,15 @@ class App extends React.Component {
             <PostDetail {...props} backButton={showBackButton} />
           )}
         />
+
+        {/* Calender */}
+        <Route
+          exact
+          path="/calender"
+          render={props => {
+            return <Calender {...props} />;
+          }}
+        />
         {/* files */}
         <Route
           exact
@@ -142,12 +154,6 @@ class App extends React.Component {
           exact
           path="/files/:fileId"
           render={props => <FileDetail {...props} />}
-        />
-
-        <Route
-          exact
-          path="/announcement/:announcementId"
-          render={props => <AnnouncementDetail {...props} />}
         />
 
         {/* </div> */}

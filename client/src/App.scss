@@ -182,15 +182,13 @@ a {
   }
 }
 
-.post-new {
-}
-
 .AnnouncementRoot {
   text-align: left;
 }
 .announcementContainer {
   background-color: #ccd7ff;
   color: #222222;
+  text-align: left;
 }
 .announcementImage {
   width: 150px;
@@ -202,6 +200,7 @@ a {
   font-weight: normal;
   font-size: 0.8rem;
   max-lines: 1;
+  align-content: left;
 }
 
 .announcement-time {
@@ -277,6 +276,36 @@ a {
 .file-detail-action-icons {
   display: flex;
   align-self: flex-end;
+}
+
+// -------------------- Calender -------------------- //
+.calenderCardsContainer {
+  //background-color: #f7f7f7; TO-DO Bottom Navigation rises if image small
+  padding: 5%;
+  padding-bottom: 60px;
+  text-align: left;
+}
+
+.calenderCards {
+  border-bottom: 1px solid#f7f7f7;
+  margin: 0px;
+  text-align: left;
+  background-color: #757575;
+  color: #f7f7f7;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 50%;
+  border-radius: 10px;
+  margin-top: 2px;
+}
+
+.calenderCardsTitle {
+  margin-left: 10px;
+  text-align: left;
+  color: #f7f7f7;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 50%;
 }
 
 // -------------------- Login -------------------- //
