@@ -117,7 +117,11 @@ class App extends React.Component {
           exact
           path="/posts/:postId"
           render={props => (
-            <PostDetail {...props} backButton={showBackButton} />
+            <PostDetail
+              history={props.history}
+              {...props}
+              backButton={showBackButton}
+            />
           )}
         />
         <Route
