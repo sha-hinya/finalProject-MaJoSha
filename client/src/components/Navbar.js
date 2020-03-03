@@ -34,7 +34,8 @@ const Navbar = props => {
       {showBackButton(props.showBackNavButton)}
       <div className="nav-title">{props.pageTitle}</div>
       <Link className="profileIcon" onClick={logout} to="/">
-       <PersonIcon/>
+      {/* <Link className="profileIcon" to="/profile" > */}
+        <PersonIcon />
       </Link>
     </nav>
   );

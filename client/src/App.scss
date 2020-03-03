@@ -383,12 +383,16 @@ scale: 10%;
 }
 
 .loginHeader {
-  color: #222222;
-  padding: 00px;
-  flex-basis: 25%;
+  color: hsl(0, 0%, 13%);
+  padding-top: 40px;
+  flex-basis: 20%;
   border-top: 1px solid#222222;
   letter-spacing: 3px;
   font-weight: lighter;
+  
+  align-items: center;
+  text-align: center;
+
 }
 
 .loginSubHeader {
@@ -408,7 +412,7 @@ scale: 10%;
 }
 .loginButton {
   color: #222222;
-  padding: 20px;
+  padding-bottom: 20px;
   flex-basis: 25%;
   border-bottom: 1px solid #222222;
 }

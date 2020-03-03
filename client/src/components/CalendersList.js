@@ -28,15 +28,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
-
 const CalendersList = props => {
   const classes = useStyles();
   //console.log(props.calenders);
   return (
     <div>
       <Paper component="form" className={classes.root}>
-     
         {/* <InputBase
           className={classes.input}
           placeholder="Search calender"
@@ -45,10 +42,8 @@ const CalendersList = props => {
           // onChange={this.handleChange}
         /> */}
 
+        <SearchBar props={props} />
 
-         <SearchBar props={props} />
-         
-       
         <IconButton
           type="submit"
           className={classes.iconButton}
@@ -56,24 +51,23 @@ const CalendersList = props => {
         >
           <SearchIcon />
         </IconButton>
-             </Paper>
+      </Paper>
 
       {props.calenders.map(calender => {
         return (
-         
           <Link key={calender._id} to={`/files/${calender._id}`}>
-                <div className="calenderCards" key={calender._id}>
+            <div className="calenderCards" key={calender._id}>
+              <TimeAgo
+                className="calenderCardsDate"
+                date={calender.announcedAt}
+              />
+              <TimeAgo className="calenderCardsDate" date={calender.dueDate} />
 
-                <TimeAgo className="calenderCardsDate" date={calender.announcedAt} />
-                <TimeAgo className="calenderCardsDate" date={calender.dueDate} />
-            
               <div className="calenderCardsTitle">
                 <h4>{calender.title} </h4>
-             </div>
-        
+              </div>
             </div>
           </Link>
-
         );
       })}
     </div>
