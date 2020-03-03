@@ -50,7 +50,6 @@ a {
       // text-transform: capitalize;
       letter-spacing: 2px;
       color: #222222;
-      
     }
 
     a {
@@ -232,19 +231,18 @@ a {
 }
 
 // -------------------- Files -------------------- //
-.fileCardsContainer {
-  //background-color: #f7f7f7; TO-DO Bottom Navigation rises if image small
-  padding: 5%;
-  padding-bottom: 60px;
+.cards-fileList {
+  margin-bottom: 4px;
+  border-bottom: 2px solid black;
+  // background-color: rgba(9, 109, 209, 0.8);
 }
 
 .fileCards {
-  border-bottom: 1px solid#222222;
-  margin: 5px;
-  text-align: left;
+  text-align: center;
   color: #222222;
   display: flex;
   flex-direction: row;
+  background-color: rgba(9, 109, 209, 0.4);
 }
 
 .fileCardsdate {
@@ -261,7 +259,12 @@ a {
   flex-basis: 35%;
 }
 
-//fileDetails Page
+//------------------------------------fileDetails Page-----------------------------
+.fileCardsContainer {
+  padding: 5%;
+  padding-bottom: 60px;
+}
+
 .fileCardsDetail {
   margin-top: 12%;
   // border: 1px solid grey;
@@ -322,9 +325,9 @@ a {
   display: flex;
   flex-direction: column;
   margin: 50px;
-  background-color:#f7f7f7;
+  background-color: #f7f7f7;
   border-radius: 10px;
-  margin:50px;  
+  margin: 50px;
 }
 
 .loginHeader {
@@ -338,7 +341,7 @@ a {
 
 .loginSubHeader {
   color: #335cff;
-   letter-spacing: 3px;
+  letter-spacing: 3px;
   font-weight: lighter;
 }
 
