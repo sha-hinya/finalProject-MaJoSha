@@ -41,8 +41,20 @@ export default function SimpleBottomNavigation() {
         label="Home"
         icon={<HomeIcon />}
       />
-      <BottomNavigationAction label="Posts" icon={<MailIcon />} />
-      <BottomNavigationAction label="Calender" icon={<CalenderIcon />} />
+      <BottomNavigationAction
+        component={Link}
+        label="Messages"
+        to="/posts"
+        icon={<MailIcon />}
+      />
+
+      <BottomNavigationAction
+        component={Link}
+        label="Calender"
+        to="/calender"
+        icon={<CalenderIcon />}
+      />
+
       <BottomNavigationAction
         component={Link}
         label="Documents"

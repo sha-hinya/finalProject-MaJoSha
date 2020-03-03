@@ -116,8 +116,7 @@ export default class Posts extends Component {
     const posts = this.state.posts;
     return (
       <div className="posts-wrapper">
-        <p>Messages</p>
-        <Link to="/new-post">
+        <Link to="/posts/new">
           <Card id="new-post">
             <CardContent>
               <AddCircleIcon style={{ fontSize: "5rem" }} />

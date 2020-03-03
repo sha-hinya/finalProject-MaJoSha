@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 
 // read ONE
 router.get("/:id", (req, res) => {
-  console.log("JOJEAIJAEO");
+  console.log("Read one File");
   const fileId = req.params.id;
 
   File.findById(fileId)

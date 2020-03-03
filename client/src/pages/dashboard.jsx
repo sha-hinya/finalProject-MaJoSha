@@ -24,6 +24,7 @@ export default class dashboard extends Component {
         </div>
 
         <Announcement />
+        <p>Messages</p>
         <PostList {...this.props} />
       </Container>
     );

@@ -32,7 +32,7 @@ export default class PostForm extends Component {
 
   handleFileChange = event => {
     event.preventDefault();
-    console.log(event.target.files[0]);
+    //console.log(event.target.files[0]);
     this.setState({
       photo: event.target.files[0],
       photo_url: URL.createObjectURL(event.target.files[0])

@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import Card from "@material-ui/core/Card";
 import { CardContent } from "@material-ui/core";
+import TimeAgo from "react-timeago";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
   gridList: {
     flexWrap: "nowrap",
-    alignItems: "left",
+    textAlign: "left",
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: "translateZ(0)"
   },
@@ -50,8 +51,9 @@ export default function AnnouncementsList(props) {
                 <div className="post-status">
                   {/* <div className='post-status-icon'> {getStatusIcon()}</div> */}
                   <p></p>
-                  <div className="announcement-time">
-                    {new Date(announcement.created_at).toDateString()}
+                  <div className="announcement-time"> 
+                  <TimeAgo date={announcement.created_at}/>
+                    {/* {new Date(announcement.created_at).toDateString()} */}
                   </div>
                 </div>
               </CardContent>

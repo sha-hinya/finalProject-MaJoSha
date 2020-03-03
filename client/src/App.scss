@@ -50,6 +50,13 @@ a {
       color: #222222;
     }
 
+    .nav-title {
+      // position: relative;
+      // text-transform: capitalize;
+      letter-spacing: 2px;
+      color: #222222;
+    }
+
     a {
       color: #222222;
       font-weight: bold;
@@ -216,6 +223,7 @@ a {
 .announcementContainer {
   background-color: #ccd7ff;
   color: #222222;
+  text-align: left;
 }
 .announcementImage {
   width: 150px;
@@ -223,15 +231,12 @@ a {
 }
 
 .announcement-content {
-  margin: auto;
   font-weight: normal;
   font-size: 0.8rem;
-  max-lines: 1;
 }
 
 .announcement-time {
-  margin: auto;
-  font-weight: normal;
+  font-weight: bold;
   align-content: right;
   font-size: 0.8rem;
 }
@@ -254,20 +259,18 @@ a {
 }
 
 // -------------------- Files -------------------- //
-.fileCardsContainer {
-  //background-color: #f7f7f7; TO-DO Bottom Navigation rises if image small
-  padding: 5%;
-  padding-bottom: 60px;
-  text-align: left;
+.cards-fileList {
+  margin-bottom: 4px;
+  border-bottom: 2px solid black;
+  // background-color: rgba(9, 109, 209, 0.8);
 }
 
 .fileCards {
-  border-bottom: 1px solid#222222;
-  margin: 5px;
-  text-align: left;
+  text-align: center;
   color: #222222;
   display: flex;
   flex-direction: row;
+  background-color: rgba(9, 109, 209, 0.4);
 }
 
 .fileCardsdate {
@@ -282,21 +285,72 @@ a {
 
 .fileCardsCategory {
   flex-basis: 35%;
-  // font-weight: bold;
 }
 
-//fileDetails Page
+//------------------------------------fileDetails Page-----------------------------
+.fileCardsContainer {
+  padding: 5%;
+  padding-bottom: 60px;
+}
+
 .fileCardsDetail {
   margin-top: 12%;
   // border: 1px solid grey;
   border-radius: 10px;
   background-color: rgba(195, 195, 195, 0.3);
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 .fileCardsDetail img {
   width: 80vw;
   // height: 9vw;
+}
+.file-detail-action-icons {
+  display: flex;
+  align-self: flex-end;
+}
+
+// -------------------- Calender -------------------- //
+.calenderCardsContainer {
+  //background-color: #f7f7f7; TO-DO Bottom Navigation rises if image small
+  padding: 5%;
+  padding-bottom: 60px;
+  text-align: left;
+}
+
+.calenderCards {
+  border-bottom: 1px solid#f7f7f7;
+  margin: 0px;
+  text-align: left;
+  background-color: #757575;
+  color: #f7f7f7;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  margin-top: 2px;
+}
+
+.calenderCardsTitle {
+  margin-left: 10px;
+  text-align: left;
+  color: #f7f7f7;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 50%;
+  align-items: center;
+}
+
+.calenderCardsDate {
+  margin-left: 10px;
+  text-align: left;
+  color: #f7f7f7;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 50%;
+  align-items: center;
 }
 
 // -------------------- Login -------------------- //
@@ -308,13 +362,24 @@ a {
   display: flex;
   flex-direction: column;
   margin: 50px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  margin: 50px;
 }
 
 .loginHeader {
-  color: #335cff;
-  padding: 20px;
+  color: #222222;
+  padding: 00px;
   flex-basis: 25%;
-  border-top: 1px solid#335CFF;
+  border-top: 1px solid#222222;
+  letter-spacing: 3px;
+  font-weight: lighter;
+}
+
+.loginSubHeader {
+  color: #335cff;
+  letter-spacing: 3px;
+  font-weight: lighter;
 }
 
 .loginEmail {
@@ -327,10 +392,10 @@ a {
   flex-basis: 25%;
 }
 .loginButton {
-  color: #335cff;
+  color: #222222;
   padding: 20px;
   flex-basis: 25%;
-  border-bottom: 1px solid #335cff;
+  border-bottom: 1px solid #222222;
 }
 
 .dashboardHeader {
@@ -344,11 +409,17 @@ a {
 
 // -------------------- Color Scheme -------------------- //
 /*  our color scheme:
+
 button_active_dark_blue #335CFF,
 button_inactive_light_blue  #CCD7FF,
+
 call_to_action_red: #C97064
 resolved_green: #7A9B76
-in_progress_yellow: #BE7C4D
+attention_yellow: #BE7C4Ds
+
 text_black: #222222,
-background_white: #f7f7f7  /f7f7f7
+
+background_white: #f7f7f7 
+background_dark grey: #757575
+
  */

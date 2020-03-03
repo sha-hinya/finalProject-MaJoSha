@@ -37,7 +37,7 @@ export default class postDetail extends Component {
     });
   };
   render() {
-    console.log("render");
+    console.log("render post detail");
 
     if (!this.state.post) {
       return "loAding";

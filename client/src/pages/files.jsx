@@ -30,7 +30,7 @@ export default class Files extends Component {
   };
 
   render() {
-    console.log("< Files/> RENDER", this.state.files);
+    //console.log("< Files/> RENDER", this.state.files);
     return (
       <Container>
         <FilesList files={this.state.files} />

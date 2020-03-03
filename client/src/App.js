@@ -16,6 +16,7 @@ import LoginPage from "./pages/login";
 // Posts
 import PostDetail from "./pages/postDetail.jsx";
 import PostForm from "./pages/postForm.jsx";
+import Post from "./pages/posts.jsx";
 
 // Announcements
 import AnnouncementDetail from "./components/AnnouncementDetail.js";
@@ -25,6 +26,9 @@ import AnnouncementDetail from "./components/AnnouncementDetail.js";
 import File from "./pages/files.jsx";
 import FileDetail from "./components/FileDetail.js";
 //import { BottomNavigation } from "@material-ui/core";
+
+//CalenderEntries
+import Calender from "./pages/calender.jsx";
 
 class App extends React.Component {
   state = {
@@ -104,7 +108,7 @@ class App extends React.Component {
         {/* Announcement: View one Announcement */}
         <Route
           exact
-          path="/announcements/:announcementId"
+          path="/announcement/:announcementId"
           render={props => <AnnouncementDetail {...props} />}
         />
 
@@ -129,7 +133,31 @@ class App extends React.Component {
         ></Route>
 
         {/* Post: View one post */}
+        <Route
+          exact
+          path="/posts/:postId"
+          render={props => (
+            <PostDetail {...props} backButton={showBackButton} />
+          )}
+        />
 
+        {/* Post: View ALL posts */}
+        <Route
+          exact
+          path="/posts"
+          render={props => {
+            return <Post {...props} />;
+          }}
+        />
+
+        {/* Calender */}
+        <Route
+          exact
+          path="/calender"
+          render={props => {
+            return <Calender {...props} />;
+          }}
+        />
         {/* files */}
         <Route
           exact
@@ -143,12 +171,6 @@ class App extends React.Component {
           exact
           path="/files/:fileId"
           render={props => <FileDetail {...props} />}
-        />
-
-        <Route
-          exact
-          path="/announcement/:announcementId"
-          render={props => <AnnouncementDetail {...props} />}
         />
 
         {/* </div> */}

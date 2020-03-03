@@ -5,12 +5,14 @@ import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
+import Card from "@material-ui/core/Card";
 
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "2px 4px",
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
+    marginBottom: "10px"
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -48,26 +50,28 @@ const FilesList = props => {
       </Paper>
 
       {props.files.map(file => {
-    return (
-      <Link key={file._id} to={`/files/${file._id}`}>
-        <div className="fileCards" key={file._id}>
-          <div className="fileCardsTitle">
-            <h4>{file.title} </h4>
-          </div>
-          <div className="fileCardsCategory">
-            <p>{file.category}</p>
-          </div>
-          <div className="fileCardsTitle">
-            <p>{new Date(file.created_at).toLocaleDateString("de-De")}</p>
-          </div>
-        </div>
-      </Link>
-         
+        return (
+          <Card className="cards-fileList">
+            <Link key={file._id} to={`/files/${file._id}`}>
+              <div className="fileCards" key={file._id}>
+                <div className="fileCardsTitle">
+                  <h4>{file.title} </h4>
+                </div>
+                <div className="fileCardsCategory">
+                  <h4>{file.category}</h4>
+                </div>
+                <div className="fileCardsTitle">
+                  <h3>
+                    {new Date(file.created_at).toLocaleDateString("de-De")}
+                  </h3>
+                </div>
+              </div>
+            </Link>
+          </Card>
         );
       })}
     </div>
   );
-
 };
 
 export default FilesList;
