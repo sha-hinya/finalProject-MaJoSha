@@ -23,14 +23,15 @@ const announcementSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Property"
     },
-    image: String,
-    //default: "https://source.unsplash.com/random"
-    
+    image: {
+      type: String,
+      default: "https://source.unsplash.com/random"
+    },
+
     announcedAt: {
       type: Date,
       default: Date.now
     },
-
 
     unannouncedAt: {
       type: Date,
@@ -44,13 +45,7 @@ const announcementSchema = new Schema(
       updatedAt: "updated_at"
     }
   }
-
-  // property: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Property"
-  // }
 );
 
 const Announcement = mongoose.model("Announcement", announcementSchema);
-
 module.exports = Announcement;
