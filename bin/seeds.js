@@ -19,6 +19,7 @@ const properties = require("../bin/properties.json");
 
 // Stack of promisses
 const promises = [];
+<<<<<<< HEAD
 
 let propertyIds = [];
 let userIds = [];
@@ -30,6 +31,16 @@ mongoose.connect(
     console.log("Connected to DB");
   }
 );
+=======
+mongoose.connect("mongodb://localhost:27017/MaJoSha", () => {
+  // mongoose.connect(
+  //   process.env.MONGODB_URI,
+  //   { useNewUrlParser: true, useUnifiedTopology: true },
+  //   () => {
+
+  console.log("Connected to DB");
+});
+>>>>>>> 67892a73b79d5dd5152534df7bad2990911712b7
 const bcryptSalt = 10;
 const salt = bcrypt.genSaltSync(bcryptSalt);
 const hashPass = bcrypt.hashSync("1234", salt);

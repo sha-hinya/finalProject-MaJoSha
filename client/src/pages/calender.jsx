@@ -56,15 +56,18 @@ export default class Calenders extends Component {
   // };
 
   render() {
-   // console.log("< Calenders/> RENDER", this.state.calenders);
+    console.log("< Calenders/> RENDER", this.state.calenders);
 
+    
    [{announcedAt: 1}, {dueDate: 1}, {dueDate: 2}, {announcedAt: 3}].sort((a, b) => {
     const sortFieldA = a.announcedAt ? "announcedAt" : "dueDate"
     const sortFieldB = b.announcedAt ? "announcedAt" : "dueDate"
     return  b[sortFieldB] - a[sortFieldA]
+
+
   })
 
-  
+
     
     return (
       <Container>
