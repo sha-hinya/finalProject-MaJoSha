@@ -16,6 +16,7 @@ import LoginPage from "./pages/login";
 // Posts
 import PostDetail from "./pages/postDetail.jsx";
 import PostForm from "./pages/postForm.jsx";
+import Post from "./pages/posts.jsx";
 
 // Announcements
 import AnnouncementDetail from "./components/AnnouncementDetail.js";
@@ -131,6 +132,15 @@ class App extends React.Component {
           render={props => (
             <PostDetail {...props} backButton={showBackButton} />
           )}
+        />
+
+       {/* Post: View ALL posts */}
+        <Route
+          exact
+          path="/posts"
+          render={props => {
+            return <Post {...props} />;
+          }}
         />
 
         {/* Calender */}

@@ -322,14 +322,23 @@ a {
   display: flex;
   flex-direction: column;
   margin: 50px;
+  background-color:#f7f7f7;
+  border-radius: 10px;
+  margin:50px;  
 }
 
 .loginHeader {
-  color: #335cff;
-  padding: 20px;
+  color: #222222;
+  padding: 00px;
   flex-basis: 25%;
-  border-top: 1px solid#335CFF;
+  border-top: 1px solid#222222;
   letter-spacing: 3px;
+  font-weight: lighter;
+}
+
+.loginSubHeader {
+  color: #335cff;
+   letter-spacing: 3px;
   font-weight: lighter;
 }
 
@@ -343,10 +352,10 @@ a {
   flex-basis: 25%;
 }
 .loginButton {
-  color: #335cff;
+  color: #222222;
   padding: 20px;
   flex-basis: 25%;
-  border-bottom: 1px solid #335cff;
+  border-bottom: 1px solid #222222;
 }
 
 .dashboardHeader {
