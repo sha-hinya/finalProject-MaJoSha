@@ -48,27 +48,24 @@ const CalendersList = props => {
         >
           <SearchIcon />
         </IconButton>
-       
-      </Paper>
+             </Paper>
 
       {props.calenders.map(calender => {
         return (
+         
           <Link key={calender._id} to={`/files/${calender._id}`}>
-            <div className="calenderCards" key={calender._id}>
-              {/* <div className="calenderCardsTitle"> */}
-                {/* <p>{new Date(calender.created_at).toDateString("de-De")}</p> */}
-                <TimeAgo className="calenderCardsTitle" date={calender.announcedAt} />
-                <TimeAgo className="calenderCardsTitle" date={calender.dueDate} />
-              {/* </div> */}
+                <div className="calenderCards" key={calender._id}>
 
+                <TimeAgo className="calenderCardsDate" date={calender.announcedAt} />
+                <TimeAgo className="calenderCardsDate" date={calender.dueDate} />
+            
               <div className="calenderCardsTitle">
                 <h4>{calender.title} </h4>
-              </div>
-              {/* <div className="calenderCardsCategory">
-            <p>{calender.category}</p>
-          </div> */}
+             </div>
+        
             </div>
           </Link>
+
         );
       })}
     </div>

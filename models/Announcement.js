@@ -21,10 +21,12 @@ const announcementSchema = new Schema(
     },
     image: String,
     //default: "https://source.unsplash.com/random"
+    
     announcedAt: {
       type: Date,
       default: Date.now
     },
+
 
     unannouncedAt: {
       type: Date,
