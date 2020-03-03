@@ -6,6 +6,7 @@ import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import TimeAgo from "react-timeago";
+import SearchBar from "./SearchBar.js";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,6 +28,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
+
 const CalendersList = props => {
   const classes = useStyles();
   //console.log(props.calenders);
@@ -34,13 +37,18 @@ const CalendersList = props => {
     <div>
       <Paper component="form" className={classes.root}>
      
-        <InputBase
+        {/* <InputBase
           className={classes.input}
           placeholder="Search calender"
           inputProps={{ "aria-label": "search calender" }}
           // value={this.state.search}
           // onChange={this.handleChange}
-        />
+        /> */}
+
+
+         <SearchBar props={props} />
+         
+       
         <IconButton
           type="submit"
           className={classes.iconButton}

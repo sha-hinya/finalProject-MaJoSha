@@ -79,6 +79,16 @@ a {
   }
 }
 
+// -------------------- Profile -------------------- //
+
+.profileIcon {
+  
+  position: relative;
+top: +6px;
+left: 5px;
+scale: 10%;
+}
+
 // -------------------- General -------------------- //
 .help-text {
   color: gray;
@@ -288,7 +298,7 @@ a {
   flex-basis: 20%;
   padding-right: 0px;
   font-size: small;
- 
+
   margin-right: 10px;
 }
 
