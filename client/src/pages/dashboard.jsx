@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // Components
 import PostList from "../components/PostList.jsx";
 import Announcement from "../components/Announcement";
-import { Container, FormControl, InputLabel, Select } from "@material-ui/core";
+import { Container, FormControl, Select } from "@material-ui/core";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 export default class dashboard extends Component {

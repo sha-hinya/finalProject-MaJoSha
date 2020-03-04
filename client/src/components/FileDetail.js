@@ -30,7 +30,7 @@ class FileDetail extends Component {
 
     axios.delete(`/api/files/delete/${id}`).then(res => {
       console.log("file deleted");
-      console.log(this.props, "hisssstorry");
+      //console.log(this.props, "hisssstorry");
     });
     this.props.history.push("/");
   };

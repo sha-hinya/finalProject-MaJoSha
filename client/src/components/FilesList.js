@@ -34,7 +34,7 @@ class FilesList extends Component {
         <Paper className="calenderSerachBarContainer" component="form">
           <InputBase
             className="calenderSerachBar"
-            placeholder="Search calender"
+            placeholder="Search documents"
             value={this.state.searchText}
             onChange={this.changeText}
           />
