@@ -61,7 +61,7 @@ export default class postDetail extends Component {
     return (
       <Container className="post-detail">
         <Paper elevation={1} variant="outlined" className="post-image-wrapper">
-          <img src={post?.image} alt="post image" />
+          <img src={post?.image} alt="ticket" />
         </Paper>
         {this.props.user._id === this.state.post.author._id ||
         this.props.user.role === "moderator" ||

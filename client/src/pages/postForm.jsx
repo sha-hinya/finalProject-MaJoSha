@@ -5,15 +5,9 @@ import {
   Paper,
   IconButton,
   FormControlLabel,
-  TextField,
-  Button,
-  Switch,
-  FormGroup,
-  CircularProgress
+  Switch
 } from "@material-ui/core";
 import { CropFree, DeleteOutline } from "@material-ui/icons";
-import Axios from "axios";
-import { useHistory } from "react-router-dom";
 
 export default class PostForm extends Component {
   state = {
@@ -21,33 +15,19 @@ export default class PostForm extends Component {
     content: "",
     image: "",
     photo: null,
-    private: true,
-    transfering: false,
-    message: ""
+    private: true
   };
 
   componentDidMount() {
     this.props.backButton.on();
-    if (this.props.edit) {
-      this.props.setPageTitle("Edit Message");
-      const id = this.props.match.params.postId;
-      axios.get(`/api/posts/${id}`).then(response => {
-        console.log(("response": response.data));
-        this.setState({
-          ...response.data
-        });
-      });
-    } else {
-      this.props.setPageTitle("New Message");
-    }
+    this.props.setPageTitle("New Message");
   }
 
   handleFileChange = event => {
     event.preventDefault();
-    //console.log(event.target.files[0]);
+    console.log(event.target.files[0]);
     this.setState({
-      photo: event.target.files[0],
-      photo_url: URL.createObjectURL(event.target.files[0])
+      photo: URL.createObjectURL(event.target.files[0])
     });
   };
 
@@ -56,163 +36,104 @@ export default class PostForm extends Component {
       [event.target.name]: event.target.checked
     });
   };
-
   handleDelete = event => {
+    console.log(event);
     this.setState({ photo: null });
-  };
-
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
   };
 
   handleSubmit = event => {
     event.preventDefault();
 
-    let formData = new FormData();
-    formData.set("title", this.state.title);
-    formData.set("content", this.state.content);
-    formData.set("private", this.state.private);
-    formData.set("property", this.props.selectedProperty);
-    formData.append("image", this.state.photo);
-    const config = {
-      headers: { "content-type": "multipart/form-data" }
-    };
-    this.setState({
-      transfering: true
-    });
+    console.log("Form submitted");
 
-    if (this.props.edit) {
-      const id = this.props.match.params.postId;
-      axios
-        .put(`/api/posts/${id}`, formData, config)
-        .then(result => {
-          this.props.history.push(`/posts/${result.data._id}`);
-        })
-        .catch(err => {
-          console.log(err);
-          this.setState({
-            transfering: false,
-            message: err
-          });
+    axios
+      .post("/api/posts", {
+        title: this.state.title,
+
+        content: this.state.content
+      })
+      .then(() => {
+        console.log("Response received, calling getData in <Posts/>");
+
+        this.setState({
+          title: "",
+          content: "",
+          type: "text"
         });
-    } else {
-      axios
-        .post("/api/posts", formData, config)
-        .then(result => {
-          this.props.history.push(`/posts/${result.data._id}`);
-        })
-        .catch(err => {
-          console.log(err);
-          this.setState({
-            transfering: false,
-            message: err
-          });
-        });
-    }
+      });
+  };
+
+  showImageMenu = event => {
+    console.log(event);
   };
 
   render() {
-    console.log("Transfering: ", this.state.transfering);
-
     const renderPhotos = () => {
       if (!!this.state.photo) {
         return (
-          <>
-            <Paper
-              variant="outlined"
-              elevation={1}
-              className="post-image-wrapper"
-            >
-              <img src={this.state.photo_url} />
-            </Paper>
+          <Paper elevation={1} variant="outlined" onClick={this.showImageMenu}>
+            <img src={this.state.photo} alt={this.state.photo}/>
             <IconButton onClick={this.handleDelete}>
               <DeleteOutline />
             </IconButton>
-          </>
+          </Paper>
         );
       }
 
       return (
-        <label htmlFor="icon-button-file">
-          <Paper
-            elevation={1}
-            variant="outlined"
-            className="post-image-wrapper"
-          >
-            <input
-              accept="image/*"
-              style={{ display: "none" }}
-              onChange={this.handleFileChange}
-              id="icon-button-file"
-              type="file"
-            />
-
+        <Paper elevation={1} variant="outlined">
+          <input
+            accept="image/*"
+            style={{ display: "none" }}
+            onChange={this.handleFileChange}
+            id="icon-button-file"
+            type="file"
+          />
+          <label htmlFor="icon-button-file">
             <IconButton
               color="primary"
               aria-label="upload picture"
               component="span"
             >
-              <CropFree color="inherit" style={{ color: "white" }} />
+              <CropFree />
             </IconButton>
-          </Paper>
-        </label>
+          </label>
+        </Paper>
       );
     };
-
-    if (this.state.transfering) {
-      return (
-        <Container>
-          <CircularProgress />
-        </Container>
-      );
-    }
 
     return (
       <Container className="post-new">
         <form className="create-post" onSubmit={this.handleSubmit}>
           {renderPhotos()}
-
-          <TextField
-            id="standard-basic"
-            label="Title"
-            type="text"
+          <FormControlLabel
+            control={
+              <Switch
+                checked={this.state.private}
+                onChange={this.handleSwitch}
+                name="private"
+                value="private"
+              />
+            }
+            label="private"
+          />
+          <label htmlFor="title">Title</label>
+          <input
+            id="title"
             name="title"
             value={this.state.title}
             onChange={this.handleChange}
           />
-
-          <TextField
-            id="outlined-multiline-static"
-            label="Message"
+          <p> </p>
+          <label htmlFor="content">Content</label>
+          <input
+            id="content"
             name="content"
-            multiline
-            rows="4"
-            onChange={this.handleChange}
             value={this.state.content}
-            defaultValue="Type your message here!"
-            variant="outlined"
+            onChange={this.handleChange}
           />
-          <FormGroup>
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={this.state.private}
-                  onChange={this.handleSwitch}
-                  name="private"
-                  value="private"
-                />
-              }
-              label="Private Message? "
-            />
-            <div className="help-text">
-              (Only visible for the property management)
-            </div>
-          </FormGroup>
-          <Button variant="contained" color="primary" type="submit">
-            Send
-          </Button>
+
+          <button>Create new Post</button>
         </form>
       </Container>
     );
