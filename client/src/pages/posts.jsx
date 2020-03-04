@@ -7,12 +7,14 @@ export default class posts extends Component {
     this.props.setPageTitle("Messages");
   }
   render() {
+   // console.log("RENDER POSTS ", this.props);
     return (
       <Container>
         <PostList
           {...this.props}
           selectedProperty={this.props.selectedProperty}
         />
+        {this.props.selectedProperty}
       </Container>
     );
   }

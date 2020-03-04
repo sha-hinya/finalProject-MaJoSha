@@ -74,7 +74,7 @@ a {
     display: flex;
     flex-direction: column;
     padding-top: 60px;
-    padding-bottom: 60px;
+    padding-bottom: 00px;
     height: 100%;
     max-width: 780px;
     // overflow: scroll;
@@ -232,9 +232,11 @@ a {
   text-align: left;
 }
 .announcementContainer {
-  background-color: #ccd7ff;
+  //background-color: #ccd7ff;
   color: #222222;
   text-align: left;
+  position: relative;
+  top: -30px;
 }
 .announcementImage {
   width: 150px;
@@ -272,7 +274,7 @@ a {
 // -------------------- Files -------------------- //
 .cards-fileList {
   margin-bottom: 4px;
-  border-bottom: 2px solid black;
+  border-bottom: 2px;
   // background-color: rgba(9, 109, 209, 0.8);
 }
 

@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar.js";
 import LabelBottomNavigation from "./components/BottomNavigation.js";
 
 // Profile
-import Profile from "./components/Profile.js";
+import Profile from "./pages/profile";
 
 // Pages
 import Dashboard from "./pages/dashboard";
@@ -200,6 +200,23 @@ class App extends React.Component {
           path="/calender"
           render={props => {
             return <Calender {...props} setPageTitle={this.setPageTitle} />;
+          }}
+        />
+
+        {/* Profile */}
+        <Route
+          exact
+          path="/profile"
+          render={props => {
+            return (
+              <Profile
+                {...props}
+                setUser={this.setUser}
+                showBackNavButton={this.state.backNavButton}
+                pageTitle={this.state.pageTitle}
+                user={this.state.user}
+              />
+            );
           }}
         />
         {/* files */}
