@@ -11,6 +11,8 @@ const uploadCloud = require("../services/fileupload");
 
 router.get("/posts", (req, res) => {
   let sort = {};
+  const propertyId = req.query.property;
+  console.log("Get Route property: ", req.query);
   // if (req.query.sortBy) {
   //   sort[req.query.sortBy] = -1;
   // } else {
@@ -22,7 +24,7 @@ router.get("/posts", (req, res) => {
     sort = { upvote_count: -1 };
   }
 
-  Post.find()
+  Post.find({ property: { _id: propertyId } })
     //.sort(sort)
     .limit(10)
     .then(posts => {

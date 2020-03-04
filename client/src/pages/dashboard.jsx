@@ -7,12 +7,10 @@ import { Container, FormControl, InputLabel, Select } from "@material-ui/core";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 export default class dashboard extends Component {
-  state = {
-    property: null
-  };
+  state = {};
 
   componentDidMount = () => {
-    //console.log(this.props);
+    console.log("dashboard props:", this.props);
     this.props.backButton.off();
     this.props.setPageTitle("House Log");
     this.setState({
@@ -20,31 +18,52 @@ export default class dashboard extends Component {
     });
     // axios.get();
   };
+
+  handlePropertySelect = event => {
+    this.props.setSelectedProperty(event.target.value);
+  };
+
   render() {
-    // const renderPropertySelector = () => {
-    //   if (this.state.user && this.state.user.property) {
-    //     return this.state?.property.map((property, index) => {
-    //       return (
-    //         <option value={property._id} key={index}>
-    //           {property._id}
-    //         </option>
-    //       );
-    //     });
-    //   }
+    const renderPropertySelector = () => {
+      if (this.state.user && this.state.user.property) {
+        return this.state?.user.property.map((property, index) => {
+          return (
+            <option value={property._id} key={index}>
+              {`${property.property_street}, ${property.property_postal}`}
+            </option>
+          );
+        });
+      }
+    };
 
     return (
       <Container>
         <div className="dashboardHeader">
           <p>
-            {" "}
             <LocationOnIcon />
-            {/* {renderPropertySelector} */}
+            <FormControl>
+              <InputLabel htmlFor="age-native-simple">property</InputLabel>
+              <Select
+                native
+                value={this.props.selectedProperty}
+                onChange={this.handlePropertySelect}
+                inputProps={{
+                  name: "property",
+                  id: "age-native-simple"
+                }}
+              >
+                {renderPropertySelector()}
+              </Select>
+            </FormControl>
           </p>
         </div>
 
         <Announcement />
         <p>Messages</p>
-        <PostList {...this.props} />
+        <PostList
+          {...this.props}
+          selectedProperty={this.props.selectedProperty}
+        />
       </Container>
     );
   }

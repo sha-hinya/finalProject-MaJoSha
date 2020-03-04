@@ -37,7 +37,7 @@ class App extends React.Component {
     user: this.props.user,
     pageTitle: "",
     backNavButton: false,
-    selectedProperty: ""
+    selectedProperty: this.props.user.property[0]._id
   };
 
   setUser = userObj => {
@@ -112,7 +112,7 @@ class App extends React.Component {
               backButton={showBackButton}
               setPageTitle={this.setPageTitle}
               selectedProperty={this.state.selectedProperty}
-              setSelectedProperty={this.state.setSelectedProperty}
+              setSelectedProperty={this.setSelectedProperty}
               user={this.state.user}
             />
           )}
@@ -126,17 +126,6 @@ class App extends React.Component {
         />
 
         {/* Post: Create form */}
-        <Route
-          exact
-          path="/posts/:postId"
-          render={props => (
-            <PostDetail
-              history={props.history}
-              {...props}
-              backButton={showBackButton}
-            />
-          )}
-        />
 
         <Route
           exact
@@ -146,6 +135,7 @@ class App extends React.Component {
               {...props}
               backButton={showBackButton}
               setPageTitle={this.setPageTitle}
+              selectedProperty={this.state.selectedProperty}
             />
           )}
         ></Route>
@@ -164,7 +154,9 @@ class App extends React.Component {
           exact
           path="/posts"
           render={props => {
-            return <Post {...props} />;
+            return (
+              <Post {...props} selectedProperty={this.state.selectedProperty} />
+            );
           }}
         />
 

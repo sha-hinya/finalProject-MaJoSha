@@ -27,8 +27,6 @@ export default class login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("submit: ");
-    console.log(this.state);
 
     axios
       .post("/api/auth/login", {
