@@ -82,11 +82,10 @@ a {
 // -------------------- Profile -------------------- //
 
 .profileIcon {
-  
   position: relative;
-top: +6px;
-left: 5px;
-scale: 10%;
+  top: +6px;
+  left: 5px;
+  scale: 10%;
 }
 
 // -------------------- General -------------------- //
@@ -368,6 +367,15 @@ scale: 10%;
   align-items: center;
 }
 
+.calenderSerachBarContainer {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.calenderSerachBar {
+  margin: 5px 0px 5px 10px;
+}
+
 // -------------------- Login -------------------- //
 
 .login {
@@ -389,10 +397,9 @@ scale: 10%;
   border-top: 1px solid#222222;
   letter-spacing: 3px;
   font-weight: lighter;
-  
+
   align-items: center;
   text-align: center;
-
 }
 
 .loginSubHeader {
