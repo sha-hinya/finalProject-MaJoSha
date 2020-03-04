@@ -201,12 +201,20 @@ class App extends React.Component {
           }}
         />
 
-            {/* Profile */}
-            <Route
+        {/* Profile */}
+        <Route
           exact
           path="/profile"
           render={props => {
-            return <Profile {...props} />;
+            return (
+              <Profile
+                {...props}
+                setUser={this.setUser}
+                showBackNavButton={this.state.backNavButton}
+                pageTitle={this.state.pageTitle}
+                user={this.state.user}
+              />
+            );
           }}
         />
         {/* files */}

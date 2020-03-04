@@ -73,10 +73,13 @@ a {
   .MuiContainer-root {
     display: flex;
     flex-direction: column;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 40px;
+    
+    padding-bottom: 0px;
     height: 100%;
     max-width: 780px;
+    position: relative;
+  
     // overflow: scroll;
   }
 }
@@ -95,6 +98,13 @@ a {
   color: gray;
   font-size: small;
   text-align: left;
+}
+
+.locationDropown {
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  top: 40px;
 }
 
 // -------------------- Posts -------------------- //
@@ -164,7 +174,7 @@ a {
         position: absolute;
         display: flex;
         align-items: center;
-        padding: 0.5rem;
+        // padding: 0.5rem;
         left: 0;
         bottom: 0;
         * {
@@ -232,9 +242,10 @@ a {
   text-align: left;
 }
 .announcementContainer {
-  background-color: #ccd7ff;
+  //background-color: #ccd7ff;
   color: #222222;
   text-align: left;
+
 }
 .announcementImage {
   width: 150px;
@@ -322,7 +333,7 @@ a {
 .filesDetailCardContent {
   display: flex;
   flex-direction: column;
-  padding: 0;
+  padding: 0px;
 }
 
 .fileDetailCardTwo {
@@ -421,7 +432,7 @@ a {
   margin: 50px;
   background-color: #f7f7f7;
   border-radius: 10px;
-  margin: 50px;
+  
 }
 
 .loginHeader {
@@ -465,6 +476,8 @@ a {
   color: #222222;
   display: flex;
   flex-direction: row;
+  
+  
 }
 
 // -------------------- Color Scheme -------------------- //

@@ -8,9 +8,6 @@ import PersonIcon from "@material-ui/icons/AccountBox";
 // icons
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
-
-
-
 // const Profile = props => {
 //   const logout = () => {
 //     axios.delete("/api/auth/logout").then(() => {
@@ -20,23 +17,40 @@ import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 // }
 
 export default class Profile extends Component {
-    state = {
-      username: "",
-      password: "",
-      message: ""
-    }
-render() {
-  return (
-    <div className="navbar" id="navbar">
-    Hello Profile
-      {/* <div className="nav-title">{props.pageTitle}</div> */}
-      {/* <Link className="profileIcon" onClick={logout} to="/"> */}
-        {/* <Link className="profileIcon" to="/profile"> */}
-        <PersonIcon />
-      {/* </Link> */}
-    </div>
-  );
-};
-};
+  state = {
+    username: "",
+    password: "",
+    message: ""
+  };
 
+  componentDidMount() {
+    this.props.setPageTitle("Profile");
+    this.getData();
+  }
 
+  getData = () => {
+    
+    axios.get("/api/users").then(response => {
+      this.setState({
+        users: response.data
+      });
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        Hello Profile
+        {/* <div className="nav-title">{props.pageTitle}</div> */}
+        <Link
+          className="profileIcon"
+          // onClick={logout}
+          to="/"
+        ></Link>
+        <Link className="profileIcon" to="/profile">
+          <PersonIcon />
+        </Link>
+      </div>
+    );
+  }
+}
