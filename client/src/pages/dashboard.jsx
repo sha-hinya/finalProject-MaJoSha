@@ -13,10 +13,6 @@ export default class dashboard extends Component {
     console.log("dashboard props:", this.props);
     this.props.backButton.off();
     this.props.setPageTitle("House Log");
-    // this.setState({
-    //   user: this.props.user
-    // });
-    // axios.get();
   };
 
   handlePropertySelect = event => {

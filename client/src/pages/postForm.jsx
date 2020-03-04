@@ -8,7 +8,8 @@ import {
   TextField,
   Button,
   Switch,
-  FormGroup
+  FormGroup,
+  CircularProgress
 } from "@material-ui/core";
 import { CropFree, DeleteOutline } from "@material-ui/icons";
 import Axios from "axios";
@@ -27,7 +28,18 @@ export default class PostForm extends Component {
 
   componentDidMount() {
     this.props.backButton.on();
-    this.props.setPageTitle("New Message");
+    if (this.props.edit) {
+      this.props.setPageTitle("Edit Message");
+      const id = this.props.match.params.postId;
+      axios.get(`/api/posts/${id}`).then(response => {
+        console.log(("response": response.data));
+        this.setState({
+          ...response.data
+        });
+      });
+    } else {
+      this.props.setPageTitle("New Message");
+    }
   }
 
   handleFileChange = event => {
@@ -62,6 +74,7 @@ export default class PostForm extends Component {
     formData.set("title", this.state.title);
     formData.set("content", this.state.content);
     formData.set("private", this.state.private);
+    formData.set("property", this.props.selectedProperty);
     formData.append("image", this.state.photo);
     const config = {
       headers: { "content-type": "multipart/form-data" }
@@ -69,21 +82,40 @@ export default class PostForm extends Component {
     this.setState({
       transfering: true
     });
-    axios
-      .post("/api/posts", formData, config)
-      .then(result => {
-        this.props.history.push(`/posts/${result.data._id}`);
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({
-          transfering: false,
-          message: err
+
+    if (this.props.edit) {
+      const id = this.props.match.params.postId;
+      axios
+        .put(`/api/posts/${id}`, formData, config)
+        .then(result => {
+          this.props.history.push(`/posts/${result.data._id}`);
+        })
+        .catch(err => {
+          console.log(err);
+          this.setState({
+            transfering: false,
+            message: err
+          });
         });
-      });
+    } else {
+      axios
+        .post("/api/posts", formData, config)
+        .then(result => {
+          this.props.history.push(`/posts/${result.data._id}`);
+        })
+        .catch(err => {
+          console.log(err);
+          this.setState({
+            transfering: false,
+            message: err
+          });
+        });
+    }
   };
 
   render() {
+    console.log("Transfering: ", this.state.transfering);
+
     const renderPhotos = () => {
       if (!!this.state.photo) {
         return (
@@ -100,10 +132,6 @@ export default class PostForm extends Component {
             </IconButton>
           </>
         );
-      }
-
-      if (this.state.transfering) {
-        return "Loading";
       }
 
       return (
@@ -132,6 +160,14 @@ export default class PostForm extends Component {
         </label>
       );
     };
+
+    if (this.state.transfering) {
+      return (
+        <Container>
+          <CircularProgress />
+        </Container>
+      );
+    }
 
     return (
       <Container className="post-new">
