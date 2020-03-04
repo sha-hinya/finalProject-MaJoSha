@@ -15,6 +15,7 @@ class FileDetail extends Component {
   };
 
   componentDidMount() {
+    this.props.setPageTitle("Document");
     const id = this.props.match.params.fileId;
 
     axios.get(`/api/files/${id}`).then(response => {

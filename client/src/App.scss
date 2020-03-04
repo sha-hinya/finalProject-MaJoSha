@@ -5,8 +5,8 @@
 
 html,
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   font-family: "Open Sans";
 }
 #root {
@@ -71,6 +71,8 @@ a {
     z-index: 100;
   }
   .MuiContainer-root {
+    display: flex;
+    flex-direction: column;
     padding-top: 60px;
     padding-bottom: 60px;
     height: 100%;
@@ -82,11 +84,10 @@ a {
 // -------------------- Profile -------------------- //
 
 .profileIcon {
-  
   position: relative;
-top: +6px;
-left: 5px;
-scale: 10%;
+  top: +6px;
+  left: 5px;
+  scale: 10%;
 }
 
 // -------------------- General -------------------- //
@@ -389,10 +390,9 @@ scale: 10%;
   border-top: 1px solid#222222;
   letter-spacing: 3px;
   font-weight: lighter;
-  
+
   align-items: center;
   text-align: center;
-
 }
 
 .loginSubHeader {

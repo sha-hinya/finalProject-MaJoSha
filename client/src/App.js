@@ -149,11 +149,31 @@ class App extends React.Component {
         ></Route>
 
         {/* Post: View one post */}
+
         <Route
           exact
           path="/posts/:postId"
           render={props => (
-            <PostDetail {...props} backButton={showBackButton} />
+            <PostDetail
+              {...props}
+              backButton={showBackButton}
+              setPageTitle={this.setPageTitle}
+              user={this.state.user}
+            />
+          )}
+        />
+
+        <Route
+          exact
+          path="/posts/:postId/edit"
+          render={props => (
+            <PostForm
+              {...props}
+              backButton={showBackButton}
+              setPageTitle={this.setPageTitle}
+              selectedProperty={this.state.selectedProperty}
+              edit
+            />
           )}
         />
 
@@ -163,7 +183,11 @@ class App extends React.Component {
           path="/posts"
           render={props => {
             return (
-              <Post {...props} selectedProperty={this.state.selectedProperty} />
+              <Post
+                {...props}
+                selectedProperty={this.state.selectedProperty}
+                setPageTitle={this.setPageTitle}
+              />
             );
           }}
         />
@@ -173,7 +197,7 @@ class App extends React.Component {
           exact
           path="/calender"
           render={props => {
-            return <Calender {...props} />;
+            return <Calender {...props} setPageTitle={this.setPageTitle} />;
           }}
         />
         {/* files */}
@@ -181,14 +205,16 @@ class App extends React.Component {
           exact
           path="/files"
           render={props => {
-            return <File {...props} />;
+            return <File {...props} setPageTitle={this.setPageTitle} />;
           }}
         />
 
         <Route
           exact
           path="/files/:fileId"
-          render={props => <FileDetail {...props} />}
+          render={props => (
+            <FileDetail {...props} setPageTitle={this.setPageTitle} />
+          )}
         />
 
         {/* </div> */}
