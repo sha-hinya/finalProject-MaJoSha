@@ -33,8 +33,10 @@ export default class PostForm extends Component {
       const id = this.props.match.params.postId;
       axios.get(`/api/posts/${id}`).then(response => {
         console.log(("response": response.data));
+
         this.setState({
-          ...response.data
+          ...response.data,
+          photo_url: response.data.image
         });
       });
     } else {
@@ -58,7 +60,7 @@ export default class PostForm extends Component {
   };
 
   handleDelete = event => {
-    this.setState({ photo: null });
+    this.setState({ photo: null, photo_url: null });
   };
 
   handleChange = event => {
@@ -76,6 +78,7 @@ export default class PostForm extends Component {
     formData.set("private", this.state.private);
     formData.set("property", this.props.selectedProperty);
     formData.append("image", this.state.photo);
+    formData.set("imageUrl", this.state.image);
     const config = {
       headers: { "content-type": "multipart/form-data" }
     };
@@ -117,7 +120,7 @@ export default class PostForm extends Component {
     console.log("Transfering: ", this.state.transfering);
 
     const renderPhotos = () => {
-      if (!!this.state.photo) {
+      if (!!this.state.photo || !!this.state.photo_url) {
         return (
           <>
             <Paper

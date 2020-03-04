@@ -83,11 +83,9 @@ router.post("/posts", uploadCloud.single("image"), (req, res) => {
 router.put("/posts/:postId", uploadCloud.single("image"), (req, res) => {
   // Todo: add a middleware to protect this route from non-logged in users
   const postId = req.params.postId;
-  const { title, content, private, property } = req.body;
+  const { title, content, private, property, imageUrl } = req.body;
 
-  const imagePath = req.file
-    ? req.file.url
-    : "https://res.cloudinary.com/duzn8aucd/image/upload/v1583230140/houselog-images/no-image_k5z6t1.png";
+  const imagePath = req.file ? req.file.url : imageUrl;
 
   Post.findOneAndUpdate(
     { _id: postId },
@@ -155,7 +153,7 @@ router.post("/posts/:id/upvote", (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json({
-        message: err.message
+        message: err.message10
       });
     });
 });
