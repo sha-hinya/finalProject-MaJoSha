@@ -82,6 +82,14 @@ export default class Posts extends Component {
     this.getData();
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log(prevProps, prevState);
+
+    if (prevProps.selectedProperty !== this.props.selectedProperty) {
+      this.getData();
+    }
+  }
+
   getData = () => {
     // console.log("getData()");
     console.log(
