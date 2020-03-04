@@ -10,6 +10,7 @@ const fileSchema = new Schema(
       }
     ],
     category: String,
+    content: String,
     property: [
       {
         type: Schema.Types.ObjectId,
