@@ -115,8 +115,11 @@ export default class Posts extends Component {
 
   render() {
     const posts = this.state.posts;
+    console.log("property: ",this.posts);
+     
     return (
       <div className="posts-wrapper">
+     
         <Link to="/new-post">
           <Card id="new-post">
             <CardContent>

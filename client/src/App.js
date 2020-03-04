@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar.js";
 import LabelBottomNavigation from "./components/BottomNavigation.js";
 
 // Profile
-import Profile from "./components/Profile.js";
+import Profile from "./pages/profile";
 
 // Pages
 import Dashboard from "./pages/dashboard";
@@ -174,6 +174,15 @@ class App extends React.Component {
           path="/calender"
           render={props => {
             return <Calender {...props} />;
+          }}
+        />
+
+            {/* Profile */}
+            <Route
+          exact
+          path="/profile"
+          render={props => {
+            return <Profile {...props} />;
           }}
         />
         {/* files */}
