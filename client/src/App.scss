@@ -302,16 +302,16 @@ a {
 
 //------------------------------------fileDetails Page-----------------------------
 .fileDetailCardOne {
-  margin: 5%;
-  margin-top: 15%;
+  margin: 8vh 4vw 0vh 4vw;
   border-top: 1px solid grey;
   display: flex;
   flex-direction: column;
   text-align: left;
+  padding: 10px;
 }
 .file-detail-action-icons {
-  // width: 10vw;
-  // height: 10vh;
+  width: 120px;
+  height: 60px;
   justify-self: flex-end;
   align-self: flex-end;
   display: flex;
@@ -324,7 +324,7 @@ a {
 }
 
 .fileDetailCardTwo {
-  margin: 5%;
+  margin: 1vh 4vw;
   margin-bottom: 15%;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
