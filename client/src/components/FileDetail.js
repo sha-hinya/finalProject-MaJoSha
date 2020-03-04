@@ -3,6 +3,7 @@ import axios from "axios";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { IconButton } from "@material-ui/core";
+import { withRouter } from "react-router";
 
 // icons
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
@@ -22,6 +23,16 @@ class FileDetail extends Component {
       });
     });
   }
+
+  handleDelete = () => {
+    const id = this.props.match.params.fileId;
+
+    axios.delete(`/api/files/delete/${id}`).then(res => {
+      console.log("file deleted");
+      console.log(this.props, "hisssstorry");
+    });
+    this.props.history.push("/");
+  };
 
   render() {
     const file = this.state.file;
@@ -50,7 +61,7 @@ class FileDetail extends Component {
               </div>
             </div>
             <div className="file-detail-action-icons">
-              <IconButton aria-label="delete">
+              <IconButton onClick={this.handleDelete} aria-label="delete">
                 <DeleteOutlineIcon fontSize="large" />
               </IconButton>
               <IconButton aria-label="delete">
@@ -67,4 +78,4 @@ class FileDetail extends Component {
   }
 }
 
-export default FileDetail;
+export default withRouter(FileDetail);

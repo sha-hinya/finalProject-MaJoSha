@@ -16,7 +16,8 @@ const fileSchema = new Schema(
         ref: "Property"
       }
     ],
-    url: String
+    url: String,
+    announcedAt: String
   },
   {
     timestamps: {

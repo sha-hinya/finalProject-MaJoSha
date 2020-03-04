@@ -79,6 +79,16 @@ a {
   }
 }
 
+// -------------------- Profile -------------------- //
+
+.profileIcon {
+  
+  position: relative;
+top: +6px;
+left: 5px;
+scale: 10%;
+}
+
 // -------------------- General -------------------- //
 .help-text {
   color: gray;
@@ -288,7 +298,7 @@ a {
   flex-basis: 20%;
   padding-right: 0px;
   font-size: small;
- 
+
   margin-right: 10px;
 }
 
@@ -373,12 +383,16 @@ a {
 }
 
 .loginHeader {
-  color: #222222;
-  padding: 00px;
-  flex-basis: 25%;
+  color: hsl(0, 0%, 13%);
+  padding-top: 40px;
+  flex-basis: 20%;
   border-top: 1px solid#222222;
   letter-spacing: 3px;
   font-weight: lighter;
+  
+  align-items: center;
+  text-align: center;
+
 }
 
 .loginSubHeader {
@@ -398,7 +412,7 @@ a {
 }
 .loginButton {
   color: #222222;
-  padding: 20px;
+  padding-bottom: 20px;
   flex-basis: 25%;
   border-bottom: 1px solid #222222;
 }

@@ -12,7 +12,7 @@ export default class dashboard extends Component {
   };
 
   componentDidMount = () => {
-    console.log(this.props);
+    //console.log(this.props);
     this.props.backButton.off();
     this.props.setPageTitle("House Log");
     this.setState({

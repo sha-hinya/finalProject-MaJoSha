@@ -6,8 +6,10 @@ import "./App.scss";
 
 // Navbar
 import Navbar from "./components/Navbar.js";
-
 import LabelBottomNavigation from "./components/BottomNavigation.js";
+
+// Profile
+import Profile from "./components/Profile.js";
 
 // Pages
 import Dashboard from "./pages/dashboard";
@@ -128,7 +130,11 @@ class App extends React.Component {
           exact
           path="/posts/:postId"
           render={props => (
-            <PostDetail {...props} backButton={showBackButton} />
+            <PostDetail
+              history={props.history}
+              {...props}
+              backButton={showBackButton}
+            />
           )}
         />
 

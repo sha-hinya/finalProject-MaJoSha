@@ -6,6 +6,7 @@ import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import TimeAgo from "react-timeago";
+import SearchBar from "./SearchBar.js";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,14 +34,16 @@ const CalendersList = props => {
   return (
     <div>
       <Paper component="form" className={classes.root}>
-     
-        <InputBase
+        {/* <InputBase
           className={classes.input}
           placeholder="Search calender"
           inputProps={{ "aria-label": "search calender" }}
           // value={this.state.search}
           // onChange={this.handleChange}
-        />
+        /> */}
+
+        <SearchBar props={props} />
+
         <IconButton
           type="submit"
           className={classes.iconButton}
@@ -48,24 +51,23 @@ const CalendersList = props => {
         >
           <SearchIcon />
         </IconButton>
-             </Paper>
+      </Paper>
 
       {props.calenders.map(calender => {
         return (
-         
           <Link key={calender._id} to={`/files/${calender._id}`}>
-                <div className="calenderCards" key={calender._id}>
+            <div className="calenderCards" key={calender._id}>
+              <TimeAgo
+                className="calenderCardsDate"
+                date={calender.announcedAt}
+              />
+              <TimeAgo className="calenderCardsDate" date={calender.dueDate} />
 
-                <TimeAgo className="calenderCardsDate" date={calender.announcedAt} />
-                <TimeAgo className="calenderCardsDate" date={calender.dueDate} />
-            
               <div className="calenderCardsTitle">
                 <h4>{calender.title} </h4>
-             </div>
-        
+              </div>
             </div>
           </Link>
-
         );
       })}
     </div>

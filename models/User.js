@@ -1,4 +1,3 @@
-/* We'll write the schema and register our model for the users here */
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
