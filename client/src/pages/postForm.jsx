@@ -5,7 +5,8 @@ import {
   Paper,
   IconButton,
   FormControlLabel,
-  Switch
+  Switch,
+  CircularProgress
 } from "@material-ui/core";
 import { CropFree, DeleteOutline } from "@material-ui/icons";
 
