@@ -3,15 +3,22 @@ const Schema = mongoose.Schema;
 const fileSchema = new Schema(
   {
     title: String,
-    // userId: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "User"
-    //   }
-    // ] ,
+    userId: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+      }
+    ],
     category: String,
-    property: String,
-    url: String
+    content: String,
+    property: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Property"
+      }
+    ],
+    url: String,
+    announcedAt: String
   },
   {
     timestamps: {

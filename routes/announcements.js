@@ -4,8 +4,11 @@ const Announcement = require("../models/Announcement");
 // READ all and sort
 router.get("/", (req, res) => {
   //   let sort = {};
+  const propertyId = req.query.property;
 
-  Announcement.find()
+  Announcement.find({ property: { _id: propertyId } })
+    .populate("author")
+    .populate("property")
     // .sort(sort)
     // .limit(10)
     .then(announcements => {

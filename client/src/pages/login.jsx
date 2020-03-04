@@ -27,8 +27,6 @@ export default class login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("submit: ");
-    console.log(this.state);
 
     axios
       .post("/api/auth/login", {
@@ -36,22 +34,30 @@ export default class login extends Component {
         password: this.state.password
       })
       .then(response => {
-        console.log(response);
-
         this.props.setUser(response.data);
         this.props.history.push("/");
+        console.log(response);
       })
       .catch(err => {
-        console.log(err);
+        this.setState({
+          message: err.message
+        });
       });
   };
 
   render() {
+    const renderMessage = () => {
+      return <div>{this.state.message}</div>;
+    };
     return (
       <Container className="login">
         <div className="loginHeader">
-          <h3>Welcome to h.express</h3>
+          <h3>House Log</h3>
         </div>
+        <div className="loginSubHeader">
+          <h4>Manage properties efficiently.</h4>
+        </div>
+        {this.state.message ? renderMessage() : ""}
         <form onSubmit={this.handleSubmit} autoComplete="on">
           <FormControl>
             <div className="loginEmail">

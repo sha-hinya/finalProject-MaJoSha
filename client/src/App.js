@@ -6,8 +6,10 @@ import "./App.scss";
 
 // Navbar
 import Navbar from "./components/Navbar.js";
-
 import LabelBottomNavigation from "./components/BottomNavigation.js";
+
+// Profile
+import Profile from "./pages/profile";
 
 // Pages
 import Dashboard from "./pages/dashboard";
@@ -16,6 +18,7 @@ import LoginPage from "./pages/login";
 // Posts
 import PostDetail from "./pages/postDetail.jsx";
 import PostForm from "./pages/postForm.jsx";
+import Post from "./pages/posts.jsx";
 
 // Announcements
 import AnnouncementDetail from "./components/AnnouncementDetail.js";
@@ -34,12 +37,21 @@ class App extends React.Component {
     user: this.props.user,
     pageTitle: "",
     backNavButton: false
+    // selectedProperty: this.props.user.property[0]._id
   };
 
   setUser = userObj => {
-    this.setState({
-      user: userObj
-    });
+    if (userObj === null) {
+      this.setState({
+        user: null,
+        selectedProperty: null
+      });
+    } else {
+      this.setState({
+        user: userObj,
+        selectedProperty: userObj.property[0]._id
+      });
+    }
   };
 
   backButtonOn = () => {
@@ -62,9 +74,18 @@ class App extends React.Component {
     });
   };
 
-  // componentDidMount = () => {
-  //   this.setPageTitle("House Log");
-  // };
+  setSelectedProperty = propertyId => {
+    this.setState({
+      selectedProperty: propertyId
+    });
+  };
+
+  componentDidMount = () => {
+    this.setPageTitle("House Log");
+    if (this.props.user) {
+      this.setUser(this.props.user);
+    }
+  };
 
   render() {
     // if you are logged out, you are automatically redirected to the LoginPage!
@@ -100,6 +121,9 @@ class App extends React.Component {
               {...props}
               backButton={showBackButton}
               setPageTitle={this.setPageTitle}
+              selectedProperty={this.state.selectedProperty}
+              setSelectedProperty={this.setSelectedProperty}
+              user={this.state.user}
             />
           )}
         />
@@ -112,25 +136,62 @@ class App extends React.Component {
         />
 
         {/* Post: Create form */}
+
         <Route
           exact
-          path="/posts/new"
+          path="/new-post"
           render={props => (
             <PostForm
               {...props}
               backButton={showBackButton}
               setPageTitle={this.setPageTitle}
+              selectedProperty={this.state.selectedProperty}
             />
           )}
         ></Route>
 
         {/* Post: View one post */}
+
         <Route
           exact
           path="/posts/:postId"
           render={props => (
-            <PostDetail {...props} backButton={showBackButton} />
+            <PostDetail
+              {...props}
+              backButton={showBackButton}
+              setPageTitle={this.setPageTitle}
+              user={this.state.user}
+            />
           )}
+        />
+
+        <Route
+          exact
+          path="/posts/:postId/edit"
+          render={props => (
+            <PostForm
+              {...props}
+              backButton={showBackButton}
+              setPageTitle={this.setPageTitle}
+              selectedProperty={this.state.selectedProperty}
+              edit
+            />
+          )}
+        />
+
+        {/* Post: View ALL posts */}
+        <Route
+          exact
+          path="/posts"
+          render={props => {
+            return (
+              <Post
+                {...props}
+                selectedProperty={this.state.selectedProperty}
+                setPageTitle={this.setPageTitle}
+              />
+            );
+          }}
         />
 
         {/* Calender */}
@@ -138,7 +199,30 @@ class App extends React.Component {
           exact
           path="/calender"
           render={props => {
-            return <Calender {...props} />;
+            return (
+              <Calender
+                {...props}
+                selectedProperty={this.state.selectedProperty}
+                setPageTitle={this.setPageTitle}
+              />
+            );
+          }}
+        />
+
+        {/* Profile */}
+        <Route
+          exact
+          path="/profile"
+          render={props => {
+            return (
+              <Profile
+                {...props}
+                setUser={this.setUser}
+                showBackNavButton={this.state.backNavButton}
+                pageTitle={this.state.pageTitle}
+                user={this.state.user}
+              />
+            );
           }}
         />
         {/* files */}
@@ -146,14 +230,16 @@ class App extends React.Component {
           exact
           path="/files"
           render={props => {
-            return <File {...props} />;
+            return <File {...props} setPageTitle={this.setPageTitle} />;
           }}
         />
 
         <Route
           exact
           path="/files/:fileId"
-          render={props => <FileDetail {...props} />}
+          render={props => (
+            <FileDetail {...props} setPageTitle={this.setPageTitle} />
+          )}
         />
 
         {/* </div> */}

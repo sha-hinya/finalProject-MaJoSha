@@ -71,19 +71,6 @@ export const PostListItem = props => {
       </Card>
     </Link>
   );
-
-  /*   _id: '5e57c8d606d52e930cfd8e2e';
-  image: 'https://images.unsplash.com/photo-1576096876569-0cffb1b1268d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60';
-  dueDate: null;
-  content: "There's again a new graffitti on the wall";
-  title: 'graffitti on front wall';
-  status: 'open';
-  archived: false;
-  private: false;
-  voteCount: 0;
-  created_at: '2020-02-27T13:49:10.775Z';
-  updated_at: '2020-02-27T13:49:10.775Z';
-  __v: 0; */
 };
 
 export default class Posts extends Component {
@@ -95,13 +82,22 @@ export default class Posts extends Component {
     this.getData();
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.selectedProperty !== this.props.selectedProperty) {
+      this.getData();
+    }
+  }
+
   getData = () => {
     // console.log("getData()");
-    axios.get("/api/posts").then(response => {
-      this.setState({
-        posts: response.data
+
+    axios
+      .get(`/api/posts?property=${this.props.selectedProperty}`)
+      .then(response => {
+        this.setState({
+          posts: response.data
+        });
       });
-    });
   };
 
   getNewestPosts = () => {
@@ -114,10 +110,12 @@ export default class Posts extends Component {
 
   render() {
     const posts = this.state.posts;
+    console.log("property: ",this.posts);
+     
     return (
       <div className="posts-wrapper">
-        <p>Messages</p>
-        <Link to="/posts/new">
+     
+        <Link to="/new-post">
           <Card id="new-post">
             <CardContent>
               <AddCircleIcon style={{ fontSize: "5rem" }} />

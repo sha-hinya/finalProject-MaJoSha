@@ -1,4 +1,3 @@
-/* We'll write the schema and register our model for the users here */
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -15,13 +14,12 @@ const userSchema = new Schema(
       enum: ["client", "moderator", "admin"]
     },
     image: { type: String, default: "images/no-image.jpg" },
-    property: String,
-    // property: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Property"
-    //   }
-    // ],
+    property: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Property"
+      }
+    ],
     _upvotes: [
       {
         type: Schema.Types.ObjectId,

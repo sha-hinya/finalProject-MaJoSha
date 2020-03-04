@@ -11,13 +11,20 @@ export default class Announcements extends Component {
     this.getData();
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.selectedProperty !== this.props.selectedProperty) {
+      this.getData();
+    }
+  }
+
   getData = () => {
-    console.log("getData()");
-    axios.get("/api/announcements").then(response => {
-      this.setState({
-        announcements: response.data
+    axios
+      .get(`/api/announcements?property=${this.props.selectedProperty}`)
+      .then(response => {
+        this.setState({
+          announcements: response.data
+        });
       });
-    });
   };
 
   getNewestAnnouncements = () => {

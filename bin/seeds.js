@@ -19,14 +19,16 @@ const properties = require("../bin/properties.json");
 
 // Stack of promisses
 const promises = [];
-//mongoose.connect(process.env.MONGODB_URI, () => {
-mongoose.connect(
-  process.env.MONGODB_URI,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    console.log("Connected to DB");
-  }
-);
+
+let propertyIds = [];
+let userIds = [];
+mongoose.connect("mongodb://localhost:27017/MaJoSha", () => {
+  // mongoose.connect(
+  //   process.env.MONGODB_URI,
+  //   { useNewUrlParser: true, useUnifiedTopology: true },
+  //   () => {
+  console.log("Connected to DB");
+});
 const bcryptSalt = 10;
 const salt = bcrypt.genSaltSync(bcryptSalt);
 const hashPass = bcrypt.hashSync("1234", salt);
@@ -39,7 +41,6 @@ const newUsers = [
     password: hashPass,
     phone: "4917112345678",
     accessRole: "client",
-    property: "test",
     _upvotes: []
   },
   // admin : Armin Admin
@@ -50,7 +51,6 @@ const newUsers = [
     password: hashPass,
     phone: "4917212345678",
     accessRole: "admin",
-    property: "Test",
     _upvotes: []
   },
   // moderator : Melanie Moderator
@@ -61,47 +61,75 @@ const newUsers = [
     password: hashPass,
     phone: "4917312345678",
     accessRole: "moderator",
-    property: "Test",
     _upvotes: []
   }
 ];
-User.collection.drop();
-promises.push(
-  User.create(newUsers).then(result => {
-    console.log(`Created ${result.length} users`);
-  })
-);
 
-Post.collection.drop();
-promises.push(
-  Post.create(posts)
-    .then(result => {
-      console.log(`Created ${result.length} posts`);
-    })
-    .catch(err => {
-      console.log(err);
-    })
-);
-Announcement.collection.drop();
-promises.push(
-  Announcement.create(announcements)
-    .then(result => {
-      console.log(`Created ${result.length} announcements`);
-    })
-    .catch(err => {
-      console.log(err);
-    })
-);
+// adds properties and saves the ids in an array to set users and posts,
+
 Property.collection.drop();
 promises.push(
   Property.create(properties)
     .then(result => {
       console.log(`Created ${result.length} properties`);
+      result.forEach(element => {
+        propertyIds.push(element._id);
+      });
+      console.log(propertyIds);
+      // all users get all propertyIds
+
+      newUsers[0].property = [...propertyIds];
+      newUsers[1].property = [...propertyIds];
+      newUsers[2].property = [...propertyIds];
+
+      User.collection.drop();
+
+      return User.create(newUsers);
+    })
+    .then(users => {
+      userIds = [...users];
+      console.log(`Created ${users.length} users`);
+      console.log(users);
+
+      posts.forEach((element, index) => {
+        if (index % 2 === 0) {
+          element.property = propertyIds[0];
+        } else {
+          element.property = propertyIds[1];
+        }
+        element.author = users[2]._id;
+        return;
+      });
+      Post.collection.drop();
+      return Post.create(posts);
+    })
+    .then(result => {
+      console.log(`Created ${result.length} posts`);
+      announcements.forEach((element, index) => {
+        if (index % 2 === 0) {
+          element.property = propertyIds[0];
+        } else {
+          element.property = propertyIds[1];
+        }
+        element.author = userIds[2]._id;
+        return;
+      });
+      Announcement.collection.drop();
+      return Announcement.create(announcements);
+    })
+    .then(result => {
+      console.log(`Created ${result.length} Announcements`);
+
+      files.forEach((element, index) => {
+        element.property = [...propertyIds];
+        element.userId = [...userIds];
+      });
     })
     .catch(err => {
       console.log(err);
     })
 );
+
 File.collection.drop();
 promises.push(
   File.create(files)

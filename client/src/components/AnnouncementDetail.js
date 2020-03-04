@@ -1,6 +1,13 @@
-// import React, { Component } from "react";
-// import axios from "axios";
-// // import { Link } from "react-router-dom";
+import React, { Component } from "react";
+import axios from "axios";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import { IconButton, Container } from "@material-ui/core";
+import TimeAgo from "react-timeago";
+
+// icons
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import EditIcon from "@material-ui/icons/Edit";
 
 // export default class AnnouncementDetail extends Component {
 //   state = {
@@ -46,11 +53,6 @@
 //       </div>
 //     );
 //   }
-// }
-import React, { Component } from "react";
-import axios from "axios";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
 
 class AnnouncementDetail extends Component {
   state = {
@@ -76,33 +78,50 @@ class AnnouncementDetail extends Component {
     }
 
     return (
-      <div className="announcementCardsContainer">
+      <Container>
         <Card className="announcementCardsDetail">
           <CardContent>
             <div>
               <div>
                 <h2>{announcement.title}</h2>
-                <p>{announcement.content}</p>
-                <p>
-                  updated on {new Date(announcement.updated_at).toDateString()}
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+                {/* <p>{announcement.property}</p> */}
 
-        <Card className="announcementCardsDetail">
-          <CardContent>
-            <div>
-              <div>
-                <img src={announcement.image} alt={announcement.title} />
+                <h5>
+                  {"valid from "}
+                  {new Date(announcement.announcedAt).toLocaleDateString(
+                    "de-De"
+                  )}
+
+                  {" until "}
+                  {new Date(announcement.announcedAt).toLocaleDateString(
+                    "de-De"
+                  )}
+                </h5>
+
+                <p>{announcement.content}</p>
               </div>
+            </div>
+            <div className="announcement-detail-action-icons">
+              <IconButton aria-label="delete">
+                <DeleteOutlineIcon fontSize="large" />
+              </IconButton>
+              <IconButton aria-label="delete">
+                <EditIcon fontSize="large" />
+              </IconButton>
+            </div>
+            <div className="post-detail-action-icons">
+              <img src={announcement.image} alt={announcement.title} />
+            </div>
+
+            <div style={{ fontSize: "10px" }}>
+              {"last update: "}
+              <TimeAgo date={announcement.updated_at} />
+              {/* {new Date(announcement.updated_at).toLocaleDateString("de-De")} */}
             </div>
           </CardContent>
         </Card>
-      </div>
+      </Container>
     );
   }
 }
-
 export default AnnouncementDetail;

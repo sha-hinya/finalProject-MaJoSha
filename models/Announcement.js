@@ -12,18 +12,31 @@ const announcementSchema = new Schema(
       type: String
     },
     author: {
-      type: String,
-      default: "Admin"
+      type: Schema.Types.ObjectId,
+      ref: "User"
     },
     visibility: {
       type: Boolean,
       default: true
     },
-    image: String,
-    //default: "https://source.unsplash.com/random"
-    announcedAt: String,
+    property: {
+      type: Schema.Types.ObjectId,
+      ref: "Property"
+    },
+    image: {
+      type: String,
+      default: "https://source.unsplash.com/random"
+    },
 
-    unAnnouncedAt: String
+    announcedAt: {
+      type: Date,
+      default: Date.now
+    },
+
+    unannouncedAt: {
+      type: Date,
+      default: Date.now
+    }
   },
 
   {
@@ -32,13 +45,7 @@ const announcementSchema = new Schema(
       updatedAt: "updated_at"
     }
   }
-
-  // property: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Property"
-  // }
 );
 
 const Announcement = mongoose.model("Announcement", announcementSchema);
-
 module.exports = Announcement;

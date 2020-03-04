@@ -32,9 +32,9 @@ router.get("/:id", (req, res) => {
 });
 
 //delete
-router.get("/delete", (req, res, next) => {
+router.delete("/delete/:id", (req, res, next) => {
   if (req.user) {
-    File.deleteOne({ _id: req.user._id })
+    File.deleteOne({ _id: req.params.id })
       .then(() => {
         res.redirect("/");
       })

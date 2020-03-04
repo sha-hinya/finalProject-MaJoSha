@@ -4,19 +4,21 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import Card from "@material-ui/core/Card";
-import { CardContent } from "@material-ui/core";
+import { CardContent, Container } from "@material-ui/core";
+import TimeAgo from "react-timeago";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    // display: "flex",
-    // flexWrap: "wrap",
-    // overflow: "hidden"
+    display: "flex",
+    flexWrap: "wrap",
+    overflow: "hidden"
   },
   gridList: {
     flexWrap: "nowrap",
     textAlign: "left",
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
-    transform: "translateZ(0)"
+    transform: "translateZ(0)",
+    margin: "0px"
   },
   title: {
     backgroundColor: "white"
@@ -25,7 +27,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#335CFF",
     color: "#f7f7f7",
     textAlgin: "left",
-    height: "175px"
+    height: "160px",
+    minWidth: "90px"
   },
   titleBar: {
     background:
@@ -37,7 +40,7 @@ export default function AnnouncementsList(props) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <Container className="announcementContainer">
       <GridList className={classes.gridList} cols={0.5}>
         {props.announcements.map(announcement => (
           <Link key={announcement._id} to={`/announcement/${announcement._id}`}>
@@ -51,7 +54,8 @@ export default function AnnouncementsList(props) {
                   {/* <div className='post-status-icon'> {getStatusIcon()}</div> */}
                   <p></p>
                   <div className="announcement-time">
-                    {new Date(announcement.created_at).toDateString()}
+                    <TimeAgo date={announcement.created_at} />
+                    {/* {new Date(announcement.created_at).toDateString()} */}
                   </div>
                 </div>
               </CardContent>
@@ -59,6 +63,6 @@ export default function AnnouncementsList(props) {
           </Link>
         ))}
       </GridList>
-    </div>
+    </Container>
   );
 }

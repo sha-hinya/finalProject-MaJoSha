@@ -9,50 +9,48 @@ export default class Calenders extends Component {
   };
 
   componentDidMount() {
+    this.props.setPageTitle("Calendar");
     this.getData();
   }
 
   getData = () => {
     //console.log("getData()");
-    axios.get("/api/announcements").then(response => {
-      this.setState(
-        {
-          calenders: response.data
-        },
-        () => {
-          axios.get("/api/posts").then(response => {
-            console.log(response.data);
-            this.setState({
-              calenders: [...this.state.calenders, ...response.data]
-            });
-          });
-        }
-      );
-    });
-  };
-
-  // getData = () => {
-  //   //console.log("getData()");
-  //   axios.get("/api/posts").then(response => {
-  //     this.setState({
-  //       calenders: response.data
-  //     });
-  //   });
-  // };
-
-  getNewestCalenders = () => {
-    axios.get("/api/files?sortBy=created_at").then(response => {
-      this.setState({
-        calenders: response.data
+    axios
+      .get(`/api/announcements?property=${this.props.selectedProperty}`)
+      .then(response => {
+        this.setState(
+          {
+            calenders: response.data
+          },
+          () => {
+            axios
+              .get(`/api/posts?property=${this.props.selectedProperty}`)
+              .then(response => {
+                //console.log(response.data);
+                this.setState({
+                  calenders: [...this.state.calenders, ...response.data]
+                });
+                //console.log("Kalender: ", this.state);
+              });
+          }
+        );
       });
-    });
   };
 
   render() {
-    console.log("< Calenders/> RENDER", this.state.calenders);
+    //console.log("< Calenders/> RENDER", this.state.calenders);
+
+    const sorted = [...this.state.calenders].sort((b, a) => {
+      const sortFieldA = a.announcedAt ? "announcedAt" : "dueDate";
+      const sortFieldB = b.announcedAt ? "announcedAt" : "dueDate";
+      return new Date(b[sortFieldB]) - new Date(a[sortFieldA]);
+    });
+
+    //console.log(sorted);
+
     return (
       <Container>
-        <CalendersList calenders={this.state.calenders} />
+        <CalendersList calenders={sorted} />
       </Container>
     );
   }

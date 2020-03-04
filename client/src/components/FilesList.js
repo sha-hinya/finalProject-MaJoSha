@@ -1,73 +1,69 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
-import IconButton from "@material-ui/core/IconButton";
-import SearchIcon from "@material-ui/icons/Search";
+// import IconButton from "@material-ui/core/IconButton";
+// import SearchIcon from "@material-ui/icons/Search";
+import Card from "@material-ui/core/Card";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    padding: "2px 4px",
-    display: "flex",
-    alignItems: "center"
-  },
-  input: {
-    marginLeft: theme.spacing(1),
-    flex: 1
-  },
-  iconButton: {
-    padding: 10
-  },
-  divider: {
-    height: 28,
-    margin: 4
-  }
-}));
+class FilesList extends Component {
+  state = { search: "" };
 
-const FilesList = props => {
-  const classes = useStyles();
-  //console.log(props.files);
-  return (
-    <div>
-      <Paper component="form" className={classes.root}>
-        <InputBase
-          className={classes.input}
-          placeholder="Search all documents"
-          inputProps={{ "aria-label": "search all files" }}
-          // value={this.state.search}
-          // onChange={this.handleChange}
-        />
-        <IconButton
-          type="submit"
-          className={classes.iconButton}
-          aria-label="search"
-        >
-          <SearchIcon />
-        </IconButton>
-      </Paper>
+  updateSearch = search => {
+    console.log("SEARCH", search);
+    this.setState({
+      search: search
+    });
+  };
 
-      {props.files.map(file => {
+  changeText = event => {
+    this.setState({
+      search: event.target.value
+    });
+  };
+
+  render() {
+    let filteredFiles;
+    filteredFiles = this.props.files.filter(ele => {
+      return ele.title.includes(this.state.search);
+    });
+
     return (
-      <Link key={file._id} to={`/files/${file._id}`}>
-        <div className="fileCards" key={file._id}>
-          <div className="fileCardsTitle">
-            <h4>{file.title} </h4>
-          </div>
-          <div className="fileCardsCategory">
-            <h4>{file.category}</h4>
-          </div>
-          <div className="fileCardsTitle">
-            <h3>{new Date(file.created_at).toLocaleDateString("de-De")}</h3>
-          </div>
-        </div>
-      </Link>
-         
-        );
-      })}
-    </div>
-  );
+      <div>
+        <Paper className="calenderSerachBarContainer" component="form">
+          <InputBase
+            className="calenderSerachBar"
+            placeholder="Search documents"
+            value={this.state.searchText}
+            onChange={this.changeText}
+          />
+        </Paper>
 
-};
+        {filteredFiles.map(file => {
+          return (
+            <Card key={file._id} className="cards-fileList">
+              <Link key={file._id} to={`/files/${file._id}`}>
+                <div className="fileCards" key={file._id}>
+                  <div className="fileCardsTitle">
+                    <h4>{file.title} </h4>
+                  </div>
+                  <div className="fileCardsCategory">
+                    <h4>{file.category}</h4>
+                  </div>
+                  <div className="fileCardsDate">
+                    <h3>
+                      {new Date(file.announcedAt).toLocaleDateString("de-De")}
+                    </h3>
+                  </div>
+                </div>
+              </Link>
+            </Card>
+          );
+        })}
+      </div>
+    );
+  }
+}
 
 export default FilesList;
