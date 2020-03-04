@@ -39,6 +39,8 @@ router.get("/posts/:id", (req, res) => {
   const postId = req.params.id;
 
   Post.findById(postId)
+    .populate("User")
+    .populate("Property")
     .then(post => {
       res.json(post);
     })
@@ -62,7 +64,8 @@ router.post("/posts", uploadCloud.single("image"), (req, res) => {
     title: title,
     content: content,
     image: imagePath,
-    private: private
+    private: private,
+    author: req.user._id
   })
     .then(postFile => {
       res.json(postFile);

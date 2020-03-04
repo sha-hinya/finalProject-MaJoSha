@@ -34,7 +34,8 @@ class App extends React.Component {
   state = {
     user: this.props.user,
     pageTitle: "",
-    backNavButton: false
+    backNavButton: false,
+    selectedProperty: ""
   };
 
   setUser = userObj => {
@@ -63,6 +64,12 @@ class App extends React.Component {
     });
   };
 
+  setSelectedProperty = propertyId => {
+    this.setState({
+      selectedProperty: propertyId
+    });
+  };
+
   // componentDidMount = () => {
   //   this.setPageTitle("House Log");
   // };
@@ -83,6 +90,7 @@ class App extends React.Component {
       off: this.backButtonOff
     };
 
+    console.log(this.state.user);
     return (
       <div className="App">
         <Navbar
@@ -101,6 +109,9 @@ class App extends React.Component {
               {...props}
               backButton={showBackButton}
               setPageTitle={this.setPageTitle}
+              selectedProperty={this.state.selectedProperty}
+              setSelectedProperty={this.state.setSelectedProperty}
+              user={this.state.user}
             />
           )}
         />
@@ -120,6 +131,7 @@ class App extends React.Component {
             <PostDetail {...props} backButton={showBackButton} />
           )}
         />
+
         <Route
           exact
           path="/new-post"
