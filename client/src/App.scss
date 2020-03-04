@@ -73,13 +73,10 @@ a {
   .MuiContainer-root {
     display: flex;
     flex-direction: column;
-    padding-top: 40px;
-    
-    padding-bottom: 0px;
+    padding-top: 60px;
+    padding-bottom: 00px;
     height: 100%;
     max-width: 780px;
-    position: relative;
-  
     // overflow: scroll;
   }
 }
@@ -98,13 +95,6 @@ a {
   color: gray;
   font-size: small;
   text-align: left;
-}
-
-.locationDropown {
-  margin: 0px;
-  padding: 0px;
-  position: relative;
-  top: 40px;
 }
 
 // -------------------- Posts -------------------- //
@@ -174,7 +164,7 @@ a {
         position: absolute;
         display: flex;
         align-items: center;
-        // padding: 0.5rem;
+        padding: 0.5rem;
         left: 0;
         bottom: 0;
         * {
@@ -245,7 +235,8 @@ a {
   //background-color: #ccd7ff;
   color: #222222;
   text-align: left;
-
+  position: relative;
+  top: -30px;
 }
 .announcementImage {
   width: 150px;
@@ -283,7 +274,7 @@ a {
 // -------------------- Files -------------------- //
 .cards-fileList {
   margin-bottom: 4px;
-  border-bottom: 2px solid black;
+  border-bottom: 2px;
   // background-color: rgba(9, 109, 209, 0.8);
 }
 
@@ -315,16 +306,16 @@ a {
 
 //------------------------------------fileDetails Page-----------------------------
 .fileDetailCardOne {
-  margin: 8vh 4vw 0vh 4vw;
+  margin: 5%;
+  margin-top: 15%;
   border-top: 1px solid grey;
   display: flex;
   flex-direction: column;
   text-align: left;
-  padding: 10px;
 }
 .file-detail-action-icons {
-  width: 120px;
-  height: 60px;
+  // width: 10vw;
+  // height: 10vh;
   justify-self: flex-end;
   align-self: flex-end;
   display: flex;
@@ -333,11 +324,11 @@ a {
 .filesDetailCardContent {
   display: flex;
   flex-direction: column;
-  padding: 0px;
+  padding: 0;
 }
 
 .fileDetailCardTwo {
-  margin: 1vh 4vw;
+  margin: 5%;
   margin-bottom: 15%;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
@@ -432,7 +423,7 @@ a {
   margin: 50px;
   background-color: #f7f7f7;
   border-radius: 10px;
-  
+  margin: 50px;
 }
 
 .loginHeader {
@@ -476,8 +467,6 @@ a {
   color: #222222;
   display: flex;
   flex-direction: row;
-  
-  
 }
 
 // -------------------- Color Scheme -------------------- //
