@@ -15,22 +15,26 @@ export default class Calenders extends Component {
 
   getData = () => {
     //console.log("getData()");
-    axios.get("/api/announcements").then(response => {
-      this.setState(
-        {
-          calenders: response.data
-        },
-        () => {
-          axios.get("/api/posts").then(response => {
-            //console.log(response.data);
-            this.setState({
-              calenders: [...this.state.calenders, ...response.data]
-            });
-            //console.log("Kalender: ", this.state);
-          });
-        }
-      );
-    });
+    axios
+      .get(`/api/announcements?property=${this.props.selectedProperty}`)
+      .then(response => {
+        this.setState(
+          {
+            calenders: response.data
+          },
+          () => {
+            axios
+              .get(`/api/posts?property=${this.props.selectedProperty}`)
+              .then(response => {
+                //console.log(response.data);
+                this.setState({
+                  calenders: [...this.state.calenders, ...response.data]
+                });
+                //console.log("Kalender: ", this.state);
+              });
+          }
+        );
+      });
   };
 
   render() {

@@ -5,7 +5,7 @@ const Announcement = require("../models/Announcement");
 router.get("/", (req, res) => {
   //   let sort = {};
   const propertyId = req.query.property;
-  console.log("PropertyId", propertyId);
+
   Announcement.find({ property: { _id: propertyId } })
     .populate("author")
     .populate("property")
