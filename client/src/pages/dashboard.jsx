@@ -36,7 +36,7 @@ export default class dashboard extends Component {
       <Container>
         <div className="dashboardHeader">
           <p>
-            <LocationOnIcon className="locationDropown"/>
+            <LocationOnIcon className="locationDropown" />
             <FormControl className="locationDropown">
               {/* <InputLabel htmlFor="age-native-simple">property
               </InputLabel> */}
@@ -55,8 +55,8 @@ export default class dashboard extends Component {
           </p>
         </div>
 
-        <Announcement />
-        {/* <p>Messages</p> */}
+        <Announcement selectedProperty={this.props.selectedProperty} />
+        <p>Messages</p>
         <PostList
           {...this.props}
           selectedProperty={this.props.selectedProperty}

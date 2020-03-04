@@ -80,9 +80,12 @@ class App extends React.Component {
     });
   };
 
-  // componentDidMount = () => {
-  //   this.setPageTitle("House Log");
-  // };
+  componentDidMount = () => {
+    this.setPageTitle("House Log");
+    if (this.props.user) {
+      this.setUser(this.props.user);
+    }
+  };
 
   render() {
     // if you are logged out, you are automatically redirected to the LoginPage!
@@ -100,7 +103,6 @@ class App extends React.Component {
       off: this.backButtonOff
     };
 
-    console.log(this.state.user);
     return (
       <div className="App">
         <Navbar

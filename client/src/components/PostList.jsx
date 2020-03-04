@@ -83,8 +83,6 @@ export default class Posts extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log(prevProps, prevState);
-
     if (prevProps.selectedProperty !== this.props.selectedProperty) {
       this.getData();
     }
@@ -92,10 +90,7 @@ export default class Posts extends Component {
 
   getData = () => {
     // console.log("getData()");
-    console.log(
-      "get request",
-      `/api/posts?property=${this.props.selectedProperty}`
-    );
+
     axios
       .get(`/api/posts?property=${this.props.selectedProperty}`)
       .then(response => {

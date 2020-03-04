@@ -20,7 +20,20 @@ export default class PostForm extends Component {
 
   componentDidMount() {
     this.props.backButton.on();
-    this.props.setPageTitle("New Message");
+    if (this.props.edit) {
+      this.props.setPageTitle("Edit Message");
+      const id = this.props.match.params.postId;
+      axios.get(`/api/posts/${id}`).then(response => {
+        //console.log(("response": response.data));
+
+        this.setState({
+          ...response.data,
+          photo_url: response.data.image
+        });
+      });
+    } else {
+      this.props.setPageTitle("New Message");
+    }
   }
 
   handleFileChange = event => {
@@ -37,14 +50,25 @@ export default class PostForm extends Component {
     });
   };
   handleDelete = event => {
-    console.log(event);
-    this.setState({ photo: null });
+    this.setState({ photo: null, photo_url: null });
   };
 
   handleSubmit = event => {
     event.preventDefault();
 
-    console.log("Form submitted");
+    let formData = new FormData();
+    formData.set("title", this.state.title);
+    formData.set("content", this.state.content);
+    formData.set("private", this.state.private);
+    formData.set("property", this.props.selectedProperty);
+    formData.append("image", this.state.photo);
+    formData.set("imageUrl", this.state.image);
+    const config = {
+      headers: { "content-type": "multipart/form-data" }
+    };
+    this.setState({
+      transfering: true
+    });
 
     axios
       .post("/api/posts", {
@@ -69,10 +93,10 @@ export default class PostForm extends Component {
 
   render() {
     const renderPhotos = () => {
-      if (!!this.state.photo) {
+      if (!!this.state.photo || !!this.state.photo_url) {
         return (
           <Paper elevation={1} variant="outlined" onClick={this.showImageMenu}>
-            <img src={this.state.photo} alt={this.state.photo}/>
+            <img src={this.state.photo} alt={this.state.photo} />
             <IconButton onClick={this.handleDelete}>
               <DeleteOutline />
             </IconButton>
