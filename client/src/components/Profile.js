@@ -1,56 +1,38 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-//import { Avatar } from '@material-ui/core';
-import IconButton from "@material-ui/core/IconButton";
-import PersonIcon from "@material-ui/icons/AccountBox";
+// import axios from "axios";
+// import Card from "@material-ui/core/Card";
+// import CardContent from "@material-ui/core/CardContent";
+// import { IconButton } from "@material-ui/core";
+// import { withRouter } from "react-router";
 
 // icons
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
-// const Profile = props => {
-//   const logout = () => {
-//     axios.delete("/api/auth/logout").then(() => {
-//       props.setUser(null);
-//     });
-//   };
-// }
-
-export default class Profile extends Component {
+class Profile extends Component {
   state = {
-    username: "",
-    password: "",
-    message: ""
+    user: null
   };
 
   componentDidMount() {
-    this.props.setPageTitle("Profile");
-    this.getData();
+    // this.props.setPageTitle("Profile");
+    // const id = this.props.match.params.userId;
+    // axios.get(`/api/user/`).then(response => {
+    //   this.setState({
+    //     user: response.data
+    //   });
+    // });
   }
-
-  getData = () => {
-    
-    axios.get("/api/users").then(response => {
-      this.setState({
-        users: response.data
-      });
-    });
-  };
 
   render() {
+    //console.log("response.data", this.state);
+    console.log("Profile Data", this.props);
     return (
       <div>
-        Hello Profile
-        {/* <div className="nav-title">{props.pageTitle}</div> */}
-        <Link
-          className="profileIcon"
-          // onClick={logout}
-          to="/"
-        ></Link>
-        <Link className="profileIcon" to="/profile">
-          <PersonIcon />
-        </Link>
-      </div>
-    );
+        Hello Profile! 
+        {/* {this.firstName}
+        <h2>{this.lastName}</h2> */}
+         {/* {this.profile.user.firstName}  */}
+      </div>    );
   }
 }
+
+export default Profile;

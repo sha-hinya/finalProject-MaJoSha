@@ -199,7 +199,13 @@ class App extends React.Component {
           exact
           path="/calender"
           render={props => {
-            return <Calender {...props} setPageTitle={this.setPageTitle} />;
+            return (
+              <Calender
+                {...props}
+                selectedProperty={this.state.selectedProperty}
+                setPageTitle={this.setPageTitle}
+              />
+            );
           }}
         />
 

@@ -36,13 +36,19 @@ export default class login extends Component {
       .then(response => {
         this.props.setUser(response.data);
         this.props.history.push("/");
+        console.log(response);
       })
       .catch(err => {
-        console.log(err);
+        this.setState({
+          message: err.message
+        });
       });
   };
 
   render() {
+    const renderMessage = () => {
+      return <div>{this.state.message}</div>;
+    };
     return (
       <Container className="login">
         <div className="loginHeader">
@@ -51,6 +57,7 @@ export default class login extends Component {
         <div className="loginSubHeader">
           <h4>Manage properties efficiently.</h4>
         </div>
+        {this.state.message ? renderMessage() : ""}
         <form onSubmit={this.handleSubmit} autoComplete="on">
           <FormControl>
             <div className="loginEmail">
