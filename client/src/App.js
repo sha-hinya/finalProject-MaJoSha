@@ -6,8 +6,10 @@ import "./App.scss";
 
 // Navbar
 import Navbar from "./components/Navbar.js";
-
 import LabelBottomNavigation from "./components/BottomNavigation.js";
+
+// Profile
+import Profile from "./components/Profile.js";
 
 // Pages
 import Dashboard from "./pages/dashboard";
@@ -35,12 +37,21 @@ class App extends React.Component {
     user: this.props.user,
     pageTitle: "",
     backNavButton: false
+    // selectedProperty: this.props.user.property[0]._id
   };
 
   setUser = userObj => {
-    this.setState({
-      user: userObj
-    });
+    if (userObj === null) {
+      this.setState({
+        user: null,
+        selectedProperty: null
+      });
+    } else {
+      this.setState({
+        user: userObj,
+        selectedProperty: userObj.property[0]._id
+      });
+    }
   };
 
   backButtonOn = () => {
@@ -60,6 +71,12 @@ class App extends React.Component {
   setPageTitle = title => {
     this.setState({
       pageTitle: title
+    });
+  };
+
+  setSelectedProperty = propertyId => {
+    this.setState({
+      selectedProperty: propertyId
     });
   };
 
@@ -83,6 +100,7 @@ class App extends React.Component {
       off: this.backButtonOff
     };
 
+    console.log(this.state.user);
     return (
       <div className="App">
         <Navbar
@@ -101,6 +119,9 @@ class App extends React.Component {
               {...props}
               backButton={showBackButton}
               setPageTitle={this.setPageTitle}
+              selectedProperty={this.state.selectedProperty}
+              setSelectedProperty={this.setSelectedProperty}
+              user={this.state.user}
             />
           )}
         />
@@ -113,17 +134,7 @@ class App extends React.Component {
         />
 
         {/* Post: Create form */}
-        <Route
-          exact
-          path="/posts/:postId"
-          render={props => (
-            <PostDetail
-              history={props.history}
-              {...props}
-              backButton={showBackButton}
-            />
-          )}
-        />
+
         <Route
           exact
           path="/new-post"
@@ -132,6 +143,7 @@ class App extends React.Component {
               {...props}
               backButton={showBackButton}
               setPageTitle={this.setPageTitle}
+              selectedProperty={this.state.selectedProperty}
             />
           )}
         ></Route>
@@ -150,7 +162,9 @@ class App extends React.Component {
           exact
           path="/posts"
           render={props => {
-            return <Post {...props} />;
+            return (
+              <Post {...props} selectedProperty={this.state.selectedProperty} />
+            );
           }}
         />
 
