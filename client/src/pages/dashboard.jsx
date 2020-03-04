@@ -13,9 +13,9 @@ export default class dashboard extends Component {
     console.log("dashboard props:", this.props);
     this.props.backButton.off();
     this.props.setPageTitle("House Log");
-    this.setState({
-      user: this.props.user
-    });
+    // this.setState({
+    //   user: this.props.user
+    // });
     // axios.get();
   };
 
@@ -25,8 +25,8 @@ export default class dashboard extends Component {
 
   render() {
     const renderPropertySelector = () => {
-      if (this.state.user && this.state.user.property) {
-        return this.state?.user.property.map((property, index) => {
+      if (this.props.user && this.props.user.property) {
+        return this.props?.user.property.map((property, index) => {
           return (
             <option value={property._id} key={index}>
               {`${property.property_street}, ${property.property_postal}`}
