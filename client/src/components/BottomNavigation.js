@@ -57,7 +57,7 @@ export default function SimpleBottomNavigation() {
 
       <BottomNavigationAction
         component={Link}
-        label="Documents"
+        label="Files"
         to="/files"
         icon={<FileIcon />}
       />
