@@ -42,39 +42,67 @@ class FileDetail extends Component {
     }
 
     return (
-      <div className="fileCardsContainer">
-        <Card className="fileCardsDetail">
-          <CardContent>
-            <div>
-              <div>
-                <h2>{file.title}</h2>
-                {/* <p>{file.property}</p> */}
-                <h4>{file.category}</h4>
-                <h5>
-                  {"last update: "}
-                  {new Date(file.updated_at).toLocaleDateString("de-De")}
-                </h5>
-                <p>
-                  {
-                    "Since many of the waste consist of man-made materials, they decompose in landfills for hundreds of years, poisoning everything around. However there is only one method that helps to avoid destroying nature and not harmful to human health - recycling. To manage the smooth process of recycling we need to make our own contribution - please separate waste manually at the household."
-                  }
-                </p>
-              </div>
-            </div>
-            <div className="file-detail-action-icons">
-              <IconButton onClick={this.handleDelete} aria-label="delete">
-                <DeleteOutlineIcon fontSize="large" />
-              </IconButton>
-              <IconButton aria-label="delete">
-                <EditIcon fontSize="large" />
-              </IconButton>
-            </div>
-            <div className="post-detail-action-icons">
-              <img src={file.url} alt={file.title} />
-            </div>
+      <div>
+        <Card className="fileDetailCardOne">
+          <CardContent className="filesDetailCardContent">
+            <h2>{file.title}</h2>
+            <h4>{file.category}</h4>
+            <h5>
+              {"last update: "}
+              {new Date(file.updated_at).toLocaleDateString("de-De")}
+            </h5>
+            <p>
+              {
+                "Since many of the waste consist of man-made materials, they decompose in landfills for hundreds of years, poisoning everything around. However there is only one method that helps to avoid destroying nature and not harmful to human health - recycling. To manage the smooth process of recycling we need to make our own contribution - please separate waste manually at the household."
+              }
+            </p>
           </CardContent>
+          <div className="file-detail-action-icons">
+            <IconButton onClick={this.handleDelete} aria-label="delete">
+              <DeleteOutlineIcon fontSize="large" />
+            </IconButton>
+            <IconButton aria-label="delete">
+              <EditIcon fontSize="large" />
+            </IconButton>{" "}
+          </div>
+        </Card>
+
+        <Card className="fileDetailCardTwo">
+          <img id="img" src={file.url} alt={file.title} />
         </Card>
       </div>
+
+      // <div className="fileCardsContainer">
+      //   <Card className="fileCardsDetail">
+      //     <CardContent>
+      //       <div>
+      //<h2>{file.title}</h2>
+      //         <h4>{file.category}</h4>
+      //         <h5>
+      //           {"last update: "}
+      //           {new Date(file.updated_at).toLocaleDateString("de-De")}
+      //         </h5>
+      //         <p>
+      //           {
+      //             "Since many of the waste consist of man-made materials, they decompose in landfills for hundreds of years, poisoning everything around. However there is only one method that helps to avoid destroying nature and not harmful to human health - recycling. To manage the smooth process of recycling we need to make our own contribution - please separate waste manually at the household."
+      //           }
+      //         </p>
+      //       </div>
+      //       <div className="file-detail-action-icons">
+      //         <IconButton onClick={this.handleDelete} aria-label="delete">
+      //           <DeleteOutlineIcon fontSize="large" />
+      //         </IconButton>
+      //         <IconButton aria-label="delete">
+      //           <EditIcon fontSize="large" />
+      //         </IconButton>
+      //       </div>
+      //     </CardContent>
+      //   </Card>
+      //   <div className=".fileCardsDetailImage">
+      //     <img src={file.url} alt={file.title} />
+      //   </div>
+      //   <Card></Card>
+      // </div>
     );
   }
 }

@@ -299,35 +299,67 @@ a {
   flex-basis: 20%;
   padding-right: 0px;
   font-size: small;
-
   margin-right: 10px;
 }
 
 //------------------------------------fileDetails Page-----------------------------
-.fileCardsContainer {
-  padding: 5%;
-  padding-bottom: 60px;
-}
-
-.fileCardsDetail {
-  margin-top: 12%;
-  // border: 1px solid grey;
-  border-radius: 10px;
-  background-color: rgba(195, 195, 195, 0.3);
-  padding: 10px;
+.fileDetailCardOne {
+  margin: 5%;
+  margin-top: 15%;
+  border-top: 1px solid grey;
   display: flex;
   flex-direction: column;
   text-align: left;
 }
-
-.fileCardsDetail img {
-  width: 80vw;
-  // height: 9vw;
-}
 .file-detail-action-icons {
-  display: flex;
+  // width: 10vw;
+  // height: 10vh;
+  justify-self: flex-end;
   align-self: flex-end;
+  display: flex;
+  flex-direction: row;
 }
+.filesDetailCardContent {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.fileDetailCardTwo {
+  margin: 5%;
+  margin-bottom: 15%;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+#img {
+  width: 80vw;
+}
+
+// .fileCardsContainer {
+//   padding: 5%;
+//   padding-bottom: 60px;
+// }
+
+// .fileCardsDetail {
+//   margin-top: 12%;
+//   // border: 1px solid grey;
+//   border-radius: 10px;
+//   background-color: rgba(195, 195, 195, 0.3);
+//   padding: 10px;
+//   display: flex;
+//   flex-direction: column;
+//   text-align: left;
+// }
+
+// .fileCardsDetailImage {
+//   width: 80vw;
+//   // height: 9vw;
+// }
+// .file-detail-action-icons {
+//   display: flex;
+//   align-self: flex-end;
+// }
 
 // -------------------- Calender -------------------- //
 .calenderCardsContainer {
@@ -367,6 +399,15 @@ a {
   flex-direction: row;
   flex-basis: 50%;
   align-items: center;
+}
+
+.calenderSerachBarContainer {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.calenderSerachBar {
+  margin: 5px 0px 5px 10px;
 }
 
 // -------------------- Login -------------------- //
