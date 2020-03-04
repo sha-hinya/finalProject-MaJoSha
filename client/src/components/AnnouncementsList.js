@@ -4,7 +4,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import Card from "@material-ui/core/Card";
-import { CardContent } from "@material-ui/core";
+import { CardContent, Container } from "@material-ui/core";
 import TimeAgo from "react-timeago";
 
 const useStyles = makeStyles(theme => ({
@@ -38,7 +38,7 @@ export default function AnnouncementsList(props) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <Container>
       <GridList className={classes.gridList} cols={0.5}>
         {props.announcements.map(announcement => (
           <Link key={announcement._id} to={`/announcement/${announcement._id}`}>
@@ -51,8 +51,8 @@ export default function AnnouncementsList(props) {
                 <div className="post-status">
                   {/* <div className='post-status-icon'> {getStatusIcon()}</div> */}
                   <p></p>
-                  <div className="announcement-time"> 
-                  <TimeAgo date={announcement.created_at}/>
+                  <div className="announcement-time">
+                    <TimeAgo date={announcement.created_at} />
                     {/* {new Date(announcement.created_at).toDateString()} */}
                   </div>
                 </div>
@@ -61,6 +61,6 @@ export default function AnnouncementsList(props) {
           </Link>
         ))}
       </GridList>
-    </div>
+    </Container>
   );
 }

@@ -25,7 +25,8 @@ router.get("/posts", (req, res) => {
   }
 
   Post.find({ property: { _id: propertyId } })
-    //.sort(sort)
+    .populate("author")
+    .sort({ created_at: -1 })
     .limit(10)
     .then(posts => {
       res.json(posts);
@@ -41,8 +42,7 @@ router.get("/posts/:id", (req, res) => {
   const postId = req.params.id;
 
   Post.findById(postId)
-    .populate("User")
-    .populate("Property")
+    .populate("author")
     .then(post => {
       res.json(post);
     })
@@ -55,19 +55,19 @@ router.get("/posts/:id", (req, res) => {
 
 router.post("/posts", uploadCloud.single("image"), (req, res) => {
   // Todo: add a middleware to protect this route from non-logged in users
-  const { title, content, private } = req.body;
+  const { title, content, private, property } = req.body;
   console.log(req.file);
   const imagePath = req.file
     ? req.file.url
     : "https://res.cloudinary.com/duzn8aucd/image/upload/v1583230140/houselog-images/no-image_k5z6t1.png";
 
-  console.log(imagePath);
   Post.create({
     title: title,
     content: content,
     image: imagePath,
     private: private,
-    author: req.user._id
+    author: req.user._id,
+    property: property
   })
     .then(postFile => {
       res.json(postFile);
@@ -77,6 +77,49 @@ router.post("/posts", uploadCloud.single("image"), (req, res) => {
       res.status(500).json({
         message: err.message
       });
+    });
+});
+
+router.put("/posts/:postId", uploadCloud.single("image"), (req, res) => {
+  // Todo: add a middleware to protect this route from non-logged in users
+  const postId = req.params.postId;
+  const { title, content, private, property } = req.body;
+
+  const imagePath = req.file
+    ? req.file.url
+    : "https://res.cloudinary.com/duzn8aucd/image/upload/v1583230140/houselog-images/no-image_k5z6t1.png";
+
+  Post.findOneAndUpdate(
+    { _id: postId },
+    {
+      title: title,
+      content: content,
+      image: imagePath,
+      private: private,
+      author: req.user._id,
+      property: property
+    }
+  )
+    .then(postFile => {
+      res.json(postFile);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        message: err.message
+      });
+    });
+});
+
+router.delete("/posts/:id", (req, res) => {
+  const postId = req.params.id;
+
+  Post.deleteOne({ _id: postId })
+    .then(result => {
+      res.json({ result });
+    })
+    .catch(err => {
+      res.status(500).json({ message: err.message });
     });
 });
 
@@ -116,19 +159,5 @@ router.post("/posts/:id/upvote", (req, res) => {
       });
     });
 });
-
-// router.delete("/posts/:id/upvote", (req, res) => {
-//   const postId = req.params.id;
-
-//   Post.findByIdAndUpdate(postId, { $inc: { upvote_count: -1 } }, { new: true })
-//     .then(post => {
-//       res.json(post);
-//     })
-//     .catch(err => {
-//       res.status(500).json({
-//         message: err.message
-//       });
-//     });
-// });
 
 module.exports = router;

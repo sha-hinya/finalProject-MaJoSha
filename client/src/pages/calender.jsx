@@ -9,6 +9,7 @@ export default class Calenders extends Component {
   };
 
   componentDidMount() {
+    this.props.setPageTitle("Calendar");
     this.getData();
   }
 
