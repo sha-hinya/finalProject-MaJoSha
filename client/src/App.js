@@ -37,7 +37,7 @@ class App extends React.Component {
     user: this.props.user,
     pageTitle: "",
     backNavButton: false,
-    selectedProperty: this.props.user.property[0]._id
+    // selectedProperty: this.props.user.property[0]._id
   };
 
   setUser = userObj => {
