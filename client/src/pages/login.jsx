@@ -88,7 +88,12 @@ export default class login extends Component {
             </div>
           </FormControl>
           <div className="loginButton">
-            <Button size="large" color="inherit" type="submit">
+            <Button
+              size="large"
+              color="primary"
+              variant="contained"
+              type="submit"
+            >
               Login
             </Button>
           </div>
