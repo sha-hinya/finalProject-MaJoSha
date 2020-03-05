@@ -18,10 +18,8 @@ const useStyles = makeStyles(theme => ({
   gridList: {
     flexWrap: "nowrap",
     textAlign: "left",
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: "translateZ(0)",
-    margin: "0px",
-    
+    margin: "0px"
   },
   title: {
     backgroundColor: "white"
@@ -50,15 +48,11 @@ export default function AnnouncementsList(props) {
             <Card>
               <CardContent className={classes.card}>
                 <div className="announcement-title">{announcement.title}</div>
-                <div className="announcement-content">
-                  {/* {announcement.content} */}
-                </div>
+                <div className="announcement-content"></div>
                 <div className="post-status">
-                  {/* <div className='post-status-icon'> {getStatusIcon()}</div> */}
                   <p></p>
                   <div className="announcement-time">
                     <TimeAgo date={announcement.created_at} />
-                    {/* {new Date(announcement.created_at).toDateString()} */}
                   </div>
                 </div>
               </CardContent>

@@ -36,7 +36,6 @@ export default class Announcements extends Component {
   };
 
   render() {
-    // console.log("<Announcements/> RENDER");
     return (
       <div>
         <AnnouncementsList announcements={this.state.announcements} />

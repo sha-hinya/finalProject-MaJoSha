@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
-// import IconButton from "@material-ui/core/IconButton";
-// import SearchIcon from "@material-ui/icons/Search";
 import TimeAgo from "react-timeago";
 
 class CalendersList extends Component {
@@ -45,7 +42,7 @@ class CalendersList extends Component {
 
         {filteredCalenders.map(calender => {
           return (
-            <Link key={calender._id} to={`/posts/${calender._id}`}>
+            <Link key={calender._id} to={`/${calender.type}/${calender._id}`}>
               <div className="calenderCards" key={calender._id}>
                 <div className="calenderCardsTitle">
                   <h4>{calender.title} </h4>

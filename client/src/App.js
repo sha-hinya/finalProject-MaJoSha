@@ -115,7 +115,7 @@ class App extends React.Component {
           pageTitle={this.state.pageTitle}
           user={this.state.user}
         />
-        {/* <div className="site-content" id="site-content"> */}
+    
         {/* Announcement: List all Announcements */}
         <Route
           exact
@@ -136,7 +136,9 @@ class App extends React.Component {
         <Route
           exact
           path="/announcement/:announcementId"
-          render={props => <AnnouncementDetail {...props} />}
+          render={props => (
+            <AnnouncementDetail {...props} user={this.state.user} />
+          )}
         />
 
         {/* Post: Create form */}
@@ -147,6 +149,7 @@ class App extends React.Component {
           render={props => (
             <PostForm
               {...props}
+              user={this.state.user}
               backButton={showBackButton}
               setPageTitle={this.setPageTitle}
               selectedProperty={this.state.selectedProperty}
@@ -175,6 +178,7 @@ class App extends React.Component {
           render={props => (
             <PostForm
               {...props}
+              user={this.state.user}
               backButton={showBackButton}
               setPageTitle={this.setPageTitle}
               selectedProperty={this.state.selectedProperty}
@@ -193,6 +197,7 @@ class App extends React.Component {
                 {...props}
                 selectedProperty={this.state.selectedProperty}
                 setPageTitle={this.setPageTitle}
+                backButton={showBackButton}
               />
             );
           }}
@@ -206,6 +211,7 @@ class App extends React.Component {
             return (
               <Calender
                 {...props}
+                backButton={showBackButton}
                 selectedProperty={this.state.selectedProperty}
                 setPageTitle={this.setPageTitle}
               />
@@ -222,7 +228,7 @@ class App extends React.Component {
               <Profile
                 {...props}
                 setUser={this.setUser}
-                showBackNavButton={this.state.backNavButton}
+                backButton={showBackButton}
                 pageTitle={this.state.pageTitle}
                 user={this.state.user}
               />
@@ -234,7 +240,13 @@ class App extends React.Component {
           exact
           path="/files"
           render={props => {
-            return <File {...props} setPageTitle={this.setPageTitle} />;
+            return (
+              <File
+                {...props}
+                backButton={showBackButton}
+                setPageTitle={this.setPageTitle}
+              />
+            );
           }}
         />
 
@@ -242,7 +254,12 @@ class App extends React.Component {
           exact
           path="/files/:fileId"
           render={props => (
-            <FileDetail {...props} setPageTitle={this.setPageTitle} />
+            <FileDetail
+              {...props}
+              user={this.state.user}
+              setPageTitle={this.setPageTitle}
+              backButton={showBackButton}
+            />
           )}
         />
 
