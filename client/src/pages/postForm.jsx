@@ -9,7 +9,12 @@ import {
   Button,
   Switch,
   FormGroup,
-  CircularProgress
+  FormControl,
+  Select,
+  CircularProgress,
+  InputLabel,
+  Card,
+  CardActionArea
 } from "@material-ui/core";
 import { CropFree, DeleteOutline } from "@material-ui/icons";
 import { withStyles } from "@material-ui/core/styles";
@@ -40,6 +45,7 @@ export default class PostForm extends Component {
     photo: null,
     private: true,
     transfering: false,
+    status: "open",
     message: ""
   };
 
@@ -94,6 +100,7 @@ export default class PostForm extends Component {
     formData.set("property", this.props.selectedProperty);
     formData.append("image", this.state.photo);
     formData.set("imageUrl", this.state.image);
+    formData.set("status", this.state.status);
     const config = {
       headers: { "content-type": "multipart/form-data" }
     };
@@ -137,7 +144,7 @@ export default class PostForm extends Component {
     const renderPhotos = () => {
       if (!!this.state.photo || !!this.state.photo_url) {
         return (
-          <>
+          <Card>
             <Paper
               variant="outlined"
               elevation={1}
@@ -145,37 +152,62 @@ export default class PostForm extends Component {
             >
               <img src={this.state.photo_url} alt={this.state.photo_url} />
             </Paper>
-            <IconButton onClick={this.handleDelete}>
-              <DeleteOutline />
-            </IconButton>
-          </>
+            <CardActionArea>
+              <IconButton onClick={this.handleDelete}>
+                <DeleteOutline />
+              </IconButton>
+            </CardActionArea>
+          </Card>
         );
       }
 
       return (
-        <label htmlFor="icon-button-file">
-          <Paper
-            elevation={1}
-            variant="outlined"
-            className="post-image-wrapper"
-          >
-            <input
-              accept="image/*"
-              style={{ display: "none" }}
-              onChange={this.handleFileChange}
-              id="icon-button-file"
-              type="file"
-            />
-
-            <IconButton
-              color="primary"
-              aria-label="upload picture"
-              component="span"
+        <Card>
+          <label htmlFor="icon-button-file">
+            <Paper
+              elevation={1}
+              variant="outlined"
+              className="post-image-wrapper"
             >
-              <CropFree color="inherit" style={{ color: "white" }} />
-            </IconButton>
-          </Paper>
-        </label>
+              <input
+                accept="image/*"
+                style={{ display: "none" }}
+                onChange={this.handleFileChange}
+                id="icon-button-file"
+                type="file"
+              />
+
+              <IconButton
+                color="primary"
+                aria-label="upload picture"
+                component="span"
+              >
+                <CropFree color="inherit" style={{ color: "white" }} />
+              </IconButton>
+            </Paper>
+          </label>
+        </Card>
+      );
+    };
+
+    const renderAdminStatusControll = () => {
+      return (
+        <FormControl className="locationDropown" style={{ width: "100%" }}>
+          <InputLabel htmlFor="status-select">Status</InputLabel>
+          <Select
+            native
+            value={this.state.status}
+            onChange={this.handleChange}
+            inputProps={{
+              name: "status",
+              id: "status-select"
+            }}
+          >
+            <option value="open">Open</option>
+            <option value="in progress">In Progress</option>
+            <option value="done">Done</option>
+          </Select>
+        </FormControl>
       );
     };
 
@@ -198,13 +230,17 @@ export default class PostForm extends Component {
 
           <TextField
             id="filled-uncontrolled"
-            //label="Title"
+            placeholder="Title"
             type="text"
             name="title"
             value={this.state.title}
             onChange={this.handleChange}
-            variant="filled"
+            variant="standard"
           />
+          {this.props.user.accessRole === "admin" ||
+          this.props.user.accessRole === "modertor"
+            ? renderAdminStatusControll()
+            : ""}
 
           <TextField
             id="outlined-multiline-static"
@@ -217,6 +253,7 @@ export default class PostForm extends Component {
             defaultValue="Type your message here!"
             variant="outlined"
           />
+
           <FormGroup>
             <FormControlLabel
               control={

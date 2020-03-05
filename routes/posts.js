@@ -83,7 +83,7 @@ router.post("/posts", uploadCloud.single("image"), (req, res) => {
 router.put("/posts/:postId", uploadCloud.single("image"), (req, res) => {
   // Todo: add a middleware to protect this route from non-logged in users
   const postId = req.params.postId;
-  const { title, content, private, property, imageUrl } = req.body;
+  const { title, content, private, property, imageUrl, status } = req.body;
 
   const imagePath = req.file ? req.file.url : imageUrl;
 
@@ -94,8 +94,8 @@ router.put("/posts/:postId", uploadCloud.single("image"), (req, res) => {
       content: content,
       image: imagePath,
       private: private,
-      author: req.user._id,
-      property: property
+      property: property,
+      status: status
     }
   )
     .then(postFile => {

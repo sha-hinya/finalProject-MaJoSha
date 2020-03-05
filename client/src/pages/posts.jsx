@@ -4,6 +4,7 @@ import { Container } from "@material-ui/core";
 
 export default class posts extends Component {
   componentDidMount() {
+    this.props.backButton.off();
     this.props.setPageTitle("Messages");
   }
   render() {

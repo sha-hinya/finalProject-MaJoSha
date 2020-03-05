@@ -1,25 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 //import { Avatar } from '@material-ui/core';
 import PersonIcon from "@material-ui/icons/AccountBox";
-import { Divider, IconButton, Icon } from "@material-ui/core";
+import { Divider, IconButton } from "@material-ui/core";
 import { Add } from "@material-ui/icons";
 
 // icons
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 const Navbar = props => {
-  const logout = () => {
-    axios
-      .delete("/api/auth/logout")
-      .then(() => {
-        props.setUser(null);
-      })
-      .catch(err => {
-        console.log(err.message);
-      });
-  };
+  // const logout = () => {
+  //   axios
+  //     .delete("/api/auth/logout")
+  //     .then(() => {
+  //       props.setUser(null);
+  //     })
+  //     .catch(err => {
+  //       console.log(err.message);
+  //     });
+  // };
 
   const goBackHistory = () => {
     window.history.back();
@@ -44,7 +44,7 @@ const Navbar = props => {
           orientation="vertical"
           flexItem="true"
           variant="fullWidth"
-          style={{ backgroundColor: "black" }}
+          style={{ backgroundColor: "#222222" }}
         />
       </>
     );

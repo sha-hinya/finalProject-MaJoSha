@@ -49,7 +49,6 @@ a {
       display: flex;
       align-items: center;
       flex: 1 1 10%;
-      padding: 0 0.5rem;
     }
     .nav-right {
       justify-content: flex-end;
@@ -143,7 +142,7 @@ a {
 .posts-wrapper {
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+
   text-align: left;
   #new-post {
     background-color: #222222;
@@ -158,7 +157,7 @@ a {
     justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
-    overflow: hidden;
+
     color: white;
     height: 113px;
     img {
@@ -214,6 +213,8 @@ a {
 
 .post-image-wrapper {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 250px;
   background-color: #222222 !important;
@@ -221,8 +222,7 @@ a {
   justify-content: center;
 
   img {
-    width: auto;
-    height: 100%;
+    width: 100%;
   }
 }
 
@@ -235,29 +235,36 @@ a {
     div {
       margin-bottom: 0.5rem;
     }
+    .post-image-wrapper {
+      margin: unset;
+    }
   }
 }
 
 .post-detail {
-  height: 50%;
   .MuiPaper-root {
     width: 100%;
-    height: 75%;
-    overflow: hidden;
-    img {
-      width: 100%;
-      height: auto;
-    }
+    height: 100%;
+  }
+  div {
+    margin: 0.5rem 0;
   }
   .post-detail-title {
     text-align: left;
     font-size: 1.2rem;
     font-weight: bolder;
-    padding: 1.2rem 0;
   }
   .post-detail-content {
     text-align: left;
+  }
+  .post-detail-status,
+  .post-detail-author {
+    text-align: left;
+    font-size: 0.8rem;
+  }
+  .post-detail-author {
     font-style: italic;
+    color: lightgray;
   }
   .post-detail-action-icons {
     display: flex;
@@ -272,7 +279,7 @@ a {
   //background-color: #ccd7ff;
   color: #222222;
   text-align: left;
-  padding: 0px !important
+  padding: 0px !important;
 }
 .announcementImage {
   width: 150px;
@@ -294,7 +301,6 @@ a {
   //background-color: #f7f7f7;
   padding: 20px;
   text-align: left;
- 
 }
 .announcementCardsDetail {
   margin-top: 12%;
@@ -302,7 +308,6 @@ a {
   border-radius: 10px;
   background-color: rgba(195, 195, 195, 0.3);
   padding: 10px;
-  
 }
 .announcementCardsDetail img {
   width: 80vw;
@@ -312,7 +317,7 @@ a {
 // -------------------- Files -------------------- //
 .cards-fileList {
   margin-bottom: 4px;
-  border-bottom: 2px solid black;
+  border-bottom: 0px solid #222222;
   // background-color: rgba(9, 109, 209, 0.8);
 }
 
@@ -345,7 +350,7 @@ a {
 //------------------------------------fileDetails Page-----------------------------
 .fileDetailCardOne {
   margin: 7vh 4vw 1vh 4vw;
-  border-top: 1px solid grey;
+  border-top: 0px solid grey;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -366,13 +371,12 @@ a {
 }
 
 .fileDetailCardTwo {
-  margin: 1vh 4vxw 7vh 4vw;
+  margin: 1vh 4vw 7vh 4vw;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
-}
-
-#img {
-  width: 80vw;
+  img {
+    width: 100%;
+  }
 }
 
 // -------------------- Calender -------------------- //
@@ -384,7 +388,7 @@ a {
 }
 
 .calenderCards {
-  border-bottom: 1px solid#f7f7f7;
+  border-bottom: 0px solid#f7f7f7;
   margin: 0px;
   text-align: left;
   background-color: #757575;
@@ -402,6 +406,7 @@ a {
   display: flex;
   flex-direction: row;
   flex-basis: 50%;
+  flex-basis: 40%;
   align-items: center;
 }
 
@@ -410,8 +415,21 @@ a {
   text-align: left;
   color: #f7f7f7;
   display: flex;
+  font-size: normal;
   flex-direction: row;
   flex-basis: 50%;
+  flex-basis: 35%;
+  align-items: center;
+}
+
+.calenderCardsStatus {
+  margin-left: 10px;
+  text-align: left;
+  color: #f7f7f7;
+  display: flex;
+  font-size: normal;
+  flex-direction: row;
+  flex-basis: 25%;
   align-items: center;
 }
 
@@ -479,6 +497,18 @@ a {
   color: #222222;
   display: flex;
   flex-direction: row;
+}
+// -------------------- Profile Card -------------------- //
+// .profileCard{
+// }
+.profileCard img {
+  width: 100%;
+  border-radius: 10px;
+}
+.profileCard h1 {
+  font-weight: lighter;
+  text-align: center;
+  text-align: center;
 }
 
 // -------------------- Color Scheme -------------------- //

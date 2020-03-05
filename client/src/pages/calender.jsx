@@ -9,6 +9,7 @@ export default class Calenders extends Component {
   };
 
   componentDidMount() {
+    this.props.backButton.off();
     this.props.setPageTitle("Calendar");
     this.getData();
   }
@@ -18,6 +19,9 @@ export default class Calenders extends Component {
     axios
       .get(`/api/announcements?property=${this.props.selectedProperty}`)
       .then(response => {
+        response.data.forEach(element => {
+          return (element.type = "announcement");
+        });
         this.setState(
           {
             calenders: response.data
@@ -26,6 +30,9 @@ export default class Calenders extends Component {
             axios
               .get(`/api/posts?property=${this.props.selectedProperty}`)
               .then(response => {
+                response.data.forEach(element => {
+                  return (element.type = "posts");
+                });
                 //console.log(response.data);
                 this.setState({
                   calenders: [...this.state.calenders, ...response.data]
@@ -50,7 +57,10 @@ export default class Calenders extends Component {
 
     return (
       <Container>
-        <CalendersList calenders={sorted} />
+        <CalendersList
+          selectedProperty={this.props.selectedProperty}
+          calenders={sorted}
+        />
       </Container>
     );
   }
