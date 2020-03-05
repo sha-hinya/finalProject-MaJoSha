@@ -166,7 +166,7 @@ export default class PostForm extends Component {
 
     if (this.state.transfering) {
       return (
-        <Container>
+        <Container className="loading">
           <CircularProgress />
         </Container>
       );
