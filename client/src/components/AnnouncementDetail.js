@@ -30,7 +30,7 @@ class AnnouncementDetail extends Component {
     }
 
     return (
-      <Container>
+      <Container className="fileDetailContainer">
         <Card className="fileDetailCardOne">
           <CardContent className="filesDetailCardContent">
             <div>
