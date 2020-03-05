@@ -22,13 +22,14 @@ const promises = [];
 
 let propertyIds = [];
 let userIds = [];
-mongoose.connect("mongodb://localhost:27017/MaJoSha", () => {
-  // mongoose.connect(
-  //   process.env.MONGODB_URI,
-  //   { useNewUrlParser: true, useUnifiedTopology: true },
-  //   () => {
-  console.log("Connected to DB");
-});
+// mongoose.connect("mongodb://localhost:27017/MaJoSha", () => {
+mongoose.connect(
+  process.env.MONGODB_URI,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => {
+    console.log("Connected to DB");
+  }
+);
 const bcryptSalt = 10;
 const salt = bcrypt.genSaltSync(bcryptSalt);
 const hashPass = bcrypt.hashSync("1234", salt);
@@ -68,7 +69,8 @@ const newUsers = [
     password: hashPass,
     phone: "+49 1521 555 5555",
     accessRole: "moderator",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     _upvotes: []
   }
 ];
