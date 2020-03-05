@@ -29,6 +29,10 @@ import File from "./pages/files.jsx";
 import FileDetail from "./components/FileDetail.js";
 //import { BottomNavigation } from "@material-ui/core";
 
+// Properties
+
+import Properties from "./pages/properties";
+
 //CalenderEntries
 import Calender from "./pages/calender.jsx";
 
@@ -239,6 +243,18 @@ class App extends React.Component {
           path="/files/:fileId"
           render={props => (
             <FileDetail {...props} setPageTitle={this.setPageTitle} />
+          )}
+        />
+
+        <Route
+          exact
+          path="/properties"
+          render={props => (
+            <Properties
+              {...props}
+              user={this.state.user}
+              setPageTitle={this.setPageTitle}
+            />
           )}
         />
 
