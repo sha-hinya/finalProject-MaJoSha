@@ -53,16 +53,12 @@ class FileDetail extends Component {
                 {new Date(file.updated_at).toLocaleDateString("de-De")}
               </h5>
             </div>
-            <p>
-              {
-                "Since many of the waste consist of man-made materials, they decompose in landfills for hundreds of years, poisoning everything around. However there is only one method that helps to avoid destroying nature and not harmful to human health - recycling. To manage the smooth process of recycling we need to make our own contribution - please separate waste manually at the household."
-              }
-            </p>
+            <p>{file.content}</p>
             <div className="file-detail-action-icons">
               <IconButton onClick={this.handleDelete} aria-label="delete">
                 <DeleteOutlineIcon fontSize="large" />
               </IconButton>
-              <IconButton aria-label="delete">
+              <IconButton aria-label="edit">
                 <EditIcon fontSize="large" />
               </IconButton>{" "}
             </div>

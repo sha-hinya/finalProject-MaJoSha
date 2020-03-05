@@ -261,8 +261,6 @@ a {
   //background-color: #ccd7ff;
   color: #222222;
   text-align: left;
-  position: relative;
-  top: -30px;
 }
 .announcementImage {
   width: 150px;
@@ -300,7 +298,7 @@ a {
 // -------------------- Files -------------------- //
 .cards-fileList {
   margin-bottom: 4px;
-  border-bottom: 2px;
+  border-bottom: 2px solid black;
   // background-color: rgba(9, 109, 209, 0.8);
 }
 
@@ -332,16 +330,16 @@ a {
 
 //------------------------------------fileDetails Page-----------------------------
 .fileDetailCardOne {
-  margin: 5%;
-  margin-top: 15%;
+  margin: 7vh 4vw 1vh 4vw;
   border-top: 1px solid grey;
   display: flex;
   flex-direction: column;
   text-align: left;
+  padding: 10px;
 }
 .file-detail-action-icons {
-  // width: 10vw;
-  // height: 10vh;
+  width: 120px;
+  height: 60px;
   justify-self: flex-end;
   align-self: flex-end;
   display: flex;
@@ -354,8 +352,7 @@ a {
 }
 
 .fileDetailCardTwo {
-  margin: 5%;
-  margin-bottom: 15%;
+  margin: 1vh 4vw 7vh 4vw;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
 }
@@ -363,31 +360,6 @@ a {
 #img {
   width: 80vw;
 }
-
-// .fileCardsContainer {
-//   padding: 5%;
-//   padding-bottom: 60px;
-// }
-
-// .fileCardsDetail {
-//   margin-top: 12%;
-//   // border: 1px solid grey;
-//   border-radius: 10px;
-//   background-color: rgba(195, 195, 195, 0.3);
-//   padding: 10px;
-//   display: flex;
-//   flex-direction: column;
-//   text-align: left;
-// }
-
-// .fileCardsDetailImage {
-//   width: 80vw;
-//   // height: 9vw;
-// }
-// .file-detail-action-icons {
-//   display: flex;
-//   align-self: flex-end;
-// }
 
 // -------------------- Calender -------------------- //
 .calenderCardsContainer {
