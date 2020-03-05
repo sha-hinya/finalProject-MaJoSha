@@ -13,9 +13,9 @@ import {
 } from "@material-ui/core";
 import { CropFree, DeleteOutline } from "@material-ui/icons";
 import { withStyles } from "@material-ui/core/styles";
-import Axios from "axios";
-import { useHistory } from "react-router-dom";
-import { yellow } from "@material-ui/core/colors";
+// import Axios from "axios";
+// import { useHistory } from "react-router-dom";
+// import { yellow } from "@material-ui/core/colors";
 
 const StyledButton = withStyles({
   root: {
@@ -145,7 +145,7 @@ export default class PostForm extends Component {
               elevation={1}
               className="post-image-wrapper"
             >
-              <img src={this.state.photo_url} />
+              <img src={this.state.photo_url} alt={this.state.photo_url} />
             </Paper>
             <IconButton onClick={this.handleDelete}>
               <DeleteOutline />
