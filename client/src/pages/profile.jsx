@@ -6,7 +6,11 @@ export default class profiles extends Component {
   render() {
     return (
       <Container>
-        <Profile profile={this.props} setUser={this.props.setUser} />
+        <Profile
+          profile={this.props}
+          history={this.props.history}
+          setUser={this.props.setUser}
+        />
       </Container>
     );
   }

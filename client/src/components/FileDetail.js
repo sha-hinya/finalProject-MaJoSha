@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import { IconButton } from "@material-ui/core";
+import { IconButton, Container } from "@material-ui/core";
 import { withRouter } from "react-router";
 
 // icons
@@ -17,7 +17,7 @@ class FileDetail extends Component {
   componentDidMount() {
     this.props.setPageTitle("Document");
     const id = this.props.match.params.fileId;
-
+    this.props.backButton.on();
     axios.get(`/api/files/${id}`).then(response => {
       this.setState({
         file: response.data
@@ -42,7 +42,7 @@ class FileDetail extends Component {
     }
 
     return (
-      <div>
+      <Container>
         <Card className="fileDetailCardOne">
           <CardContent className="filesDetailCardContent">
             <div>
@@ -54,21 +54,26 @@ class FileDetail extends Component {
               </h5>
             </div>
             <p>{file.content}</p>
-            <div className="file-detail-action-icons">
-              <IconButton onClick={this.handleDelete} aria-label="delete">
-                <DeleteOutlineIcon fontSize="large" />
-              </IconButton>
-              <IconButton aria-label="edit">
-                <EditIcon onClick={this.editFile} fontSize="large" />
-              </IconButton>{" "}
-            </div>
+            {this.props.user.accessRole === "moderator" ||
+            this.props.user.accessRole === "admin" ? (
+              <div className="file-detail-action-icons">
+                <IconButton onClick={this.handleDelete} aria-label="delete">
+                  <DeleteOutlineIcon fontSize="large" />
+                </IconButton>
+                <IconButton aria-label="edit">
+                  <EditIcon onClick={this.editFile} fontSize="large" />
+                </IconButton>{" "}
+              </div>
+            ) : (
+              ""
+            )}
           </CardContent>
         </Card>
 
         <Card className="fileDetailCardTwo">
           <img id="img" src={file.url} alt={file.title} />
         </Card>
-      </div>
+      </Container>
     );
   }
 }

@@ -45,7 +45,7 @@ class CalendersList extends Component {
 
         {filteredCalenders.map(calender => {
           return (
-            <Link key={calender._id} to={`/posts/${calender._id}`}>
+            <Link key={calender._id} to={`/${calender.type}/${calender._id}`}>
               <div className="calenderCards" key={calender._id}>
                 <div className="calenderCardsTitle">
                   <h4>{calender.title} </h4>

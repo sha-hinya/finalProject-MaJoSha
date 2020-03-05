@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import axios from "axios";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import { IconButton  } from "@material-ui/core";
+import { IconButton, Container } from "@material-ui/core";
 import TimeAgo from "react-timeago";
 
 // icons
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import EditIcon from "@material-ui/icons/Edit";
-
-
 
 class AnnouncementDetail extends Component {
   state = {
@@ -35,7 +33,7 @@ class AnnouncementDetail extends Component {
     }
 
     return (
-      <div>
+      <Container>
         <Card className="fileDetailCardOne">
           <CardContent className="filesDetailCardContent">
             <div>
@@ -49,15 +47,19 @@ class AnnouncementDetail extends Component {
               </h5>
               <p>{announcement.content}</p>
             </div>
-
-            <div className="file-detail-action-icons">
-              <IconButton aria-label="delete">
-                <DeleteOutlineIcon fontSize="large" />
-              </IconButton>
-              <IconButton aria-label="delete">
-                <EditIcon fontSize="large" />
-              </IconButton>
-            </div>
+            {this.props.user.accessRole === "moderator" ||
+            this.props.user.accessRole === "admin" ? (
+              <div className="file-detail-action-icons">
+                <IconButton aria-label="delete">
+                  <DeleteOutlineIcon fontSize="large" />
+                </IconButton>
+                <IconButton aria-label="delete">
+                  <EditIcon fontSize="large" />
+                </IconButton>
+              </div>
+            ) : (
+              ""
+            )}
           </CardContent>
         </Card>
         <Card className="fileDetailCardTwo">
@@ -70,7 +72,7 @@ class AnnouncementDetail extends Component {
             {/* {new Date(announcement.updated_at).toLocaleDateString("de-De")} */}
           </div>
         </Card>
-      </div>
+      </Container>
     );
   }
 }

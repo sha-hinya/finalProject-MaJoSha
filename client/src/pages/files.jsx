@@ -10,6 +10,7 @@ export default class Files extends Component {
 
   componentDidMount() {
     this.props.setPageTitle("Documents");
+    this.props.backButton.off();
     this.getData();
   }
 
