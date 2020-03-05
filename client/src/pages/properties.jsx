@@ -47,12 +47,18 @@ export default class properties extends Component {
   handleSubmit = event => {
     event.preventDefault();
     axios
-      .post("/api/user")
+      .post("/api/user", {
+        property: this.state.selectedProperty,
+        email: this.state.email
+      })
       .then(response => {
-        console.log(response);
+        console.log("subit response:", response);
+        this.props.history.push("/");
       })
       .catch(err => {
-        console.log(err);
+        this.setState({
+          message: err.response.data.message
+        });
       });
   };
 
@@ -67,6 +73,7 @@ export default class properties extends Component {
             label="E-mail adress"
             value={this.state.email}
             onChange={this.handleChange}
+            helperText={this.state.message}
             style={{ width: "100%", textAlign: "left  " }}
           />
           <p> </p>

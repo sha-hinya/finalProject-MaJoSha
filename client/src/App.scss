@@ -42,8 +42,18 @@ a {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
-    padding: 1rem;
+    padding: 1rem 0;
     z-index: 100;
+    .nav-left,
+    .nav-right {
+      display: flex;
+      align-items: center;
+      flex: 1 1 10%;
+      padding: 0 0.5rem;
+    }
+    .nav-right {
+      justify-content: flex-end;
+    }
 
     .back-btn {
       position: relative;
@@ -51,6 +61,7 @@ a {
     }
 
     .nav-title {
+      flex: 1 1 80%;
       // position: relative;
       // text-transform: capitalize;
       letter-spacing: 2px;
