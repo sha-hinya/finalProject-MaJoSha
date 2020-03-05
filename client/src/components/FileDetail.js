@@ -28,8 +28,7 @@ class FileDetail extends Component {
   handleDelete = () => {
     const id = this.props.match.params.fileId;
 
-    axios.delete(`/api/files/delete/${id}`).then(res => {
-    });
+    axios.delete(`/api/files/delete/${id}`).then(res => {});
     this.props.history.push("/");
   };
 
@@ -58,9 +57,9 @@ class FileDetail extends Component {
                 <IconButton onClick={this.handleDelete} aria-label="delete">
                   <DeleteOutlineIcon fontSize="large" />
                 </IconButton>
-                <IconButton aria-label="edit">
+                {/* <IconButton aria-label="edit">
                   <EditIcon onClick={this.editFile} fontSize="large" />
-                </IconButton>{" "}
+                </IconButton>{" "} */}
               </div>
             ) : (
               ""

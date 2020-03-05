@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Button, Container } from "@material-ui/core";
+import { Button, Card, CardContent } from "@material-ui/core";
 
 class Profile extends Component {
   logout = () => {
@@ -12,42 +12,74 @@ class Profile extends Component {
   };
   render() {
     return (
-      <Container className="profileContainer">
-        <div className="profileCard">
-          <h1>
-            Hello {this.props.profile.user.firstName} {" !"}
-          </h1>
-          <img src={this.props.profile.user.image} alt="John Doe" />
-          <h2>
-            {this.props.profile.user.title} {this.props.profile.user.firstName}{" "}
-            {this.props.profile.user.lastName}
-          </h2>
-          <p className="E-Mail">{this.props.profile.user.email}</p>
-          <p className="Phone">{this.props.profile.user.phone}</p>
+      <>
+        <Card className="profileCard">
+          <CardContent>
+            <img src={this.props.profile.user.image} alt="John Doe" />
+            <table>
+              <tr>
+                <td>
+                  <b>Name</b>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {this.props.profile.user.firstName}{" "}
+                  {this.props.profile.user.lastName}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>E-Mail</b>
+                </td>
+              </tr>
+              <tr>
+                <td>{this.props.profile.user.email}</td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Phone</b>
+                </td>
+              </tr>
+              <tr>
+                <td>{this.props.profile.user.phone}</td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Your Properties:</b>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    {this.props.profile.user.property.map(property => {
+                      return (
+                        <li key={property._id} className="Assigned properties:">
+                          {property.property_name}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Your Role:</b>
+                </td>
+              </tr>
+              <tr>
+                <td>{this.props.profile.user.accessRole}</td>
+              </tr>
+            </table>
 
-          <h3>Your properties:</h3>
-          {this.props.profile.user.property.map(property => {
-            return (
-              <div>
-                <p key={property._id} className="Assigned properties:">
-                  {property.property_name}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-
-        <h4>
-          {"Access role: "}
-          {this.props.profile.user.accessRole}{" "}
-        </h4>
-
-        <Link className="profileIcon" onClick={this.logout}>
-          <Button variant="contained" aria-label="logout">
-            Logout
-          </Button>
-        </Link>
-      </Container>
+            <Link className="profileIcon" onClick={this.logout}>
+              <Button variant="contained" aria-label="logout">
+                Logout
+              </Button>
+            </Link>
+          </CardContent>
+        </Card>
+      </>
     );
   }
 }

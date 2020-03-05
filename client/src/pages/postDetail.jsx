@@ -85,7 +85,7 @@ export default class postDetail extends Component {
           ""
         )}
 
-        <Divider />
+        {/*  <Divider /> */}
         <Card>
           <CardContent>
             <div className="post-detail-title ">{post.title}</div>
