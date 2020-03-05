@@ -34,18 +34,14 @@ class Profile extends Component {
               </div>
             );
           })}
-
-          {/* <p className="Property">{this.props.profile.user.property}</p> */}
         </div>
-        {/* {this.props.firstName}
-        <h2>{this.props.user.lastName}</h2>  */}
+
         <h4>
           {"Access role: "}
           {this.props.profile.user.accessRole}{" "}
         </h4>
 
         <Link className="profileIcon" onClick={this.logout}>
-          {/* <Link className="profileIcon" to="/profile" > */}
           <Button variant="contained" aria-label="logout">
             Logout
           </Button>

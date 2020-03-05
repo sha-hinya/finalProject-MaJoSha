@@ -29,8 +29,6 @@ class FileDetail extends Component {
     const id = this.props.match.params.fileId;
 
     axios.delete(`/api/files/delete/${id}`).then(res => {
-      console.log("file deleted");
-      //console.log(this.props, "hisssstorry");
     });
     this.props.history.push("/");
   };

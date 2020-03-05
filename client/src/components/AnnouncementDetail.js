@@ -2,14 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import { IconButton  } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 import TimeAgo from "react-timeago";
-
 // icons
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import EditIcon from "@material-ui/icons/Edit";
-
-
 
 class AnnouncementDetail extends Component {
   state = {
@@ -17,7 +14,6 @@ class AnnouncementDetail extends Component {
   };
 
   componentDidMount() {
-    //console.log("log:" ,this.props);
     const id = this.props.match.params.announcementId;
 
     axios.get(`/api/announcements/${id}`).then(response => {
@@ -28,7 +24,6 @@ class AnnouncementDetail extends Component {
   }
 
   render() {
-    //console.log("log:" ,this.props);
     const announcement = this.state.announcement;
     if (!announcement) {
       return <div>Loading</div>;
@@ -67,7 +62,6 @@ class AnnouncementDetail extends Component {
           <div style={{ fontSize: "10px" }}>
             {"last update: "}
             <TimeAgo date={announcement.updated_at} />
-            {/* {new Date(announcement.updated_at).toLocaleDateString("de-De")} */}
           </div>
         </Card>
       </div>

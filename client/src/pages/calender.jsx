@@ -14,7 +14,6 @@ export default class Calenders extends Component {
   }
 
   getData = () => {
-    //console.log("getData()");
     axios
       .get(`/api/announcements?property=${this.props.selectedProperty}`)
       .then(response => {
@@ -26,11 +25,9 @@ export default class Calenders extends Component {
             axios
               .get(`/api/posts?property=${this.props.selectedProperty}`)
               .then(response => {
-                //console.log(response.data);
                 this.setState({
                   calenders: [...this.state.calenders, ...response.data]
                 });
-                //console.log("Kalender: ", this.state);
               });
           }
         );
@@ -38,15 +35,11 @@ export default class Calenders extends Component {
   };
 
   render() {
-    //console.log("< Calenders/> RENDER", this.state.calenders);
-
     const sorted = [...this.state.calenders].sort((b, a) => {
       const sortFieldA = a.announcedAt ? "announcedAt" : "dueDate";
       const sortFieldB = b.announcedAt ? "announcedAt" : "dueDate";
       return new Date(b[sortFieldB]) - new Date(a[sortFieldA]);
     });
-
-    //console.log(sorted);
 
     return (
       <Container>

@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
-// import IconButton from "@material-ui/core/IconButton";
-// import SearchIcon from "@material-ui/icons/Search";
 import Card from "@material-ui/core/Card";
 
 class FilesList extends Component {
@@ -52,9 +49,7 @@ class FilesList extends Component {
                     <h4>{file.category}</h4>
                   </div>
                   <div className="fileCardsDate">
-                    
-                      {new Date(file.announcedAt).toLocaleDateString("de-De")}
-                    
+                    {new Date(file.announcedAt).toLocaleDateString("de-De")}
                   </div>
                 </div>
               </Link>
