@@ -30,7 +30,7 @@ const Navbar = props => {
           orientation="vertical"
           flexItem="true"
           variant="fullWidth"
-          style={{ backgroundColor: "black" }}
+          style={{ backgroundColor: "#222222" }}
         />
       </>
     );

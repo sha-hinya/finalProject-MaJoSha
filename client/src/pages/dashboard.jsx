@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // Components
 import PostList from "../components/PostList.jsx";
 import Announcement from "../components/Announcement";
-import { Container, FormControl, Select } from "@material-ui/core";
+import { Container, FormControl, Select, Divider } from "@material-ui/core";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 export default class dashboard extends Component {
@@ -60,7 +60,8 @@ export default class dashboard extends Component {
         </div>
 
         <Announcement selectedProperty={this.props.selectedProperty} />
-
+        {/* <p>Messages</p> */}
+        <Divider />
         <PostList
           {...this.props}
           selectedProperty={this.props.selectedProperty}

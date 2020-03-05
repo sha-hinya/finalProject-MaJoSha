@@ -6,6 +6,7 @@ import { Button, Container } from "@material-ui/core";
 class Profile extends Component {
   logout = () => {
     axios.delete("/api/auth/logout").then(() => {
+      this.props.history.push("/");
       this.props.setUser(null);
     });
   };

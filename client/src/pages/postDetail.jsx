@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { Container, Paper, IconButton, Divider } from "@material-ui/core";
+import {
+  Container,
+  Paper,
+  IconButton,
+  Divider,
+  Card,
+  CardContent,
+  CardActionArea
+} from "@material-ui/core";
 
 // icons
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
@@ -64,31 +72,43 @@ export default class postDetail extends Component {
         {this.props.user._id === this.state.post.author._id ||
         this.props.user.accessRole === "moderator" ||
         this.props.user.accessRole === "admin" ? (
-          <div className="post-detail-action-icons">
+          <CardActionArea>
+            {/* <div className="post-detail-action-icons"> */}
             <IconButton aria-label="delete" onClick={this.deletePost}>
               <DeleteOutlineIcon fontSize="default" />
             </IconButton>
             <IconButton aria-label="edit" onClick={this.editPost}>
               <EditIcon fontSize="default" />
             </IconButton>
-          </div>
+          </CardActionArea>
         ) : (
           ""
         )}
 
         <Divider />
-
-        <div className="post-detail-title ">{post.title}</div>
-        <div className="post-detail-content">{post.content}</div>
-        <h4>
-          <div className="post-detail-content">
-            {"Status "}
-            {post.status}
-          </div>
-        </h4>
-        <div className="post-detail-author">
-          {post.author.lastName},{post.author.firstName}
-        </div>
+        <Card>
+          <CardContent>
+            <div className="post-detail-title ">{post.title}</div>
+            <div className="post-detail-author">
+              Author: {`${post.author.lastName}, ${post.author.firstName}`},
+            </div>{" "}
+            <div className="post-detail-status">
+              {`Status : [${post.status}]`}
+            </div>
+            <Divider />
+            <p
+              style={{
+                textAlign: "left",
+                color: "lightgray",
+                fontStyle: "italic",
+                fontSize: "0.8rem"
+              }}
+            >
+              Message:
+            </p>
+            <div className="post-detail-content">{post.content}</div>
+          </CardContent>
+        </Card>
       </Container>
     );
   }
