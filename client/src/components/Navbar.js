@@ -53,22 +53,15 @@ const Navbar = props => {
     <nav className="navbar" id="navbar">
       <div className="nav-left">{showBackButton(props.showBackNavButton)}</div>
       <div className="nav-title">{props.pageTitle}</div>
-<<<<<<< HEAD
-      {/* <Link className="profileIcon" onClick={logout} to="/"> */}
-      <Link className="profileIcon" to="/profile">
-        <PersonIcon />
-      </Link>
-=======
 
       <div className="nav-right">
         {props.user.accessRole === "admin" ? renderAdminSymbols() : ""}
 
-        <IconButton component={Link} to="/" onClick={logout}>
+        <IconButton component={Link} to="/profile">
           {/* <Link className="profileIcon" to="/profile" > */}
           <PersonIcon />
         </IconButton>
       </div>
->>>>>>> d6a55432056ca7a880623b02fefc5938a727ada4
     </nav>
   );
 };
