@@ -5,8 +5,8 @@
 
 html,
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   font-family: "Open Sans";
 }
 #root {
@@ -42,8 +42,18 @@ a {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
-    padding: 1rem;
+    padding: 1rem 0;
     z-index: 100;
+    .nav-left,
+    .nav-right {
+      display: flex;
+      align-items: center;
+      flex: 1 1 10%;
+      padding: 0 0.5rem;
+    }
+    .nav-right {
+      justify-content: flex-end;
+    }
 
     .back-btn {
       position: relative;
@@ -51,6 +61,7 @@ a {
     }
 
     .nav-title {
+      flex: 1 1 80%;
       // position: relative;
       // text-transform: capitalize;
       letter-spacing: 2px;
@@ -71,6 +82,8 @@ a {
     z-index: 100;
   }
   .MuiContainer-root {
+    display: flex;
+    flex-direction: column;
     padding-top: 60px;
     padding-bottom: 60px;
     height: auto;
@@ -259,6 +272,7 @@ a {
   //background-color: #ccd7ff;
   color: #222222;
   text-align: left;
+  padding: 0px !important;
 }
 .announcementImage {
   width: 150px;
@@ -350,7 +364,7 @@ a {
 }
 
 .fileDetailCardTwo {
-  margin: 1vh 4vw 7vh 4vw;
+  margin: 1vh 4vxw 7vh 4vw;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
 }
@@ -386,6 +400,7 @@ a {
   display: flex;
   flex-direction: row;
   flex-basis: 50%;
+  flex-basis: 40%;
   align-items: center;
 }
 
@@ -394,8 +409,21 @@ a {
   text-align: left;
   color: #f7f7f7;
   display: flex;
+  font-size: normal;
   flex-direction: row;
   flex-basis: 50%;
+  flex-basis: 35%;
+  align-items: center;
+}
+
+.calenderCardsStatus {
+  margin-left: 10px;
+  text-align: left;
+  color: #f7f7f7;
+  display: flex;
+  font-size: normal;
+  flex-direction: row;
+  flex-basis: 25%;
   align-items: center;
 }
 
@@ -463,6 +491,18 @@ a {
   color: #222222;
   display: flex;
   flex-direction: row;
+}
+// -------------------- Profile Card -------------------- //
+// .profileCard{
+// }
+.profileCard img {
+  width: 100%;
+  border-radius: 10px;
+}
+.profileCard h1 {
+  font-weight: lighter;
+  text-align: center;
+  text-align: center;
 }
 
 // -------------------- Color Scheme -------------------- //

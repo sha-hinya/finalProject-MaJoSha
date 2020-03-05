@@ -7,6 +7,7 @@ const postsRoutes = require("./posts");
 const annnouncementsRoutes = require("./announcements");
 const filesRoutes = require("./files");
 const profilesRoutes = require("./profiles");
+const propertyRoutes = require("./properties");
 
 router.use("/api/auth", authRoutes);
 router.use("/api/user", userRoutes);
@@ -15,5 +16,6 @@ router.use("/api", postsRoutes);
 router.use("/api/announcements", annnouncementsRoutes);
 router.use("/api/files", filesRoutes);
 router.use("/api/profiles", profilesRoutes);
+router.use("/api/properties", propertyRoutes);
 
 module.exports = router;

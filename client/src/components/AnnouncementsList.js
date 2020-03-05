@@ -11,14 +11,17 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
-    overflow: "hidden"
+    overflow: "hidden",
+    backgroundColor: "#335CFF",
+    padding: "0px"
   },
   gridList: {
     flexWrap: "nowrap",
     textAlign: "left",
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: "translateZ(0)",
-    margin: "0px"
+    margin: "0px",
+    
   },
   title: {
     backgroundColor: "white"

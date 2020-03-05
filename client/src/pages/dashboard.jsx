@@ -35,9 +35,15 @@ export default class dashboard extends Component {
     return (
       <Container>
         <div className="dashboardHeader">
-          <p>
+          <p
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "space-between"
+            }}
+          >
             <LocationOnIcon className="locationDropown" />
-            <FormControl className="locationDropown">
+            <FormControl className="locationDropown" style={{ width: "90%" }}>
               {/* <InputLabel htmlFor="age-native-simple">property
               </InputLabel> */}
               <Select
@@ -56,7 +62,7 @@ export default class dashboard extends Component {
         </div>
 
         <Announcement selectedProperty={this.props.selectedProperty} />
-        <p>Messages</p>
+        {/* <p>Messages</p> */}
         <PostList
           {...this.props}
           selectedProperty={this.props.selectedProperty}
