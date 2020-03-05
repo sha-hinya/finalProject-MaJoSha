@@ -10,7 +10,7 @@ export default class profiles extends Component {
     // console.log("RENDER PROFILE ", this.props);
     return (
       <Container>
-        <Profile profile={this.props} setUser={this.setUser} />
+        <Profile profile={this.props} setUser={this.props.setUser} />
       </Container>
     );
   }

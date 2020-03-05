@@ -6,43 +6,26 @@ import React, { Component } from "react";
 // import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Button } from "@material-ui/core";
-
-// icons
-
-const logout = () => {
-  axios.delete("/api/auth/logout").then(() => {
-    this.props.setUser(null);
-  });
-};
+import { Button, Container } from "@material-ui/core";
 
 class Profile extends Component {
-  state = {
-    user: null
+  logout = () => {
+    axios.delete("/api/auth/logout").then(() => {
+      this.props.setUser(null);
+    });
   };
-
-  // componentDidMount() {
-  // this.props.setPageTitle("Profile");
-  // const id = this.props.match.params.userId;
-  // axios.get(`/api/user/`).then(response => {
-  //   this.setState({
-  //     user: response.data
-  //   });
-  // });
-  // }
-
   render() {
     //console.log("response.data", this.state);
     console.log("Profile Data", this.props);
+
     return (
-      <div>
+      <Container>
         <div className="profileCard">
           <h1>
             Hello {this.props.profile.user.firstName} {" !"}
           </h1>
           <img src={this.props.profile.user.image} alt="John Doe" />
           <h2>
-            {" "}
             {this.props.profile.user.title} {this.props.profile.user.firstName}{" "}
             {this.props.profile.user.lastName}
           </h2>
@@ -69,13 +52,13 @@ class Profile extends Component {
           {this.props.profile.user.accessRole}{" "}
         </h4>
 
-        <Link className="profileIcon" onClick={logout}>
+        <Link className="profileIcon" onClick={this.logout}>
           {/* <Link className="profileIcon" to="/profile" > */}
           <Button variant="contained" aria-label="logout">
             Logout
           </Button>
         </Link>
-      </div>
+      </Container>
     );
   }
 }
