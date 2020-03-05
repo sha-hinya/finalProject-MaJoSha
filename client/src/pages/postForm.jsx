@@ -224,10 +224,6 @@ export default class PostForm extends Component {
         <form className="create-post" onSubmit={this.handleSubmit}>
           {renderPhotos()}
 
-          {/* <TextField
-           outlined-name
-          /> */}
-
           <TextField
             id="filled-uncontrolled"
             placeholder="Title"

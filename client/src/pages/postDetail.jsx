@@ -12,7 +12,6 @@ import {
 // icons
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import EditIcon from "@material-ui/icons/Edit";
-
 import axios from "axios";
 
 export default class postDetail extends Component {

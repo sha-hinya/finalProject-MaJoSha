@@ -44,8 +44,6 @@ export default class dashboard extends Component {
           >
             <LocationOnIcon className="locationDropown" />
             <FormControl className="locationDropown" style={{ width: "90%" }}>
-              {/* <InputLabel htmlFor="age-native-simple">property
-              </InputLabel> */}
               <Select
                 native
                 value={this.props.selectedProperty}

@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-
 import { Link } from "react-router-dom";
 import Card from "@material-ui/core/Card";
-
-// components
-//import PostForm from './PostForm';
 import { CardContent } from "@material-ui/core";
 
 // icons
@@ -89,8 +85,6 @@ export default class Posts extends Component {
   }
 
   getData = () => {
-    // console.log("getData()");
-
     axios
       .get(`/api/posts?property=${this.props.selectedProperty}`)
       .then(response => {
@@ -110,11 +104,10 @@ export default class Posts extends Component {
 
   render() {
     const posts = this.state.posts;
-    console.log("property: ",this.posts);
-     
+    // console.log("property: ",this.posts);
+
     return (
       <div className="posts-wrapper">
-     
         <Link to="/new-post">
           <Card id="new-post">
             <CardContent>

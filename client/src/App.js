@@ -115,7 +115,7 @@ class App extends React.Component {
           pageTitle={this.state.pageTitle}
           user={this.state.user}
         />
-        {/* <div className="site-content" id="site-content"> */}
+    
         {/* Announcement: List all Announcements */}
         <Route
           exact

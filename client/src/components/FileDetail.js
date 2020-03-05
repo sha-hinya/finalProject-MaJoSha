@@ -29,8 +29,6 @@ class FileDetail extends Component {
     const id = this.props.match.params.fileId;
 
     axios.delete(`/api/files/delete/${id}`).then(res => {
-      console.log("file deleted");
-      //console.log(this.props, "hisssstorry");
     });
     this.props.history.push("/");
   };
@@ -42,7 +40,7 @@ class FileDetail extends Component {
     }
 
     return (
-      <Container>
+      <Container className="fileDetailContainer">
         <Card className="fileDetailCardOne">
           <CardContent className="filesDetailCardContent">
             <div>
