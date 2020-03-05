@@ -272,7 +272,7 @@ a {
   //background-color: #ccd7ff;
   color: #222222;
   text-align: left;
-  padding: 0px !important
+  padding: 0px !important;
 }
 .announcementImage {
   width: 150px;
@@ -294,7 +294,6 @@ a {
   //background-color: #f7f7f7;
   padding: 20px;
   text-align: left;
- 
 }
 .announcementCardsDetail {
   margin-top: 12%;
@@ -302,7 +301,6 @@ a {
   border-radius: 10px;
   background-color: rgba(195, 195, 195, 0.3);
   padding: 10px;
-  
 }
 .announcementCardsDetail img {
   width: 80vw;
@@ -402,6 +400,7 @@ a {
   display: flex;
   flex-direction: row;
   flex-basis: 50%;
+  flex-basis: 40%;
   align-items: center;
 }
 
@@ -410,8 +409,21 @@ a {
   text-align: left;
   color: #f7f7f7;
   display: flex;
+  font-size: normal;
   flex-direction: row;
   flex-basis: 50%;
+  flex-basis: 35%;
+  align-items: center;
+}
+
+.calenderCardsStatus {
+  margin-left: 10px;
+  text-align: left;
+  color: #f7f7f7;
+  display: flex;
+  font-size: normal;
+  flex-direction: row;
+  flex-basis: 25%;
   align-items: center;
 }
 
@@ -479,6 +491,19 @@ a {
   color: #222222;
   display: flex;
   flex-direction: row;
+}
+// -------------------- Profile Card -------------------- //
+// .profileCard{
+// }
+.profileCard img {
+  width: 80vw;
+  border-radius: 10px;
+}
+.profileCard h1 {
+  font-weight: lighter;
+  text-align: center;
+
+  text-align: center;
 }
 
 // -------------------- Color Scheme -------------------- //
