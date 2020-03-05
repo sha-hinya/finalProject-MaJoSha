@@ -12,26 +12,25 @@ import {
   CircularProgress
 } from "@material-ui/core";
 import { CropFree, DeleteOutline } from "@material-ui/icons";
-import { withStyles } from '@material-ui/core/styles';
-import Axios from "axios";
-import { useHistory } from "react-router-dom";
-import { yellow } from "@material-ui/core/colors";
+import { withStyles } from "@material-ui/core/styles";
+// import Axios from "axios";
+// import { useHistory } from "react-router-dom";
+// import { yellow } from "@material-ui/core/colors";
 
 const StyledButton = withStyles({
   root: {
-    backgroundColor: '#345DFF',
+    backgroundColor: "#345DFF",
     borderRadius: 3,
     border: 0,
-    color: '#f7f7f7',
+    color: "#f7f7f7",
     height: 48,
-    padding: '0 30px',
+    padding: "0 30px"
     // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
   },
   label: {
-    textTransform: 'capitalize',
-  },
+    textTransform: "capitalize"
+  }
 })(Button);
-
 
 export default class PostForm extends Component {
   state = {
@@ -50,7 +49,7 @@ export default class PostForm extends Component {
       this.props.setPageTitle("Edit Message");
       const id = this.props.match.params.postId;
       axios.get(`/api/posts/${id}`).then(response => {
-        console.log(("response": response.data));
+        //console.log(("response": response.data));
 
         this.setState({
           ...response.data,
@@ -146,7 +145,7 @@ export default class PostForm extends Component {
               elevation={1}
               className="post-image-wrapper"
             >
-              <img src={this.state.photo_url} />
+              <img src={this.state.photo_url} alt={this.state.photo_url} />
             </Paper>
             <IconButton onClick={this.handleDelete}>
               <DeleteOutline />
@@ -195,14 +194,18 @@ export default class PostForm extends Component {
         <form className="create-post" onSubmit={this.handleSubmit}>
           {renderPhotos()}
 
+          {/* <TextField
+           outlined-name
+          /> */}
+
           <TextField
-             required
-          id="filled-required"
-          label="Required"
-          defaultValue="Hello World"
-          variant="filled"
+            id="filled-uncontrolled"
+            //label="Title"
+            type="text"
+            name="title"
             value={this.state.title}
             onChange={this.handleChange}
+            variant="filled"
           />
 
           <TextField

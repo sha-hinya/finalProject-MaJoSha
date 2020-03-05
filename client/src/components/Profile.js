@@ -36,9 +36,19 @@ class Profile extends Component {
     return (
       <div>
         Hello Profile!
+        <div className="profileCard">
+          <img src={this.props.profile.user.image} alt="John Doe" />
+          <h1>
+            {this.props.profile.user.firstName}{" "}
+            {this.props.profile.user.lastName}
+          </h1>
+          <p class="title">CEO & Founder, Example</p>
+          <p>Harvard University</p>
+        
+        </div>
         {/* {this.props.firstName}
         <h2>{this.props.user.lastName}</h2>  */}
-        {/* {this.profile.user.firstName}  */}
+        <h2>{this.props.profile.user.firstName} </h2>
         <Link className="profileIcon" onClick={logout}>
           {/* <Link className="profileIcon" to="/profile" > */}
           Logout

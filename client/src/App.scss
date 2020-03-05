@@ -253,6 +253,7 @@ a {
     justify-content: flex-end;
   }
 }
+
 //-----------------Announcement----------------//
 .AnnouncementRoot {
   text-align: left;
@@ -469,6 +470,13 @@ a {
   color: #222222;
   display: flex;
   flex-direction: row;
+}
+// -------------------- Profile Card -------------------- //
+
+.profileCard {
+}
+.profileCard img {
+  width: 120px;
 }
 
 // -------------------- Color Scheme -------------------- //
