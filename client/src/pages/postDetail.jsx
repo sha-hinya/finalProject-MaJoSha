@@ -51,7 +51,6 @@ export default class postDetail extends Component {
   };
   render() {
     console.log("props.user", this.props.user);
-    console.log("state.post", this.state.post);
 
     if (!this.state.post) {
       return "loAding";
@@ -64,14 +63,14 @@ export default class postDetail extends Component {
           <img src={post?.image} alt="ticket" />
         </Paper>
         {this.props.user._id === this.state.post.author._id ||
-        this.props.user.role === "moderator" ||
-        this.props.user.role === "admin" ? (
+        this.props.user.accessRole === "moderator" ||
+        this.props.user.accessRole === "admin" ? (
           <div className="post-detail-action-icons">
             <IconButton aria-label="delete" onClick={this.deletePost}>
-              <DeleteOutlineIcon fontSize="large" />
+              <DeleteOutlineIcon fontSize="default" />
             </IconButton>
             <IconButton aria-label="edit" onClick={this.editPost}>
-              <EditIcon fontSize="large" />
+              <EditIcon fontSize="default" />
             </IconButton>
           </div>
         ) : (
