@@ -478,15 +478,18 @@ a {
 }
 // -------------------- Profile Card -------------------- //
 
+// .profileCard{
 
-.profileCard{
+// }
+.profileCard img {
+  width: 80vw;
+  border-radius: 10px;
+}
+.profileCard h1 {
+  font-weight: lighter;
+text-align: center;
   
 }
-.profileCard img{
-  width: 120px
-  
-}
-
 
 // -------------------- Color Scheme -------------------- //
 /*  our color scheme:

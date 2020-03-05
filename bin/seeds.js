@@ -37,30 +37,38 @@ const newUsers = [
   {
     lastName: "Mustermann",
     firstName: "Max",
+    title: "Mr.",
     email: "max.mustermann@example.com",
     password: hashPass,
-    phone: "4917112345678",
+    phone: "+49 171 555 5555",
     accessRole: "client",
-    _upvotes: []
+    _upvotes: [],
+    image:
+      "https://images.unsplash.com/photo-1553484771-898ed465e931?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
   },
   // admin : Armin Admin
   {
     lastName: "Admin",
     firstName: "Armin",
+    title: "Mr.",
     email: "armin.admin@example.com",
     password: hashPass,
-    phone: "4917212345678",
+    phone: "+49 160 555 5555",
     accessRole: "admin",
+    image:
+      "https://images.unsplash.com/flagged/photo-1575623196339-2ce1a4e7e9f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60 ",
     _upvotes: []
   },
   // moderator : Melanie Moderator
   {
     lastName: "Moderator",
     firstName: "Melanie",
+    title: "Ms.",
     email: "melanie.moderator@example.com",
     password: hashPass,
-    phone: "4917312345678",
+    phone: "+49 1521 555 5555",
     accessRole: "moderator",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
     _upvotes: []
   }
 ];

@@ -6,6 +6,7 @@ import React, { Component } from "react";
 // import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { IconButton } from "@material-ui/core";
 
 // icons
 
@@ -35,23 +36,36 @@ class Profile extends Component {
     console.log("Profile Data", this.props);
     return (
       <div>
-        Hello Profile!
         <div className="profileCard">
-          <img src={this.props.profile.user.image} alt="John Doe" />
           <h1>
-            {this.props.profile.user.firstName}{" "}
-            {this.props.profile.user.lastName}
+            Hello {this.props.profile.user.firstName} {" !"}
           </h1>
-          <p class="title">CEO & Founder, Example</p>
-          <p>Harvard University</p>
-        
+          <img src={this.props.profile.user.image} alt="John Doe" />
+          <h2>
+            {" "}
+            {this.props.profile.user.title} {this.props.profile.user.lastName}
+          </h2>
+          <p className="E-Mail">{this.props.profile.user.email}</p>
+          <p className="Phone">{this.props.profile.user.phone}</p>
+
+          {/* <p className="Property">{this.props.profile.user.property}</p> */}
         </div>
         {/* {this.props.firstName}
         <h2>{this.props.user.lastName}</h2>  */}
-        <h2>{this.props.profile.user.firstName} </h2>
+        <h4>
+          {"Access role: "}
+          {this.props.profile.user.accessRole}{" "}
+        </h4>
+
         <Link className="profileIcon" onClick={logout}>
           {/* <Link className="profileIcon" to="/profile" > */}
-          Logout
+          <IconButton
+            color="secondard"
+            aria-label="upload picture"
+            component="span"
+          >
+            Logout
+          </IconButton>
         </Link>
       </div>
     );
