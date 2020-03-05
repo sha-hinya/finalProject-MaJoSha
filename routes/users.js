@@ -77,15 +77,38 @@ router.post("/", validateAccess(["admin", "moderator"]), (req, res) => {
   if (!newUserCredentials.email) {
     return res.status(400).json({ message: "email-adress is mandatory" });
   }
-
+  console.log(newUserCredentials);
   // TODO: for production it should be random
   const defaultPassword = "1234";
 
-  User.findOne({ email: newUserCredentials.email })
+  User.findOne({
+    email: newUserCredentials.email
+  })
     .then(found => {
       if (found) {
-        return res.status(400).json({ message: "email is already in user" });
+        // user email is known
+
+        if (
+          !found.property.find(element => {
+            console.log("propertyId:", newUserCredentials.property);
+            console.log("elementId:", element._id);
+
+            return element._id.toString() === newUserCredentials.property;
+          })
+        ) {
+          // user email is known, but now for property
+          return User.updateOne(
+            { _id: found._id },
+            { $addToSet: { property: newUserCredentials.property } }
+          );
+        }
+        // user email is known for the property
+        return res
+          .status(400)
+          .json({ message: "email is already in use for this property" });
       }
+
+      // user email is not known
       return bcrypt
         .genSalt()
         .then(salt => {
@@ -103,6 +126,9 @@ router.post("/", validateAccess(["admin", "moderator"]), (req, res) => {
 
           // TODO: send email to adress!
         });
+    })
+    .then(updatedUser => {
+      return res.json(updatedUser);
     })
     .catch(err => {
       res.status(500).json({ message: "Error while authorizing" });

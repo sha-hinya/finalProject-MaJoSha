@@ -2,17 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 //import { Avatar } from '@material-ui/core';
-import IconButton from "@material-ui/core/IconButton";
 import PersonIcon from "@material-ui/icons/AccountBox";
+import { Divider, IconButton, Icon } from "@material-ui/core";
+import { Add } from "@material-ui/icons";
 
 // icons
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 const Navbar = props => {
   const logout = () => {
-    axios.delete("/api/auth/logout").then(() => {
-      props.setUser(null);
-    });
+    axios
+      .delete("/api/auth/logout")
+      .then(() => {
+        props.setUser(null);
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
   };
 
   const goBackHistory = () => {
@@ -28,15 +34,41 @@ const Navbar = props => {
       );
     }
   };
-
+  const renderAdminSymbols = () => {
+    return (
+      <>
+        <IconButton component={Link} to="/properties">
+          <Add />
+        </IconButton>
+        <Divider
+          orientation="vertical"
+          flexItem="true"
+          variant="fullWidth"
+          style={{ backgroundColor: "black" }}
+        />
+      </>
+    );
+  };
   return (
     <nav className="navbar" id="navbar">
-      {showBackButton(props.showBackNavButton)}
+      <div className="nav-left">{showBackButton(props.showBackNavButton)}</div>
       <div className="nav-title">{props.pageTitle}</div>
+<<<<<<< HEAD
       {/* <Link className="profileIcon" onClick={logout} to="/"> */}
       <Link className="profileIcon" to="/profile">
         <PersonIcon />
       </Link>
+=======
+
+      <div className="nav-right">
+        {props.user.accessRole === "admin" ? renderAdminSymbols() : ""}
+
+        <IconButton component={Link} to="/" onClick={logout}>
+          {/* <Link className="profileIcon" to="/profile" > */}
+          <PersonIcon />
+        </IconButton>
+      </div>
+>>>>>>> d6a55432056ca7a880623b02fefc5938a727ada4
     </nav>
   );
 };

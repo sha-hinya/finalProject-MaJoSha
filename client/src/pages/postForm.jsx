@@ -49,8 +49,6 @@ export default class PostForm extends Component {
       this.props.setPageTitle("Edit Message");
       const id = this.props.match.params.postId;
       axios.get(`/api/posts/${id}`).then(response => {
-        //console.log(("response": response.data));
-
         this.setState({
           ...response.data,
           photo_url: response.data.image

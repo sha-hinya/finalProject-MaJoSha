@@ -35,9 +35,15 @@ export default class dashboard extends Component {
     return (
       <Container>
         <div className="dashboardHeader">
-          <p>
+          <p
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "space-between"
+            }}
+          >
             <LocationOnIcon className="locationDropown" />
-            <FormControl className="locationDropown">
+            <FormControl className="locationDropown" style={{ width: "90%" }}>
               {/* <InputLabel htmlFor="age-native-simple">property
               </InputLabel> */}
               <Select
