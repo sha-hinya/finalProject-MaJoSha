@@ -298,7 +298,7 @@ a {
 // -------------------- Files -------------------- //
 .cards-fileList {
   margin-bottom: 4px;
-  border-bottom: 2px solid black;
+  border-bottom: 0px solid #222222;
   // background-color: rgba(9, 109, 209, 0.8);
 }
 
@@ -324,7 +324,7 @@ a {
 .fileCardsDate {
   flex-basis: 20%;
   padding-right: 0px;
-  font-size: small;
+  font-size: normal;
   margin-right: 10px;
 }
 
@@ -396,6 +396,7 @@ a {
   text-align: left;
   color: #f7f7f7;
   display: flex;
+  font-size: normal;
   flex-direction: row;
   flex-basis: 50%;
   align-items: center;
