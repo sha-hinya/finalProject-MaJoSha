@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import { IconButton, Container } from "@material-ui/core";
+import { IconButton, div } from "@material-ui/core";
 import TimeAgo from "react-timeago";
 
 // icons
@@ -78,30 +78,22 @@ class AnnouncementDetail extends Component {
     }
 
     return (
-      <Container>
-        <Card className="announcementCardsDetail">
-          <CardContent>
+      <div>
+        <Card className="fileDetailCardOne">
+          <CardContent className="filesDetailCardContent">
             <div>
-              <div>
-                <h2>{announcement.title}</h2>
-                {/* <p>{announcement.property}</p> */}
+              <h2>{announcement.title}</h2>
+              <h5>
+                {"valid from "}
+                {new Date(announcement.announcedAt).toLocaleDateString("de-De")}
 
-                <h5>
-                  {"valid from "}
-                  {new Date(announcement.announcedAt).toLocaleDateString(
-                    "de-De"
-                  )}
-
-                  {" until "}
-                  {new Date(announcement.announcedAt).toLocaleDateString(
-                    "de-De"
-                  )}
-                </h5>
-
-                <p>{announcement.content}</p>
-              </div>
+                {" until "}
+                {new Date(announcement.announcedAt).toLocaleDateString("de-De")}
+              </h5>
+              <p>{announcement.content}</p>
             </div>
-            <div className="announcement-detail-action-icons">
+
+            <div className="file-detail-action-icons">
               <IconButton aria-label="delete">
                 <DeleteOutlineIcon fontSize="large" />
               </IconButton>
@@ -109,18 +101,19 @@ class AnnouncementDetail extends Component {
                 <EditIcon fontSize="large" />
               </IconButton>
             </div>
-            <div className="post-detail-action-icons">
-              <img src={announcement.image} alt={announcement.title} />
-            </div>
-
-            <div style={{ fontSize: "10px" }}>
-              {"last update: "}
-              <TimeAgo date={announcement.updated_at} />
-              {/* {new Date(announcement.updated_at).toLocaleDateString("de-De")} */}
-            </div>
           </CardContent>
         </Card>
-      </Container>
+        <Card className="fileDetailCardTwo">
+          <div>
+            <img id="img" src={announcement.image} alt={announcement.title} />
+          </div>
+          <div style={{ fontSize: "10px" }}>
+            {"last update: "}
+            <TimeAgo date={announcement.updated_at} />
+            {/* {new Date(announcement.updated_at).toLocaleDateString("de-De")} */}
+          </div>
+        </Card>
+      </div>
     );
   }
 }
