@@ -44,7 +44,7 @@ class AnnouncementDetail extends Component {
               </h5>
               <p>{announcement.content}</p>
             </div>
-            {this.props.user.accessRole === "moderator" ||
+            {/* this.props.user.accessRole === "moderator" ||
             this.props.user.accessRole === "admin" ? (
               <div className="file-detail-action-icons">
                 <IconButton aria-label="delete">
@@ -56,7 +56,7 @@ class AnnouncementDetail extends Component {
               </div>
             ) : (
               ""
-            )}
+            ) */}
           </CardContent>
         </Card>
         <Card className="fileDetailCardTwo">

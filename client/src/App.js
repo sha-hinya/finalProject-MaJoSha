@@ -115,7 +115,7 @@ class App extends React.Component {
           pageTitle={this.state.pageTitle}
           user={this.state.user}
         />
-    
+
         {/* Announcement: List all Announcements */}
         <Route
           exact
@@ -229,7 +229,7 @@ class App extends React.Component {
                 {...props}
                 setUser={this.setUser}
                 backButton={showBackButton}
-                pageTitle={this.state.pageTitle}
+                setPageTitle={this.setPageTitle}
                 user={this.state.user}
               />
             );
