@@ -380,8 +380,8 @@ a {
   }
 }
 
-.fileDetailContainer{
-  padding:0px !important;
+.fileDetailContainer {
+  padding: 0px !important;
 }
 
 // -------------------- Calender -------------------- //
@@ -506,14 +506,28 @@ a {
 // -------------------- Profile Card -------------------- //
 // .profileCard{
 // }
-.profileCard img {
-  width: 100%;
-  border-radius: 10px;
-}
-.profileCard h1 {
-  font-weight: lighter;
-  text-align: center;
-  text-align: center;
+.profileCard {
+  img {
+    border-radius: 50%;
+    border: 1px solid black;
+    width: 20%;
+    height: auto;
+    margin: 1rem 0;
+  }
+  table {
+    width: 50%;
+    text-align: left;
+    vertical-align: top;
+    tr {
+      padding: 0.2rem 0;
+
+      &:nth-child(even) {
+        td {
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
 }
 
 .profileContainer {
