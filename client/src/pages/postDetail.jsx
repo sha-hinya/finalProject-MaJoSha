@@ -78,8 +78,15 @@ export default class postDetail extends Component {
         )}
 
         <Divider />
+
         <div className="post-detail-title ">{post.title}</div>
         <div className="post-detail-content">{post.content}</div>
+        <h4>
+          <div className="post-detail-content">
+            {"Status "}
+            {post.status}
+          </div>
+        </h4>
         <div className="post-detail-author">
           {post.author.lastName},{post.author.firstName}
         </div>

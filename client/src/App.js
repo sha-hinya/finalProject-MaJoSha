@@ -35,7 +35,7 @@ import Calender from "./pages/calender.jsx";
 class App extends React.Component {
   state = {
     user: this.props.user,
-    pageTitle: "",
+    pageTitle: "House Log",
     backNavButton: false
     // selectedProperty: this.props.user.property[0]._id
   };

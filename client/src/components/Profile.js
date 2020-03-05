@@ -43,10 +43,13 @@ class Profile extends Component {
           <img src={this.props.profile.user.image} alt="John Doe" />
           <h2>
             {" "}
-            {this.props.profile.user.title} {this.props.profile.user.lastName}
+            {this.props.profile.user.title} {this.props.profile.user.firstName} {this.props.profile.user.lastName}
           </h2>
           <p className="E-Mail">{this.props.profile.user.email}</p>
           <p className="Phone">{this.props.profile.user.phone}</p>
+
+          <p className="Phone">{this.props.profile.user.property}</p>
+
 
           {/* <p className="Property">{this.props.profile.user.property}</p> */}
         </div>
@@ -59,7 +62,7 @@ class Profile extends Component {
 
         <Link className="profileIcon" onClick={logout}>
           {/* <Link className="profileIcon" to="/profile" > */}
-          <Button variant="contained" color="#CCD7FF" background-color="#CCD7FF" aria-label="logout">
+          <Button variant="contained" aria-label="logout">
             Logout
           </Button>
         </Link>
