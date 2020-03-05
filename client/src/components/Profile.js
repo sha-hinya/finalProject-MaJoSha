@@ -12,7 +12,7 @@ class Profile extends Component {
   };
   render() {
     return (
-      <Container>
+      <Container className="profileContainer">
         <div className="profileCard">
           <h1>
             Hello {this.props.profile.user.firstName} {" !"}
