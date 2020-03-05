@@ -10,9 +10,6 @@ class Profile extends Component {
     });
   };
   render() {
-    //console.log("response.data", this.state);
-    console.log("Profile Data", this.props);
-
     return (
       <Container>
         <div className="profileCard">
