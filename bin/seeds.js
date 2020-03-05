@@ -88,7 +88,7 @@ promises.push(
       console.log(propertyIds);
       // all users get all propertyIds
 
-      newUsers[0].property = [...propertyIds];
+      newUsers[0].property = propertyIds[0];
       newUsers[1].property = [...propertyIds];
       newUsers[2].property = [...propertyIds];
 
@@ -102,10 +102,12 @@ promises.push(
       console.log(users);
 
       posts.forEach((element, index) => {
-        if (index % 2 === 0) {
+        if (index % 3 === 0) {
           element.property = propertyIds[0];
-        } else {
+        } else if (index % 2 === 0) {
           element.property = propertyIds[1];
+        } else {
+          element.property = propertyIds[2];
         }
         element.author = users[2]._id;
         return;
@@ -116,11 +118,14 @@ promises.push(
     .then(result => {
       console.log(`Created ${result.length} posts`);
       announcements.forEach((element, index) => {
-        if (index % 2 === 0) {
+        if (index % 3 === 0) {
           element.property = propertyIds[0];
+        } else if (index % 2 === 0) {
+          element.property = propertyIds[2];
         } else {
-          element.property = propertyIds[1];
+          element.property = propertyIds[3];
         }
+
         element.author = userIds[2]._id;
         return;
       });
