@@ -43,13 +43,22 @@ class Profile extends Component {
           <img src={this.props.profile.user.image} alt="John Doe" />
           <h2>
             {" "}
-            {this.props.profile.user.title} {this.props.profile.user.firstName} {this.props.profile.user.lastName}
+            {this.props.profile.user.title} {this.props.profile.user.firstName}{" "}
+            {this.props.profile.user.lastName}
           </h2>
           <p className="E-Mail">{this.props.profile.user.email}</p>
           <p className="Phone">{this.props.profile.user.phone}</p>
 
-          <p className="Phone">{this.props.profile.user.property}</p>
-
+          <h3>Your properties:</h3>
+          {this.props.profile.user.property.map(property => {
+            return (
+              <div>
+                <p key={property._id} className="Assigned properties:">
+                  {property.property_name}
+                </p>
+              </div>
+            );
+          })}
 
           {/* <p className="Property">{this.props.profile.user.property}</p> */}
         </div>
