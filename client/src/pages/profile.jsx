@@ -7,13 +7,10 @@ export default class profiles extends Component {
   //   this.props.setPageTitle("Profile");
   // }
   render() {
-   // console.log("RENDER PROFILE ", this.props);
+    // console.log("RENDER PROFILE ", this.props);
     return (
       <Container>
-        <Profile  profile={this.props} setUser={this.setUser}
-                   
-         />
-       
+        <Profile profile={this.props} setUser={this.setUser} />
       </Container>
     );
   }
