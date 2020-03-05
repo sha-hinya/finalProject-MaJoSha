@@ -45,8 +45,14 @@ class CalendersList extends Component {
 
         {filteredCalenders.map(calender => {
           return (
-            <Link key={calender._id} to={`/files/${calender._id}`}>
+            <Link key={calender._id} to={`/posts/${calender._id}`}>
               <div className="calenderCards" key={calender._id}>
+                <div className="calenderCardsTitle">
+                  <h4>{calender.title} </h4>
+                </div>
+
+                <h4 className="calenderCardsStatus"> {calender.status}</h4>
+
                 <TimeAgo
                   className="calenderCardsDate"
                   date={calender.announcedAt}
@@ -55,9 +61,6 @@ class CalendersList extends Component {
                   className="calenderCardsDate"
                   date={calender.dueDate}
                 />
-                <div className="calenderCardsTitle">
-                  <h4>{calender.title} </h4>
-                </div>
               </div>
             </Link>
           );

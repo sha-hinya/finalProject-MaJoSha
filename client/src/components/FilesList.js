@@ -52,9 +52,9 @@ class FilesList extends Component {
                     <h4>{file.category}</h4>
                   </div>
                   <div className="fileCardsDate">
-                    <h3>
+                    
                       {new Date(file.announcedAt).toLocaleDateString("de-De")}
-                    </h3>
+                    
                   </div>
                 </div>
               </Link>
