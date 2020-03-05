@@ -47,7 +47,7 @@ const newUsers = [
   {
     lastName: "Admin",
     firstName: "Armin",
-    email: "Armin.Admin@example.com",
+    email: "armin.admin@example.com",
     password: hashPass,
     phone: "4917212345678",
     accessRole: "admin",
@@ -57,7 +57,7 @@ const newUsers = [
   {
     lastName: "Moderator",
     firstName: "Melanie",
-    email: "Melanie.Moderator@example.com",
+    email: "melanie.moderator@example.com",
     password: hashPass,
     phone: "4917312345678",
     accessRole: "moderator",
