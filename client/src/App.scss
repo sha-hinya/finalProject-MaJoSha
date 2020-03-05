@@ -257,11 +257,20 @@ a {
 .AnnouncementRoot {
   text-align: left;
 }
+// .announcementContainer {
+//   //background-color: #ccd7ff;
+//   color: #222222;
+//   text-align: left;
+// }
+
 .announcementContainer {
   //background-color: #ccd7ff;
   color: #222222;
   text-align: left;
+  //padding-top: 0px !important;
+  padding: 0px !important;
 }
+
 .announcementImage {
   width: 150px;
   border-radius: 10px;

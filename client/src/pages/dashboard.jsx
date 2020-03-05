@@ -56,7 +56,7 @@ export default class dashboard extends Component {
         </div>
 
         <Announcement selectedProperty={this.props.selectedProperty} />
-        <p>Messages</p>
+        {/* <p>Messages</p> */}
         <PostList
           {...this.props}
           selectedProperty={this.props.selectedProperty}
