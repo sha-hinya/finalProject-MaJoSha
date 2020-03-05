@@ -310,7 +310,7 @@ a {
 // -------------------- Files -------------------- //
 .cards-fileList {
   margin-bottom: 4px;
-  border-bottom: 2px solid black;
+  border-bottom: 0px solid #222222;
   // background-color: rgba(9, 109, 209, 0.8);
 }
 
@@ -343,7 +343,7 @@ a {
 //------------------------------------fileDetails Page-----------------------------
 .fileDetailCardOne {
   margin: 7vh 4vw 1vh 4vw;
-  border-top: 1px solid grey;
+  border-top: 0px solid grey;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -365,12 +365,13 @@ a {
 
 .fileDetailCardTwo {
   margin: 1vh 4vw 7vh 4vw;
-  border-top: 1px solid grey;
-  border-bottom: 1px solid grey;
+  border-top: 0px solid grey;
+  border-bottom: 0px solid grey;
 }
 
 #img {
   width: 80vw;
+  max-width: 500px;
 }
 
 // -------------------- Calender -------------------- //
@@ -382,7 +383,7 @@ a {
 }
 
 .calenderCards {
-  border-bottom: 1px solid#f7f7f7;
+  border-bottom: 0px solid#f7f7f7;
   margin: 0px;
   text-align: left;
   background-color: #757575;
