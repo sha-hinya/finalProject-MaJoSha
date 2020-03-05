@@ -254,23 +254,15 @@ a {
   }
 }
 
+//-----------------Announcement----------------//
 .AnnouncementRoot {
   text-align: left;
 }
-// .announcementContainer {
-//   //background-color: #ccd7ff;
-//   color: #222222;
-//   text-align: left;
-// }
-
 .announcementContainer {
   //background-color: #ccd7ff;
   color: #222222;
   text-align: left;
-  //padding-top: 0px !important;
-  padding: 0px !important;
 }
-
 .announcementImage {
   width: 150px;
   border-radius: 10px;
@@ -289,22 +281,22 @@ a {
 
 .announcementCardsContainer {
   //background-color: #f7f7f7;
-  padding: 20px;
-  text-align: left;
+  // padding: 20px;
+  // text-align: left;
 }
 .announcementCardsDetail {
-  margin-top: 12%;
-  // border: 1px solid grey;
-  border-radius: 10px;
-  background-color: rgba(195, 195, 195, 0.3);
-  padding: 10px;
+  // margin-top: 12%;
+  // // border: 1px solid grey;
+  // border-radius: 10px;
+  // background-color: rgba(195, 195, 195, 0.3);
+  // padding: 10px;
 }
 .announcementCardsDetail img {
   width: 80vw;
-  // height: 9vw;
 }
 
 // -------------------- Files -------------------- //
+
 .cards-fileList {
   margin-bottom: 4px;
   border-bottom: 0px solid #222222;
@@ -317,7 +309,9 @@ a {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: rgba(9, 109, 209, 0.4);
+  // background-color: rgba(9, 109, 209, 0.4);
+  background-color: rgba(51, 92, 255, 1);
+  background-color: rgba(204, 215, 255, 0.5);
 }
 
 .fileCardsTitle {
@@ -361,13 +355,14 @@ a {
 }
 
 .fileDetailCardTwo {
-  margin: 1vh 4vxw 7vh 4vw;
+  margin: 1vh 4vw 7vh 4vw;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
 }
 
 #img {
-  width: 80vw;
+  width: 90vw;
+  padding-top: 3px;
 }
 
 // -------------------- Calender -------------------- //

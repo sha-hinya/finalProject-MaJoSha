@@ -59,7 +59,7 @@ class FileDetail extends Component {
                 <DeleteOutlineIcon fontSize="large" />
               </IconButton>
               <IconButton aria-label="edit">
-                <EditIcon fontSize="large" />
+                <EditIcon onClick={this.editFile} fontSize="large" />
               </IconButton>{" "}
             </div>
           </CardContent>
