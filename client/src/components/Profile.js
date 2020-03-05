@@ -6,7 +6,7 @@ import React, { Component } from "react";
 // import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { IconButton } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 // icons
 
@@ -59,13 +59,9 @@ class Profile extends Component {
 
         <Link className="profileIcon" onClick={logout}>
           {/* <Link className="profileIcon" to="/profile" > */}
-          <IconButton
-            color="secondard"
-            aria-label="upload picture"
-            component="span"
-          >
+          <Button variant="contained" color="#CCD7FF" background-color="#CCD7FF" aria-label="logout">
             Logout
-          </IconButton>
+          </Button>
         </Link>
       </div>
     );
