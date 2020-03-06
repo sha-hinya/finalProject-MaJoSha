@@ -84,7 +84,7 @@ a {
     display: flex;
     flex-direction: column;
     padding-top: 60px;
-    padding-bottom: 60px;
+    padding-bottom: 70px;
     height: auto;
     max-width: 780px;
     // overflow: scroll;
@@ -503,6 +503,7 @@ a {
   color: #222222;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
 }
