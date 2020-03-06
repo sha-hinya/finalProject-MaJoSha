@@ -7,7 +7,6 @@ import MailIcon from "@material-ui/icons/Mail";
 import CalenderIcon from "@material-ui/icons/EventNote";
 import FileIcon from "@material-ui/icons/FileCopy";
 export default function SimpleBottomNavigation() {
- 
   const [value, setValue] = React.useState(0);
 
   return (
@@ -19,7 +18,6 @@ export default function SimpleBottomNavigation() {
         setValue(newValue);
       }}
       showLabels
-   
     >
       <BottomNavigationAction
         component={Link}
@@ -29,7 +27,7 @@ export default function SimpleBottomNavigation() {
       />
       <BottomNavigationAction
         component={Link}
-        label="Messages"
+        label="Tickets"
         to="/posts"
         icon={<MailIcon />}
       />
