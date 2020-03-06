@@ -35,28 +35,23 @@ export default class dashboard extends Component {
     return (
       <Container>
         <div className="dashboardHeader">
-          <p
-            style={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "space-between"
-            }}
+          <LocationOnIcon className="locationDropDownIcon" />
+          <FormControl
+            className="locationDropDownSelect"
+            style={{ width: "90%" }}
           >
-            <LocationOnIcon className="locationDropown" />
-            <FormControl className="locationDropown" style={{ width: "90%" }}>
-              <Select
-                native
-                value={this.props.selectedProperty}
-                onChange={this.handlePropertySelect}
-                inputProps={{
-                  name: "property",
-                  id: "age-native-simple"
-                }}
-              >
-                {renderPropertySelector()}
-              </Select>
-            </FormControl>
-          </p>
+            <Select
+              native
+              value={this.props.selectedProperty}
+              onChange={this.handlePropertySelect}
+              inputProps={{
+                name: "property",
+                id: "age-native-simple"
+              }}
+            >
+              {renderPropertySelector()}
+            </Select>
+          </FormControl>
         </div>
 
         <Announcement selectedProperty={this.props.selectedProperty} />
