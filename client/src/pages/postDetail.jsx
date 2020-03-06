@@ -23,7 +23,7 @@ export default class postDetail extends Component {
     const id = this.props.match.params.postId;
     //console.log("Mount", this.props);
     this.props.backButton.on();
-    this.props.setPageTitle("Message");
+    this.props.setPageTitle("Ticket");
 
     if (!!this.props.location.data) {
       this.setState({

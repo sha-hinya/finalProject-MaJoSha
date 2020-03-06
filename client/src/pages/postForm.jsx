@@ -52,7 +52,7 @@ export default class PostForm extends Component {
   componentDidMount() {
     this.props.backButton.on();
     if (this.props.edit) {
-      this.props.setPageTitle("Edit Message");
+      this.props.setPageTitle("Edit Ticket");
       const id = this.props.match.params.postId;
       axios.get(`/api/posts/${id}`).then(response => {
         this.setState({
@@ -61,7 +61,7 @@ export default class PostForm extends Component {
         });
       });
     } else {
-      this.props.setPageTitle("New Message");
+      this.props.setPageTitle("New Ticket");
     }
   }
 
